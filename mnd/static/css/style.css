@@ -1,0 +1,325 @@
+/* -------------------------------
+    MND Custom Styles
+----------------------------------*/
+
+@import url('https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@1,400;1,500&display=swap');
+@import url('https://fonts.googleapis.com/css?family=PT+Sans:400,400i,700,700i&subset=latin-ext');
+@import url('https://fonts.googleapis.com/css?family=Tinos:400,400i,700,700i&amp;subset=latin-ext');
+
+@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+
+body {
+    font-family: 'PT Sans', sans-serif;
+    background: #f6f7f6;
+    color: #003965;
+}
+
+/* Document title */
+h1 {                      
+    font-family: 'Tinos', serif;
+    font-weight: bold;
+    font-size: 1.5rem;
+    margin-top: 8px;
+    margin-bottom: 8px;
+}
+
+p {
+    font-family: 'PT Sans', sans-serif;
+    font-size: 1.1rem;
+    font-weight: 300;
+    line-height: 1.7rem;
+}
+
+p.blockindent {
+    margin-left: 3rem !important;
+}
+
+/* "Updated" dates on top-level pages */
+p#updated {                 
+    font-size: 0.95rem;
+    font-style: italic;
+    text-align: right;
+}
+
+a,
+a:hover,
+a:focus {
+    color: inherit;
+    text-decoration: none;
+    transition: all 0.5s;
+}
+
+button {
+    margin-left: -200px;
+    background-color: #c0c7c0 !important;
+    color: #f6f7f6 !important;
+}
+
+.btn {
+    box-shadow: none !important;
+    outline: none !important;
+    border: none;
+}
+
+.logo {
+    margin: 0 auto;
+    padding-top: 5px;
+    padding-left: 15px;
+}
+
+.logo img {
+    border: 1px solid #ddd;
+    position: relative;
+    width: 100%; 
+    max-width: 768px;
+}
+
+#title {
+    font-family: 'EB Garamond', serif;
+    font-weight: 400;
+    font-style: italic;
+    color: #003965;
+    margin-top: -140px;
+    margin-left: 30px;
+    font-size: 52px;
+    position: absolute;
+}
+
+#attribution {
+    font-family: 'EB Garamond', serif;
+    font-weight: 400;
+    font-style: italic;
+    color: #003965;
+    margin-top: -75px;
+    margin-left: 70px;
+    font-size: 28px;
+    position: absolute;
+}
+
+/* Customization of Wagtail userbar */
+.wagtail-userbar-trigger {
+    box-shadow: none !important;
+    background-color: transparent !important;
+    border-width: thin !important;
+    border-color: rgb(204, 204,204) !important;
+}
+
+/* ---------------------------------------------------
+    SIDEBAR STYLE
+----------------------------------------------------- */
+.wrapper {
+    display: flex;
+    width: 100%;
+}
+
+#sidebar {
+    width: 200px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100vh;
+    z-index: 999;
+    background: #f6f7f6;
+    color:  #003965;
+    transition: all 0.3s;
+}
+
+#sidebar .sidebar-header {
+    font-family: 'EB Garamond', serif;
+    font-weight: 500;
+    font-style: italic;
+    color: #003965;
+    padding: 15px 10px 0px 23px;
+    border: solid 1px #ddd;
+}
+
+#sidebar ul.components {
+    padding: 5px 10px 10px 25px;
+}
+
+#sidebar ul a,
+#sidebar span  {
+    padding: 10px 10px 10px 5px;
+    line-height: 0.6;
+    font-size: 1.1rem;
+    display: block;
+}
+
+#sidebar span {
+    font-style: italic;
+}
+
+#sidebar ul li a:hover {
+    color: #f6f7f6;
+    background: #003965;
+}
+
+#sidebar a.active,
+a[aria-expanded="true"] { 
+    color: #003965;
+    font-weight: bold;
+    background: #f6f7f6;
+}
+
+#sidebar ul ul li a{
+    font-size: 0.9rem !important;
+    padding-left: 25px !important;
+}
+
+ul.CTAs {
+    padding: 20px;
+}
+
+ul.CTAs a {
+    text-align: center;
+    font-size: 0.9rem !important;
+    display: block;
+    border-radius: 5px;
+    margin-bottom: 5px;
+}
+
+#admin {
+    margin-top: 40px;
+    font-size: 0.9rem !important;
+}
+
+/* ---------------------------------------------------
+    CONTENT STYLE
+----------------------------------------------------- */
+
+#content {
+    width: calc(100%-200px);
+    min-height: 100vh;
+    transition: all 0.3s;
+    position: absolute;
+    top: 0;
+    left: 200px;
+}
+
+.text p {
+    max-width: 768px;
+    margin-top: 10px;
+    margin-left: 15px;
+    font-size: 1.2rem;
+    line-height: 1.35;
+}
+
+.text a:link {
+    text-decoration: none;
+    color: #003fb6;
+}
+
+.text a:visited {
+    color: #6d22aa;
+}
+
+/* For larger size at beginning of paragraph */
+.paragraph-lede {           
+    font-family: 'Tinos', serif;
+    font-weight: bold;
+    font-style: italic;
+    font-size: 1.4rem;
+}
+
+/* "Updated" dates on top-level pages */
+p#updated {                 
+    font-size: 0.95rem;
+    font-style: italic;
+    text-align: right;
+}
+
+img {
+    max-width: 100%;       /* For responsive size */
+}
+
+.right {
+    float: right;
+    margin: 0 0 10px 20px;
+    border-style: solid;   
+    border-width: 1px;   
+    border-color: #ccc;
+}
+
+.left {
+    float: left;
+    margin: 0 20px 10px 10px;
+    border-style: solid;   
+    border-width: 1px;   
+    border-color: #ccc;
+}
+
+footer {
+    display: block;
+    margin: 0 auto;
+    padding-top: 40px;
+    text-align: center;
+    font-size: 0.8rem;
+}
+
+.CCL {
+    padding-bottom: 10px;
+}
+
+#site-credit {
+    font-size: 0.75rem;
+    font-style: italic;
+    padding: 10px 0;
+}
+/* ---------------------------------------------------
+    MEDIAQUERIES
+----------------------------------------------------- */
+
+@media (max-width: 768px) {
+    
+    button {
+        position: fixed;
+        margin-left: 0;
+        z-index: 999;
+    }
+
+    button.open {
+        margin-left: 200;
+    }
+
+    #sidebar {
+        margin-left: -200px;
+    }
+
+    #sidebar.open {
+        margin-left: 0;
+    }
+    #content {
+        width: 100%;
+        left: 0;
+    }
+    #content.open {
+        width: calc(100%-200px);
+    }
+    
+    #sidebarCollapse span {
+        display: none;
+    }
+
+    .right,
+    .left {
+        display: flex;
+        float: none;
+        margin-left: auto;
+        margin-right: auto;
+    }
+}
+
+/* Discarded styles */
+/* Sidebar dropdown */
+
+/* a[data-toggle="collapse"] {
+    position: relative;
+}
+
+.dropdown-toggle::after {
+    display: block;
+    position: absolute;
+    top: 50%;
+    right: 20px;
+    transform: translateY(-50%);
+} */

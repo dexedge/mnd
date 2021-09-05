@@ -1,0 +1,148 @@
+{% load static wagtailcore_tags wagtailuserbar %}
+
+<!DOCTYPE html>
+<html class="no-js" lang="en">
+<head>
+    <meta charset="utf-8" />
+    <title>
+        {% block title %}
+            {% if page.seo_title %}{{ page.seo_title }}{% else %}{{ page.title }}{% endif %}
+        {% endblock %}
+        {% block title_suffix %}
+            {% wagtail_site as current_site %}
+            {% if current_site and current_site.site_name %}- {{ current_site.site_name }}{% endif %}
+        {% endblock %}
+    </title>
+    <meta name="description" content="" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <!-- Global stylesheets -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css" integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4" crossorigin="anonymous">
+    
+    <!-- Font Awesome JS -->
+    <script defer src="https://use.fontawesome.com/releases/v5.0.13/js/solid.js" integrity="sha384-tzzSw1/Vo+0N5UhStP3bvwWPq+uvzCMfrN1fEFe+xBmv1C/AtVX5K0uZtmcHitFZ" crossorigin="anonymous"></script>
+    <script defer src="https://use.fontawesome.com/releases/v5.0.13/js/fontawesome.js" integrity="sha384-6OIrr52G08NpOFSZdxxz1xdNSndlD4vdcf/q2myIUVO0VsqaGHJsB0RaBE01VTOY" crossorigin="anonymous"></script>
+    
+    <!-- Scrollbar Custom CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/malihu-custom-scrollbar-plugin/3.1.5/jquery.mCustomScrollbar.min.css">
+    
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    
+</head>
+
+<body>
+
+<div class="wrapper">
+    {% wagtailuserbar %}
+
+    <!-- Sidebar -->
+    <nav id="sidebar" style="background-image: url({% static 'img/background-3-small.jpg' %});">
+        <div class="sidebar-header">
+            <a href="/">
+                <h3>Mozart: New Documents</h3>
+            </a>
+        </div>
+
+        <ul class="list-unstyled components">
+            <li>
+                <a href="/" class="active">Home</a>
+            </li>
+            <li>
+                <a href="/introduction/">Introduction</a>
+            </li>
+            <li>
+                <a href="/methods/">Methods</a>
+            </li>
+            
+            <span>Documents</span>
+                {% comment %} <a href="#pageSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Documents</a> {% endcomment %}
+            <li>   
+                <ul class="list-unstyled">
+                    <li>
+                        <a href="#">1760–1779</a>
+                    </li>
+                    <li>
+                        <a href="#">1780–178
+                        7</a>
+                    </li>
+                    <li>
+                        <a href="#">1788–1793</a>
+                    </li>
+                    <li>
+                        <a href="#">By Category</a>
+                    </li>
+                    <li>
+                        <a href="#">By Köchel</a>
+                    </li>
+                </ul>
+            </li>
+            <li>
+                <a href="/essays/">Essays</a>
+            </li>
+            <li>
+                <a href="#">Abbreviations</a>
+            </li>
+            <li>
+                <a href="/resources/">Resources</a>
+            </li>
+            <li>
+                <a href="#">Citation</a>
+            </li>
+            <li>
+                <a href="#">News</a>
+            </li>
+            <li>
+                <a href="/contact/">Contact</a>
+            </li>
+            <li>
+                <a href="/about/">About the Authors</a>
+            </li>
+            <li>
+                <a href="/acknowledgements/">Acknowledgements</a>
+            </li>
+            <li>
+                <a href="/admin" id="admin">Admin</a>
+            </li>
+        </ul>
+    </nav>
+    <button type="button" id="sidebarCollapse" class="btn btn-sm btn-info">
+        <i class="fa fa-align-left"></i>
+    </button>
+    <div id="content">
+        <div class="container-fluid">
+            <div class="logo">
+                <a href="/">
+                    <img src="{% static 'img/MND-logo-2017-border.png' %}">
+                </a>
+            </div>
+            {% block content %}{% endblock content%}
+        </div>
+        <footer>
+            <!-- Creative Commons License -->
+                <a rel="license" href="http://creativecommons.org/licenses/by-nc-nd/4.0/"><img class="CCL" alt="Creative Commons License" src="https://i.creativecommons.org/l/by-nc-nd/4.0/88x31.png"></a><br>
+                <i><span xmlns:dct="http://purl.org/dc/terms/" property="dct:title">Mozart: New Documents</span></i> by <a xmlns:cc="http://creativecommons.org/ns#" href="http://dx.doi.org/10.7302/Z20P0WXJ" property="cc:attributionName" rel="cc:attributionURL">Dexter Edge &amp; David Black</a><br>is licensed under a
+                <a rel="license" href="http://creativecommons.org/licenses/by-nc-nd/4.0/">Creative Commons Attribution-NonCommercial-NoDerivatives 4.0 International License</a><br>
+
+            <!-- Site Credit -->
+                <p id="site-credit">Site design by Dexter Edge</p>
+        </footer>
+    </div>
+</div>
+
+    <!-- jQuery CDN - Slim version (=without AJAX) -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+
+    <!-- Popper.JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js" integrity="sha384-cs/chFZiN24E4KMATLdqdvsezGxaGsi4hLGOzlXwp5UZB1LY//20VyM2taTB4QvJ" crossorigin="anonymous"></script>
+
+    <!-- Bootstrap JS -->
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js" integrity="sha384-uefMccjFJAIv6A+rW+L4AHf99KvxDjWSu1z9VI8SKNVmz4sk7buKt/6v9KI65qnm" crossorigin="anonymous"></script>
+
+    <!-- jQuery Custom Scroller CDN -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/malihu-custom-scrollbar-plugin/3.1.5/jquery.mCustomScrollbar.concat.min.js"></script>
+
+    <!-- Custom JS -->
+    <script src="{% static 'js/mnd.js' %}"></script>
+</body>
+</html>

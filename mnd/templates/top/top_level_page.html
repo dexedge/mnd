@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+{% load wagtailcore_tags %}
+
+{% load static %}
+
+{% block content %}
+    <h1>{{ page.title }}</h1>
+    <div class="text">
+        {{ page.top_level_text|richtext }}
+    </div>
+    <p id="updated">Updated: {{ page.updated|date:'D, j M Y' }}</p>
+      
+{% endblock content %}
+
