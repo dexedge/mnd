@@ -9,7 +9,7 @@ $(document).ready(function () {
         $("#sidebar a").eq(1).addClass('active')
     }
     else {
-        $('a[href*="/' + path.split("/")[1] + '"]').addClass('active');
+        $('#sidebar a[href*="/' + path.split("/")[1] + '"]').addClass('active');
     };
 });
 
@@ -33,7 +33,7 @@ $(document).ready(function () {
 $(document).ready(function(){
     // external links to new window
     //$('a[href^="http://"]').not('a[href*="mydomainname"]').attr('target','_blank') USE ON LIVE SITE
-    $('a[href^="http://"]').attr('target','_blank')
+    $('a[href^="http://"], a[href^="https://"]').attr('target','_blank')
    });
 
 

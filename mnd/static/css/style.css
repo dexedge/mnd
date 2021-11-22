@@ -14,13 +14,28 @@ body {
     color: #003965;
 }
 
-/* Document title */
+/* Document title, etc */
 h1 {                      
     font-family: 'Tinos', serif;
     font-weight: bold;
     font-size: 1.5rem;
     margin-top: 8px;
     margin-bottom: 8px;
+}
+
+/* Document source */
+h2 {
+    font-size: 1rem;
+    font-weight: bold;
+}
+
+/* Section heads */
+h3 {                     
+    font-size: 1.2rem; 
+    font-style: italic;
+    font-weight: normal;
+    margin-top: 0.75rem;
+    margin-bottom: 0.75rem;
 }
 
 p {
@@ -30,7 +45,14 @@ p {
     line-height: 1.7rem;
 }
 
-p.blockindent {
+blockquote {
+    font-size: 1.1rem;
+    line-height: 1.4rem;
+    min-width: 600px;
+}
+
+p.blockindent,
+blockquote {
     margin-left: 3rem !important;
 }
 
@@ -39,6 +61,11 @@ p#updated {
     font-size: 0.95rem;
     font-style: italic;
     text-align: right;
+}
+
+hr {
+    margin-top: 30px;
+    margin-bottom: 10px;
 }
 
 a,
@@ -51,20 +78,24 @@ a:focus {
 
 button {
     margin-left: -200px;
-    background-color: #c0c7c0 !important;
-    color: #f6f7f6 !important;
 }
 
 .btn {
     box-shadow: none !important;
     outline: none !important;
     border: none;
+    padding: 0.5rem 0.5rem;
+}
+
+.btn-outline-dark:hover {
+    background-color: #dfe4df;
+    border-color: ;
 }
 
 .logo {
     margin: 0 auto;
     padding-top: 5px;
-    padding-left: 15px;
+    padding-left: 25px;
 }
 
 .logo img {
@@ -72,6 +103,25 @@ button {
     position: relative;
     width: 100%; 
     max-width: 768px;
+}
+
+.block-large_image img {
+    position: relative;
+    max-width: 768px;
+    height: auto;
+    margin-left: 25px;
+    margin-bottom: 15px;
+    border-style: solid;   
+    border-width: 1px;   
+    border-color: #ccc;
+}
+
+div.block-large_image:first-of-type {
+    padding-top: 20px;
+}
+
+.citation {
+    margin-left: 3rem;
 }
 
 #title {
@@ -95,6 +145,22 @@ button {
     font-size: 28px;
     position: absolute;
 }
+
+.arrow {
+    position: fixed;
+    top: 50%;
+    font-size: 2rem;
+    color: #a9a9aa;
+  }
+  
+  #arrow-left {
+    left: 200px;
+  }
+  
+  #arrow-right {
+    position: fixed;
+    right: 20px;
+  }
 
 /* Customization of Wagtail userbar */
 .wagtail-userbar-trigger {
@@ -126,11 +192,13 @@ button {
 
 #sidebar .sidebar-header {
     font-family: 'EB Garamond', serif;
+    font-size: 2rem;
+    line-height: 1.2;
     font-weight: 500;
     font-style: italic;
     color: #003965;
-    padding: 15px 10px 0px 23px;
-    border: solid 1px #ddd;
+    /* text-shadow: 0 1px 0 rgba(246, 247, 246, 0.4); */
+    padding: 20px 10px 10px 27px;
 }
 
 #sidebar ul.components {
@@ -186,7 +254,6 @@ ul.CTAs a {
 /* ---------------------------------------------------
     CONTENT STYLE
 ----------------------------------------------------- */
-
 #content {
     width: calc(100%-200px);
     min-height: 100vh;
@@ -196,21 +263,102 @@ ul.CTAs a {
     left: 200px;
 }
 
+b {
+    font-weight: 700;
+}
+
+.document {
+    min-width: 1000px;
+}
+
+.text {
+    max-width: 768px;
+}
 .text p {
     max-width: 768px;
     margin-top: 10px;
-    margin-left: 15px;
+    margin-left: 25px;
     font-size: 1.2rem;
     line-height: 1.35;
 }
 
-.text a:link {
-    text-decoration: none;
-    color: #003fb6;
+.text h1, h2, h3 {
+    margin-left: 25px;
 }
 
-.text a:visited {
-    color: #6d22aa;
+h2 {
+    margin-bottom: 10px;
+}
+
+.index-page p {
+    margin-bottom: 10px;
+}
+
+p a:link, 
+blockquote a:link,
+.date>a:link {
+    text-decoration: none;
+    color: #003fb6 !important;
+}
+
+p a:visited, 
+blockquote a:visited,
+.date>a:visited{
+    color: #6d22aa !important;
+}
+
+p.blockindent>a {
+    margin-right: 25px;
+}
+
+p.center-paragraph {
+    text-align: center;
+    margin: 0;
+    padding-bottom: 0.5rem;
+    line-height: 1;
+    padding
+}
+
+.listing {
+    min-width: 600px;
+    font-size: 1rem;
+    margin-bottom: 0.5rem;
+    margin-left: 2rem;
+    line-height: 1;
+}
+
+.date {
+    display: inline-block;
+    text-align: right;
+}
+
+.transcription p {
+    /* max-width: 550px; */
+    min-width: 600px;
+    font-family: 'Tinos', serif;
+    font-size: 1.2rem;
+    line-height: 1.2;
+    margin: 0 0 15px 25px;
+}
+
+.endmatter {
+    max-width: 768px;
+    font-size: 0.75rem;
+    margin-left: 25px;
+}
+
+.endmatter h3, p {
+    margin-left: 0; 
+    line-height: 1.5rem;
+}
+
+.endmatter table {
+    width: auto;
+    font-size: 1rem;
+}
+
+.credits p {
+    line-height: 1.2rem !important;
 }
 
 /* For larger size at beginning of paragraph */
@@ -234,7 +382,7 @@ img {
 
 .right {
     float: right;
-    margin: 0 0 10px 20px;
+    margin: 0 0 10px 25px;
     border-style: solid;   
     border-width: 1px;   
     border-color: #ccc;
@@ -246,6 +394,22 @@ img {
     border-style: solid;   
     border-width: 1px;   
     border-color: #ccc;
+}
+
+.center {
+    display: block;
+    margin: auto;
+    border-style: solid;   
+    border-width: 1px;   
+    border-color: #ccc;
+}
+
+.annotation {
+    font-family: 'PT Sans', sans-serif;
+    font-style: italic;
+    font-size: 1rem !important;
+    text-indent: 0;
+    margin: 0;
 }
 
 footer {
@@ -281,6 +445,11 @@ footer {
         margin-left: 200;
     }
 
+    /* .transcription {
+        min-width: 475px;
+        font-size: 1rem;
+    } */
+
     #sidebar {
         margin-left: -200px;
     }
@@ -301,11 +470,36 @@ footer {
     }
 
     .right,
-    .left {
+    .left,
+    .center {
         display: flex;
         float: none;
         margin-left: auto;
         margin-right: auto;
+    }
+
+    #arrow-left {
+        margin-left: -200px;
+    }
+}
+
+@media (max-width: 600px) {
+    .right,
+    .left,
+    .center {
+        max-width: 600px;
+        display: flex;
+        float: none;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    p.center-paragraph {
+        min-width: 600px;
+    }
+      
+    #arrow-right {
+       right: 5px;
     }
 }
 

@@ -1,0 +1,94 @@
+{% extends 'base.html' %}
+{% load wagtailcore_tags %}
+
+{% load static %}
+
+{% block content %}
+    <div class="text">
+        {% comment %} <h1>{{ page.date|date:'j F Y' }}</h1> {% endcomment %}
+        <h1>{{ page.title }}</h1>
+        <h1>{{ page.document_title|safe }}</h1>
+        <h2>{{ page.source|safe }}</h2>
+        <div class="row document">
+            <div class="col-6">
+                <div class="transcription">
+                    {{ page.transcription|safe }}
+                </div>
+            </div>
+            <div class="col">
+                <div>
+                    {% include_block page.source_image %}
+                </div>
+            </div>
+        </div>
+        <p class="annotation">[translation:]</p><br>
+        <div class="transcription">
+            {{ page.translation|safe }}
+        </div>
+    </div>
+    <hr>
+    <div class="text">
+        <h3>Commentary</h3>
+        {% for block in page.commentary %}
+            {% include_block block %}
+        {% endfor %}
+    </div>
+    <hr>
+    <div class="endmatter">
+        {% if page.notes %} 
+            <h3>Notes</h3>
+            {% for block in page.notes %}
+                {% include_block block %}
+            {% endfor %}
+            <hr>
+        {% endif %} 
+        <h3>Bibliography</h3>  
+        <div>
+            {{ page.bibliography|richtext }} 
+        </div>
+        <hr>
+        <div class="credits">
+            <p><em>Credit</em>: {{ page.credit }}</p>
+            <p><em>Link</em>: 
+                <a href="{{ page.repository_link }}">{{ page.repository }}</a>
+            </p>
+            <p><em>Search Term</em>: {{ page.search_term }}</p>
+            <p><em>Source Library</em>: {{ page.source_library }}</p>
+            <p><em>Categories</em>: 
+                {% for cat in self.categories.all%}
+                    {{ cat.name }}{% if not forloop.last %}, {% endif %}
+                {% endfor %}
+            </p>
+            <p><em>First Published</em>: {{ page.first_published|date:'D, j M Y' }}</p>
+            {% if page.updated %}
+                <p><em>Updated</em>: {{ page.updated|date:'D, j M Y' }}</p>
+            {% endif %}
+            <hr>
+        </div>
+        <div>
+            <p><em>Print Citation</em>:</p>
+                <p class="citation">{{ page.author }}. {{ page.first_published|date:'Y' }}. "{{ page.citation_title|safe }} ({{ page.date|date:'j M Y'}})." In: <em>Mozart: New Documents</em>, edited by Dexter Edge and David Black.<br> First published {{ page.first_published|date:'j M Y'}}. https://doi.org/10.7302/Z20P0WXJ
+                </p>
+            <p><em>Web Citation</em>:</p>
+                <p class="citation">{{ page.author }}. {{ page.first_published|date:'Y' }}. "{{ page.citation_title|safe }} ({{ page.date|date:'j M Y'}})." In: <a href="https://doi.org/10.7302/Z20P0WXJ"><em>Mozart: New Documents</em></a>, edited by Dexter Edge and David Black.<br> First published {{ page.first_published|date:'j M Y'}}. [<a href="{{pageurl}}">direct link</a>]
+                </p>
+        </div> 
+        <!-- Previous and Next arrows -->
+        <div class="arrow" id="arrow-left">  
+            {% if page.prev %}
+                <a href="{{ page.prev }}">
+                    <i class="bi-chevron-left"></i>
+                </a>
+            {% endif %}
+        
+        </div> 
+        <div class="arrow" id="arrow-right">
+            {% if page.next %}
+                <a href="{{ page.next }}">
+                    <i class="bi-chevron-right"></i>
+                </a>
+            {% endif %} 
+        </div>
+    </div>
+      
+{% endblock content %}

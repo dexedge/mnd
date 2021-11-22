@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+
+{% load wagtailcore_tags %}
+
+{% load static %}
+
+{% block content %}
+    <div class="text index-page">
+        <h1>{{ page.title }}</h1>
+        <h3>Biography</h3>
+            {% for doc in biography%}
+                <div class="row listing">
+                    <div class="col-2 date"><a href="{{ doc.url }}">{{ doc.date|date:'j M Y' }}</a></div>
+                    <div class="col-8">{{doc.citation_title|safe }}</div>
+                </div>
+            {% endfor %}
+        <h3>Reception</h3>
+            {% for doc in reception%}
+                <div class="row listing">
+                    <div class="col-2 date"><a href="{{ doc.url }}">{{ doc.date|date:'j M Y' }}</a></div>
+                    <div class="col-8">{{doc.citation_title|safe }}</div>
+                </div>
+            {% endfor %}
+        <h3>Mozart in Literature</h3>
+            {% for doc in literature %}
+                <div class="row listing">
+                    <div class="col-2 date"><a href="{{ doc.url }}">{{ doc.date|date:'j M Y' }}</a></div>
+                    <div class="col-8">{{doc.citation_title|safe }}</div>
+                </div>
+            {% endfor %}
+    </div>
+
+{% endblock content %}

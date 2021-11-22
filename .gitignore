@@ -2,9 +2,16 @@
 *.log
 *.pot
 *.pyc
+.DS_Store
+*.swp
+/myenv/
+/static/
+/media/
+.env
+
 __pycache__
 db.sqlite3
-media
+# media
 
 # Backup files # 
 *.bak 
