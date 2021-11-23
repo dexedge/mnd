@@ -3,7 +3,7 @@ from .base import *
 import dj_database_url
 import os
 
-DATABASES['default'] =  dj_database_url.config()
+DATABASES=  {dj_database_url.config(default='postgres://Dexter:moz1756@localhost/mnd')}
     
 # Honor the 'X-Forwarded-Proto' header for request.is_secure()
 SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
