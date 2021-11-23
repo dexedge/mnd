@@ -20,11 +20,14 @@ defusedxml==0.7.1
 deprecation==2.1.0
 distlib==0.3.0
 dj-database-url==0.5.0
+dj-static==0.0.6
 Django==3.1.7
+django-debug-toolbar==3.2.2
 django-extensions==3.1.5
 django-filter==21.1
 django-modelcluster==5.2
 django-taggit==1.5.1
+django-toolbelt==0.0.1
 django-treebeard==4.5.1
 djangorestframework==3.12.4
 draftjs-exporter==2.1.7
@@ -87,6 +90,7 @@ six==1.15.0
 sniffio==1.2.0
 soupsieve==2.3.1
 sqlparse==0.3.1
+static3==0.7.0
 tablib==3.1.0
 telepath==0.2
 terminado==0.9.4
