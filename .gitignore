@@ -8,6 +8,7 @@
 /static/
 /media/
 .env
+datadump.json
 
 __pycache__
 db.sqlite3
