@@ -72,6 +72,7 @@ Pillow==8.1.2
 pipenv==2020.5.28
 prometheus-client==0.10.1
 prompt-toolkit==3.0.18
+psycopg2==2.9.2
 ptyprocess==0.7.0
 pycparser==2.20
 Pygments==2.9.0
