@@ -28,7 +28,6 @@ INSTALLED_APPS = [
     'search',
     'top',
     'documents',
-    'storages',
 
     'wagtail.contrib.forms',
     'wagtail.contrib.redirects',
@@ -54,6 +53,8 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+
+    'storages',
 ]
 
 MIDDLEWARE = [
