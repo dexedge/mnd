@@ -173,6 +173,9 @@ AWS_QUERYSTRING_AUTH = False
 # This will make sure that the file URL does not have unnecessary parameters like your access key.
 
 AWS_S3_CUSTOM_DOMAIN = AWS_STORAGE_BUCKET_NAME + '.s3.amazonaws.com'
+AWS_HEADERS = {
+    'Access-Control-Allow-Origin': '*'
+}
 
 # Wagtail settings
 
