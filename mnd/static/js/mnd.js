@@ -6,7 +6,7 @@ $(document).ready(function () {
     let path = location.pathname;
     $('#sidebar a').removeClass('active');
     if (path === '/') {
-        $("#sidebar a").eq(1).addClass('active')
+        $("#sidebar a").eq(0).addClass('active')
     }
     else {
         $('#sidebar a[href*="/' + path.split("/")[1] + '"]').addClass('active');
