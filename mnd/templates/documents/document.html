@@ -16,9 +16,9 @@
                 </div>
             </div>
             <div class="col">
-                <div>
+                {% comment %} <div> {% endcomment %}
                     {% include_block page.source_image %}
-                </div>
+                {% comment %} </div> {% endcomment %}
             </div>
         </div>
         <p class="annotation">[translation:]</p><br>
@@ -33,17 +33,17 @@
             {% include_block block %}
         {% endfor %}
     </div>
-    <hr>
     <div class="endmatter">
         {% if page.notes %} 
-            <h3>Notes</h3>
+            <hr>
+            <p id="notes"><em>Notes</em></p>
             {% for block in page.notes %}
                 {% include_block block %}
             {% endfor %}
-            <hr>
         {% endif %} 
-        <h3>Bibliography</h3>  
-        <div>
+        <hr>
+        <p id="bibliography"><em>Bibliography</em></p>  
+        <div class="bibliography">
             {{ page.bibliography|richtext }} 
         </div>
         <hr>

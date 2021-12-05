@@ -4,7 +4,27 @@
 {% block content %}
     <div class="text index-page">
         <h1>{{ page.title }}</h1>
-        {{ page.body|richtext }}
+        {% for block in page.body %}
+            {% include_block block %}
+        {% endfor %}
     </div>
+
+    <!-- Previous and Next arrows -->
+        <div class="arrow" id="arrow-left">  
+            {% if page.prev %}
+                <a href="{{ page.prev }}">
+                    <i class="bi-chevron-left"></i>
+                </a>
+            {% endif %}
+        
+        </div> 
+        <div class="arrow" id="arrow-right">
+            {% if page.next %}
+                <a href="{{ page.next }}">
+                    <i class="bi-chevron-right"></i>
+                </a>
+            {% endif %} 
+        </div>
+        
 {% endblock content %}
 

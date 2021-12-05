@@ -36,6 +36,16 @@ $(document).ready(function(){
     $('a[href^="http://"], a[href^="https://"]').attr('target','_blank')
    });
 
+// If there is a TOC, add return arrow to Bibliography
+// and Notes
+$(document).ready(function(){
+    let toc = $("#toc").html()
+    if (toc) {
+        $("#bibliography").append(" (<a href='#toc'>⇧</a>)");
+        $("#notes").append(" (<a href='#toc'>⇧</a>)");
+    }
+});
+
 
 // Deprecated code
 

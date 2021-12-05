@@ -4,7 +4,7 @@ from django.db.models.expressions import F
 
 from modelcluster.fields import ParentalManyToManyField
 from wagtail.core.models import Page
-from wagtail.core import blocks as wagtail_blocks
+from wagtail.core import blocks
 from wagtail.core.fields import RichTextField, StreamField
 from wagtail.admin.edit_handlers import FieldPanel, StreamFieldPanel, MultiFieldPanel
 from wagtail.contrib.table_block.blocks import TableBlock
@@ -25,6 +25,16 @@ new_table_options = {
     'renderer': 'html',
     'autoColumnSize': False,
 }
+
+full_features_list = ['h1', 'h2','h3', 'bold', 'italic', 'underline', 'strikethrough', 'small', 'blockquote', 'blockindent', 'center', 'superscript', 'subscript', 'ul', 'image', 'link', 'hr', 'embed']
+
+class Heading(blocks.StructBlock):
+    heading = blocks.CharBlock(classname='full title')
+    link_id = blocks.CharBlock(help_text='For making hyperlinks to this heading')
+
+    class Meta:
+        template = 'streams/heading.html' 
+
 class DocumentPage(Page):
     template  = "documents/document.html"
     parent_page_types = ["top.IndexPage"]
@@ -47,17 +57,18 @@ class DocumentPage(Page):
     ], null=True, blank=True)
     transcription = RichTextField(
         blank=True,
-        features=['h1', 'h2','h3', 'bold', 'italic', 'underline', 'strikethrough', 'small', 'blockquote', 'blockindent', 'center', 'superscript', 'subscript', 'ul', 'image', 'link', 'hr', 'embed'],
+        features=full_features_list,
     )
     translation = RichTextField(
         blank=True,
-        features=['h1', 'h2','h3', 'bold', 'italic', 'underline',  'strikethrough', 'small', 'blockquote', 'blockindent', 'center', 'superscript', 'subscript', 'ul', 'image', 'link', 'hr', 'embed'],
+        features=full_features_list,
     )
     commentary = StreamField([
-        ("richtext", wagtail_blocks.RichTextBlock(
+        ("richtext", blocks.RichTextBlock(
             template="streams/richtext_block.html",
-            features=['h1', 'h2','h3', 'bold', 'italic', 'underline','strikethrough', 'small','blockquote','blockindent', 'center','superscript', 'subscript', 'ul', 'image', 'link', 'hr', 'embed'],
+            features=full_features_list,
         )),
+        ("heading", Heading()),
         ("table", TableBlock(
             template="streams/table.html",
             table_options=new_table_options,
@@ -65,9 +76,9 @@ class DocumentPage(Page):
     ], null=True, blank=True)
     
     notes = StreamField([
-        ("richtext", wagtail_blocks.RichTextBlock(
+        ("richtext", blocks.RichTextBlock(
             template="streams/richtext_block.html",
-            features=['h1', 'h2','h3', 'bold', 'italic', 'underline','strikethrough','blockquote', 'blockindent', 'superscript', 'subscript', 'ul', 'image', 'link', 'hr', 'embed'],
+            features=full_features_list,
         )),
         ("table", TableBlock(
             template="streams/table.html",
@@ -76,7 +87,7 @@ class DocumentPage(Page):
     ], null=True, blank=True)
     bibliography = RichTextField(
         blank=True,
-        features=['h1', 'h2','h3', 'bold', 'italic', 'underline','strikethrough','blockquote', 'blockindent', 'superscript', 'subscript', 'ul', 'image', 'link', 'hr', 'embed'],
+        features=full_features_list,
     )
     credit = models.CharField(max_length=100, blank=True)
     repository = models.CharField(max_length=100, blank=True)
@@ -163,12 +174,3 @@ class DocumentCategory(models.Model):
 
     def __str__(self):
         return self.name
-
-# commentary = RichTextField(
-    #     blank=True,
-    #     features=['h1', 'h2','h3', 'bold', 'italic', 'underline', 'strikethrough', 'small', 'blockquote', 'blockindent', 'center', 'superscript', 'subscript', 'ul', 'image', 'link', 'hr', 'embed'],
-    # )
-    # notes = RichTextField(
-    #     blank=True,
-    #     features=['h1', 'h2','h3', 'bold', 'italic', 'underline','strikethrough','blockquote', 'blockindent', 'superscript', 'subscript', 'ul', 'image', 'link', 'hr', 'embed'],
-    # )
