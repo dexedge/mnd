@@ -224,7 +224,7 @@ div.block-large_image:first-of-type {
 }
 
 #sidebar ul.components {
-    padding: 5px 10px 10px 20px;
+    padding: 5px 10px 10px 23px;
 }
 
 #sidebar ul a,
@@ -472,7 +472,7 @@ footer {
     }
 
     button.open {
-        margin-left: 195px;
+        margin-left: 0;
     }
 
     /* .transcription {
