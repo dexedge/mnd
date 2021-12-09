@@ -111,7 +111,6 @@ button {
 
 .btn-outline-dark:hover {
     background-color: #dfe4df;
-    border-color: ;
 }
 
 .logo {
@@ -172,8 +171,8 @@ div.block-large_image:first-of-type {
     position: fixed;
     top: 50%;
     font-size: 2rem;
-    color: #a8b5a8;
-    /* opacity: 50%; */
+    color: #003965;
+    opacity: 50%;
     /* color: #a9a9aa; */
   }
   
@@ -225,7 +224,7 @@ div.block-large_image:first-of-type {
 }
 
 #sidebar ul.components {
-    padding: 5px 10px 10px 15px;
+    padding: 5px 10px 10px 20px;
 }
 
 #sidebar ul a,
@@ -464,7 +463,7 @@ footer {
     MEDIAQUERIES
 ----------------------------------------------------- */
 
-@media (max-width: 810px) {
+@media (max-width: 768px) {
     
     button {
         position: fixed;
@@ -473,7 +472,7 @@ footer {
     }
 
     button.open {
-        margin-left: 200;
+        margin-left: 195px;
     }
 
     /* .transcription {
@@ -510,7 +509,11 @@ footer {
     }
 
     #arrow-left {
-        left: 5px;
+        left: 3px;
+    }
+    
+    #arrow-right {
+        right: ;
     }
 }
 
@@ -527,10 +530,6 @@ footer {
 
     p.center-paragraph {
         min-width: 600px;
-    }
-      
-    #arrow-right {
-       right: 5px;
     }
 }
 

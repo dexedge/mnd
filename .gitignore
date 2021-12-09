@@ -8,8 +8,15 @@
 /media/
 /static/
 .env
-datadump.json
 
+# Project
+datadump.json
+dumpfile
+latest.dump
+mnd-local-dumpfile
+hpull.sh
+
+#
 __pycache__
 db.sqlite3
 # media
