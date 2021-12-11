@@ -13,6 +13,10 @@
 
 @import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
 
+.Draftail-block--blockindent {
+    margin-left: 3rem;
+}
+
 body {
     font-family: 'PT Sans', sans-serif;
     background: #f6f7f6;
@@ -106,7 +110,7 @@ button {
     box-shadow: none !important;
     outline: none !important;
     border: none;
-    padding: 0.5rem 0.5rem;
+    padding: 0.4rem 0.4rem;
 }
 
 .btn-outline-dark:hover {
@@ -338,7 +342,6 @@ p.center-paragraph {
     margin: 0;
     padding-bottom: 0.5rem;
     line-height: 1;
-    padding
 }
 
 .listing {
