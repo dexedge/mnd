@@ -2,6 +2,10 @@
   margin-left: 3rem;
 }
 
+.Draftail-block--doubleindent {
+  margin-left: 6rem;
+}
+
 .Draftail-block--header-two {
   font-size: 1.2em !important;
 }

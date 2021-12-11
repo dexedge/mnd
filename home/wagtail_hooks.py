@@ -111,7 +111,7 @@ def register_blockindent_feature(features):
 
     control = {
         "type": type_,
-        "label": "⇥",
+        "label": "]",
         "description": "Block Indent",
         "element": "div",
     }
@@ -136,6 +136,41 @@ def register_blockindent_feature(features):
 
     features.default_features.append(feature_name)
 
+# Block double indent
+@hooks.register("register_rich_text_features")
+def register_doubleindent_feature(features):
+    """Add double indent feature to richtext editor"""
+
+    feature_name = "doubleindent"
+    type_ = "doubleindent"
+
+    control = {
+        "type": type_,
+        "label": "]]",
+        "description": "Double Indent",
+        "element": "div",
+    }
+
+    features.register_editor_plugin(
+        "draftail", feature_name, draftail_features.BlockFeature(control)
+    )
+
+    db_conversion = {
+        "from_database_format": {'p[class=doubleindent]': BlockElementHandler(type_)},
+        "to_database_format": {
+            "block_map": {
+                type_: {
+                    "element": "p",
+                    "props": {"class": "doubleindent"},
+                }
+            }
+        },
+    }
+
+    features.register_converter_rule("contentstate", feature_name, db_conversion)
+
+    features.default_features.append(feature_name)
+
 
 # Center paragraph
 @hooks.register("register_rich_text_features")
@@ -147,7 +182,7 @@ def register_center_feature(features):
 
     control = {
         "type": type_,
-        "label": "center",
+        "label": "☰",
         "description": "Center paragraph",
         "element": "div",
         "style": {

@@ -13,10 +13,6 @@
 
 @import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
 
-.Draftail-block--blockindent {
-    margin-left: 3rem;
-}
-
 body {
     font-family: 'PT Sans', sans-serif;
     background: #f6f7f6;
@@ -80,6 +76,10 @@ blockquote {
 p.blockindent,
 blockquote {
     margin-left: 3rem !important;
+}
+
+p.doubleindent {
+    margin-left: 6rem !important;
 }
 
 /* "Updated" dates on top-level pages */

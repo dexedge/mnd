@@ -26,7 +26,7 @@ new_table_options = {
     'autoColumnSize': False,
 }
 
-full_features_list = ['h1', 'h2','h3', 'bold', 'italic', 'underline', 'strikethrough', 'small', 'blockquote', 'blockindent', 'center', 'superscript', 'subscript', 'ul', 'image', 'link', 'hr', 'embed']
+full_features_list = ['h1', 'h2','h3', 'bold', 'italic', 'underline', 'strikethrough', 'small', 'blockquote', 'blockindent', 'doubleindent', 'center', 'superscript', 'subscript', 'ul', 'image', 'link', 'hr', 'embed']
 
 class Heading(blocks.StructBlock):
     heading = blocks.CharBlock(classname='full title')
