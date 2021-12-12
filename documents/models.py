@@ -85,7 +85,7 @@ class DocumentPage(Page):
         ("table", TypedTableBlock([
                 ('text', blocks.CharBlock()),
                 ('numeric', blocks.FloatBlock()),
-                ('rich_text', blocks.RichTextBlock()),
+                ('rich_text', blocks.RichTextBlock(features=['italic', 'link', 'h2'],)),
             ],
         )),
     ], null=True, blank=True)
