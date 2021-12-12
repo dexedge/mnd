@@ -11,20 +11,20 @@ from wagtail.contrib.typed_table_block.blocks import TypedTableBlock
 from wagtail.images.blocks import ImageChooserBlock
 from wagtail.snippets.models import register_snippet
 
-new_table_options = {
-    'minSpareRows': 0,
-    'startRows': 2,
-    'startCols': 3,
-    'colHeaders': False,
-    'rowHeaders': False,
-    'contextMenu': True,
-    'editor': 'text',
-    'stretchH': 'all',
-    'height': 216,
-    'language': 'en',
-    'renderer': 'html',
-    'autoColumnSize': False,
-}
+# new_table_options = {
+#     'minSpareRows': 0,
+#     'startRows': 2,
+#     'startCols': 3,
+#     'colHeaders': False,
+#     'rowHeaders': False,
+#     'contextMenu': True,
+#     'editor': 'text',
+#     'stretchH': 'all',
+#     'height': 216,
+#     'language': 'en',
+#     'renderer': 'html',
+#     'autoColumnSize': False,
+# }
 
 full_features_list = ['h1', 'h2','h3', 'bold', 'italic', 'underline', 'strikethrough', 'small', 'blockquote', 'blockindent', 'doubleindent', 'center', 'superscript', 'subscript', 'ul', 'image', 'link', 'hr', 'embed']
 
@@ -72,7 +72,7 @@ class DocumentPage(Page):
         ("table", TypedTableBlock([
                 ('text', blocks.CharBlock()),
                 ('numeric', blocks.FloatBlock()),
-                ('rich_text', blocks.RichTextBlock(features=['italic', 'link', 'h2'],)),
+                ('rich_text', blocks.RichTextBlock(features=['italic', 'bold', 'strikethrough', 'link', 'h2'],)),
             ],
         )),
     ], null=True, blank=True)
@@ -85,7 +85,7 @@ class DocumentPage(Page):
         ("table", TypedTableBlock([
                 ('text', blocks.CharBlock()),
                 ('numeric', blocks.FloatBlock()),
-                ('rich_text', blocks.RichTextBlock(features=['italic', 'link', 'h2'],)),
+                ('rich_text', blocks.RichTextBlock(features=['italic', 'bold', 'strikethrough', 'link', 'h2'],)),
             ],
         )),
     ], null=True, blank=True)
