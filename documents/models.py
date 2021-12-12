@@ -70,9 +70,11 @@ class DocumentPage(Page):
         )),
         ("heading", Heading()),
         ("table", TypedTableBlock([
-                ('text', blocks.CharBlock()),
-                ('numeric', blocks.FloatBlock()),
-                ('rich_text', blocks.RichTextBlock(features=['italic', 'bold', 'strikethrough', 'link', 'h2'],)),
+                ('text', blocks.CharBlock(required=False)),
+                ('numeric', blocks.FloatBlock(required=False)),
+                ('rich_text', blocks.RichTextBlock(
+                    required=False,
+                    features=['italic', 'bold', 'strikethrough', 'link', 'h2'],)),
             ],
         )),
     ], null=True, blank=True)
@@ -83,9 +85,11 @@ class DocumentPage(Page):
             features=full_features_list,
         )),
         ("table", TypedTableBlock([
-                ('text', blocks.CharBlock()),
-                ('numeric', blocks.FloatBlock()),
-                ('rich_text', blocks.RichTextBlock(features=['italic', 'bold', 'strikethrough', 'link', 'h2'],)),
+                ('text', blocks.CharBlock(required=False)),
+                ('numeric', blocks.FloatBlock(required=False)),
+                ('rich_text', blocks.RichTextBlock(
+                    required=False,
+                    features=['italic', 'bold', 'strikethrough', 'link', 'h2'],)),
             ],
         )),
     ], null=True, blank=True)
