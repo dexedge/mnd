@@ -7,14 +7,14 @@ from wagtail.core.models import Page
 from wagtail.core import blocks
 from wagtail.core.fields import RichTextField, StreamField
 from wagtail.admin.edit_handlers import FieldPanel, StreamFieldPanel, MultiFieldPanel
-from wagtail.contrib.table_block.blocks import TableBlock
+from wagtail.contrib.typed_table_block.blocks import TypedTableBlock
 from wagtail.images.blocks import ImageChooserBlock
 from wagtail.snippets.models import register_snippet
 
 new_table_options = {
     'minSpareRows': 0,
-    'startRows': 1,
-    'startCols': 2,
+    'startRows': 2,
+    'startCols': 3,
     'colHeaders': False,
     'rowHeaders': False,
     'contextMenu': True,
@@ -69,9 +69,11 @@ class DocumentPage(Page):
             features=full_features_list,
         )),
         ("heading", Heading()),
-        ("table", TableBlock(
-            template="streams/table.html",
-            table_options=new_table_options,
+        ("table", TypedTableBlock([
+                ('text', blocks.CharBlock()),
+                ('numeric', blocks.FloatBlock()),
+                ('rich_text', blocks.RichTextBlock(features=['italic', 'link', 'h2'],)),
+            ],
         )),
     ], null=True, blank=True)
     
@@ -80,9 +82,11 @@ class DocumentPage(Page):
             template="streams/richtext_block.html",
             features=full_features_list,
         )),
-        ("table", TableBlock(
-            template="streams/table.html",
-            table_options=new_table_options,
+        ("table", TypedTableBlock([
+                ('text', blocks.CharBlock()),
+                ('numeric', blocks.FloatBlock()),
+                ('rich_text', blocks.RichTextBlock()),
+            ],
         )),
     ], null=True, blank=True)
     bibliography = RichTextField(

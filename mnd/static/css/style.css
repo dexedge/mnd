@@ -316,6 +316,32 @@ h2 {
     margin-bottom: 10px;
 }
 
+table {
+    margin-left: 3rem;
+    margin-bottom: 1rem;
+    table-layout: auto;
+}
+
+table, th, td {
+    border: 1px solid #003965;
+    vertical-align: top;
+}
+
+th {
+    background-color: lightgrey;
+    text-align: left;
+}
+
+td {
+    padding: 3px;
+}
+
+td>p {
+    margin: 0 !important;
+    text-align: left;
+    font-size: 1rem !important;
+}
+
 .index-page p {
     margin-bottom: 10px;
 }
