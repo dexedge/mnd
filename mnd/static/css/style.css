@@ -333,7 +333,7 @@ th {
 }
 
 td {
-    padding: 3px;
+    padding: 1px 4px 4px 5px;
 }
 
 td>p {
@@ -376,6 +376,12 @@ p.center-paragraph {
     margin-bottom: 0.5rem;
     margin-left: 2rem;
     line-height: 1;
+}
+
+.caption p {
+    margin-top: 0;
+    text-align: center;
+    font-size: 1rem;
 }
 
 .listing p {

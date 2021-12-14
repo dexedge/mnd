@@ -29,11 +29,17 @@ from wagtail.snippets.models import register_snippet
 full_features_list = ['h1', 'h2','h3', 'bold', 'italic', 'underline', 'strikethrough', 'small', 'blockquote', 'blockindent', 'doubleindent', 'center', 'superscript', 'subscript', 'ul', 'image', 'link', 'hr', 'embed']
 
 class Heading(blocks.StructBlock):
-    heading = blocks.CharBlock(classname='full title')
+    heading = blocks.CharBlock(classname='full-title')
     link_id = blocks.CharBlock(help_text='For making hyperlinks to this heading')
 
     class Meta:
-        template = 'streams/heading.html' 
+        template = 'streams/heading.html'
+
+class Caption(blocks.StructBlock):
+    caption = blocks.RichTextBlock(features=['italic', 'bold', 'strikethrough', 'link'])
+
+    class Meta:
+        template = 'streams/caption.html'
 
 class DocumentPage(Page):
     template  = "documents/document.html"
@@ -68,7 +74,8 @@ class DocumentPage(Page):
             template="streams/richtext_block.html",
             features=full_features_list,
         )),
-        ("heading", Heading()),
+        ("heading", Heading(icon='title')),
+        ("caption", Caption()),
         ("table", TypedTableBlock([
                 ('text', blocks.CharBlock(required=False)),
                 ('numeric', blocks.FloatBlock(required=False)),
