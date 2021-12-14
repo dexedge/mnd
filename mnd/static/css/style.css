@@ -80,6 +80,7 @@ blockquote {
 
 p.doubleindent {
     margin-left: 6rem !important;
+    line-height: 1rem !important;
 }
 
 /* "Updated" dates on top-level pages */

@@ -21,10 +21,12 @@
                 {% comment %} </div> {% endcomment %}
             </div>
         </div>
-        <p class="annotation">[translation:]</p><br>
-        <div class="transcription">
-            {{ page.translation|safe }}
-        </div>
+        {% if page.translation %}
+            <p class="annotation">[translation:]</p><br>
+            <div class="transcription">
+                {{ page.translation|safe }}
+            </div>
+        {% endif %}
     </div>
     <hr>
     <div class="text">
