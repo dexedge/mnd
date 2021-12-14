@@ -360,7 +360,7 @@ blockquote a:visited,
     color: #6d22aa !important;
 }
 
-p.blockindent>a {
+p.blockindent {
     margin-right: 25px;
 }
 
