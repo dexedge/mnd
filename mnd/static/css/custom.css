@@ -16,3 +16,7 @@
   display: table;
   margin: 0 auto;
 }
+
+.fieldname-year_or_kv input {
+  font-weight: bold;
+}
