@@ -15,7 +15,14 @@
                 </div>
             {% endfor %}
         <h3>Reception</h3>
-            {% for doc in reception%}
+            {% for doc in reception %}
+                <div class="row listing">
+                    <div class="col-2 date"><a href="{{ doc.url }}">{{ doc.date|date:'j M Y' }}</a></div>
+                    <div class="col-8">{{doc.citation_title|safe }}</div>
+                </div>
+            {% endfor %}
+        <h3>Advertisements</h3>
+            {% for doc in advertisement %}
                 <div class="row listing">
                     <div class="col-2 date"><a href="{{ doc.url }}">{{ doc.date|date:'j M Y' }}</a></div>
                     <div class="col-8">{{doc.citation_title|safe }}</div>
