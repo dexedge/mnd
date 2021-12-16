@@ -26,7 +26,7 @@ from wagtail.snippets.models import register_snippet
 #     'autoColumnSize': False,
 # }
 
-full_features_list = ['h1', 'h2','h3', 'bold', 'italic', 'underline', 'strikethrough', 'small', 'blockquote', 'blockindent', 'doubleindent', 'center', 'superscript', 'subscript', 'ul', 'image', 'link', 'hr', 'embed']
+full_features_list = ['h1', 'h2','h3', 'bold', 'italic', 'underline', 'strikethrough', 'small', 'red','blue', 'blockquote', 'blockindent', 'doubleindent', 'center', 'superscript', 'subscript', 'ul', 'image', 'link', 'hr', 'embed']
 
 class Heading(blocks.StructBlock):
     heading = blocks.CharBlock(classname='full-title')
@@ -81,7 +81,7 @@ class DocumentPage(Page):
                 ('numeric', blocks.FloatBlock(required=False)),
                 ('rich_text', blocks.RichTextBlock(
                     required=False,
-                    features=['italic', 'bold', 'strikethrough', 'link', 'h2'],)),
+                    features=['italic', 'bold', 'strikethrough', 'red','link', 'h2'],)),
             ],
         )),
     ], null=True, blank=True)
@@ -96,7 +96,7 @@ class DocumentPage(Page):
                 ('numeric', blocks.FloatBlock(required=False)),
                 ('rich_text', blocks.RichTextBlock(
                     required=False,
-                    features=['italic', 'bold', 'strikethrough', 'link', 'h2'],)),
+                    features=['italic', 'bold', 'strikethrough','red', 'link', 'h2'],)),
             ],
         )),
     ], null=True, blank=True)

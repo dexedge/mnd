@@ -43,10 +43,68 @@ def register_lede_styling(features):
     
     features.default_features.append(feature_name)
 
+# Red text
+@hooks.register("register_rich_text_features")
+def register_red_text(features):
+    """Add red color to richtext editor"""
+    feature_name = "red"
+    type_ = "RED"
+
+    control = {
+        "type": type_,
+        "label": "red",
+        "description": "Red",
+        "style": {
+            "color": "red",
+        }
+    }
+
+    features.register_editor_plugin(
+        "draftail", feature_name, draftail_features.InlineStyleFeature(control)
+    )
+
+    db_conversion = {
+        "from_database_format": {'span[style="color: red"]': InlineStyleElementHandler(type_)},
+        "to_database_format": {"style_map": {type_: 'span style="color: red"'}},
+    }
+
+    features.register_converter_rule("contentstate", feature_name, db_conversion)
+    
+    features.default_features.append(feature_name)
+
+# Blue text
+@hooks.register("register_rich_text_features")
+def register_blue_text(features):
+    """Add blue color to richtext editor"""
+    feature_name = "blue"
+    type_ = "BLUE"
+
+    control = {
+        "type": type_,
+        "label": "blue",
+        "description": "Blue",
+        "style": {
+            "color": "blue",
+        }
+    }
+
+    features.register_editor_plugin(
+        "draftail", feature_name, draftail_features.InlineStyleFeature(control)
+    )
+
+    db_conversion = {
+        "from_database_format": {'span[style="color: blue"]': InlineStyleElementHandler(type_)},
+        "to_database_format": {"style_map": {type_: 'span style="color: blue"'}},
+    }
+
+    features.register_converter_rule("contentstate", feature_name, db_conversion)
+    
+    features.default_features.append(feature_name)
+
 # Underline style
 @hooks.register("register_rich_text_features")
 def register_underline_styling(features):
-    """Add inderline style to richtext editor"""
+    """Add underline style to richtext editor"""
     feature_name = "underline"
     type_ = "UNDERLINE"
 

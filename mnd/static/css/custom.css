@@ -10,7 +10,7 @@
   font-size: 1.2em !important;
 }
 
-/* Solutio for centering span inside div from */
+/* Solution for centering span inside div from */
 /* https://stackoverflow.com/questions/16489937/how-do-i-horizontally-center-a-span-element-inside-a-div */
 .Draftail-block--center span {
   display: table;
