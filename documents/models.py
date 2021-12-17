@@ -1,12 +1,13 @@
 from django.db import models
 from django import forms
 from django.db.models.expressions import F
+from django.db.models.fields import related
 
-from modelcluster.fields import ParentalManyToManyField
-from wagtail.core.models import Page
+from modelcluster.fields import ParentalManyToManyField, ParentalKey
+from wagtail.core.models import Page, Orderable
 from wagtail.core import blocks
 from wagtail.core.fields import RichTextField, StreamField
-from wagtail.admin.edit_handlers import FieldPanel, StreamFieldPanel, MultiFieldPanel
+from wagtail.admin.edit_handlers import FieldPanel, StreamFieldPanel, MultiFieldPanel, InlinePanel
 from wagtail.contrib.typed_table_block.blocks import TypedTableBlock
 from wagtail.images.blocks import ImageChooserBlock
 from wagtail.snippets.models import register_snippet
@@ -40,6 +41,26 @@ class Caption(blocks.StructBlock):
 
     class Meta:
         template = 'streams/caption.html'
+
+class SourceLink(models.Model):
+    source_link = RichTextField(
+        blank=True,
+        features=['italic', 'bold', 'link',],
+    )
+
+    panels = [
+        FieldPanel('source_link'),
+    ]
+
+    class Meta:
+        abstract = True
+
+class DocumentPageSourceLinks(Orderable, SourceLink):
+    page = ParentalKey(
+        'documents.DocumentPage',
+        on_delete=models.CASCADE,
+        related_name='source_link'
+    )
 
 class DocumentPage(Page):
     template  = "documents/document.html"
@@ -105,8 +126,8 @@ class DocumentPage(Page):
         features=full_features_list,
     )
     credit = models.CharField(max_length=100, blank=True)
-    repository = models.CharField(max_length=100, blank=True)
-    repository_link = models.URLField(null=True, blank=True)
+    # repository = models.CharField(max_length=100, blank=True)
+    # repository_link = models.URLField(null=True, blank=True)
     search_term = models.CharField(max_length=100, blank=True)
     source_library = models.CharField(max_length=100, blank=True)
     categories = ParentalManyToManyField(
@@ -131,8 +152,8 @@ class DocumentPage(Page):
         StreamFieldPanel("notes"),
         FieldPanel("bibliography"),
         FieldPanel("credit"),
-        FieldPanel("repository"),
-        FieldPanel("repository_link"),
+        # FieldPanel("repository"),
+        InlinePanel("source_link", label="Source Links"),
         FieldPanel("search_term"),
         FieldPanel("source_library"),
         MultiFieldPanel(

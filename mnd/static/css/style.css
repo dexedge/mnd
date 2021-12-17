@@ -360,9 +360,17 @@ blockquote a:visited,
     color: #6d22aa !important;
 }
 
-/* p.blockindent {
-    margin-right: 25px;
-} */
+.links {
+    margin-bottom: 1rem;
+}
+
+.links p {
+    display: inline;
+}
+
+.links p:not(:first-child) {
+    margin-left: 0 !important;
+}
 
 p.center-paragraph {
     text-align: center;

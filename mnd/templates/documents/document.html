@@ -51,9 +51,14 @@
         <hr>
         <div class="credits">
             <p><em>Credit</em>: {{ page.credit }}</p>
-            <p><em>Link</em>: 
-                <a href="{{ page.repository_link }}">{{ page.repository }}</a>
-            </p>
+            <div class="links">
+                <p><em>Link(s)</em>:
+                    {% for item in page.source_link.all %}
+                        {{ item.source_link |richtext }}{% if not forloop.last %};{% endif %}
+                    {% endfor %}
+                    {% comment %} <a href="{{ page.repository_link }}">{{ page.repository }}</a> {% endcomment %}
+                </p>
+            </div>
             <p><em>Search Term</em>: {{ page.search_term }}</p>
             <p><em>Source Library</em>: {{ page.source_library }}</p>
             <p><em>Categories</em>: 
