@@ -37,7 +37,7 @@
     {% wagtailuserbar %}
 
     <!-- Sidebar -->
-    {% cache 259200 sidebar %}
+    {% comment %} {% cache 259200 sidebar %} {% endcomment %}
     <nav id="sidebar" style="background-image: url({% static 'img/background-3-small.jpg' %});">
         <ul class="list-unstyled components">
             <li>
@@ -49,9 +49,10 @@
             <li>
                 <a href="/methods/">Methods</a>
             </li>
-            
+            <li>
+                <a href="#">News</a>
+            </li>
             <span>Documents</span>
-                {% comment %} <a href="#pageSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Documents</a> {% endcomment %}
             <li>   
                 <ul class="list-unstyled">
                     <li>
@@ -84,9 +85,6 @@
                 <a href="/citation/">Citation</a>
             </li>
             <li>
-                <a href="#">News</a>
-            </li>
-            <li>
                 <a href="/contact/">Contact</a>
             </li>
             <li>
@@ -103,7 +101,7 @@
     <button type="button" id="sidebarCollapse" class="btn btn-outline-dark">
         <i class="bi bi-list"></i>
     </button>
-    {% endcache %}
+    {% comment %} {% endcache %} {% endcomment %}
     <div id="content">
         <div class="container-fluid">
             {% cache 259200 logo %}
