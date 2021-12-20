@@ -106,8 +106,6 @@ class DocumentPage(Page):
         features=full_features_list,
     )
     credit = models.CharField(max_length=100, blank=True)
-    # repository = models.CharField(max_length=100, blank=True)
-    # repository_link = models.URLField(null=True, blank=True)
     source_link = RichTextField(
         blank=True,
         features=['italic', 'bold', 'link',],

@@ -362,6 +362,9 @@ blockquote a:visited,
 
 .links {
     margin-bottom: 1rem;
+    /* Hanging indent */
+    padding-left: 5rem;
+    text-indent: -5rem;
 }
 
 .links p {
