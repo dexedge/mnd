@@ -42,26 +42,6 @@ class Caption(blocks.StructBlock):
     class Meta:
         template = 'streams/caption.html'
 
-class SourceLink(models.Model):
-    source_link = RichTextField(
-        blank=True,
-        features=['italic', 'bold', 'link',],
-    )
-
-    panels = [
-        FieldPanel('source_link'),
-    ]
-
-    class Meta:
-        abstract = True
-
-class DocumentPageSourceLinks(Orderable, SourceLink):
-    page = ParentalKey(
-        'documents.DocumentPage',
-        on_delete=models.CASCADE,
-        related_name='source_link'
-    )
-
 class DocumentPage(Page):
     template  = "documents/document.html"
     parent_page_types = ["top.IndexPage"]
@@ -128,8 +108,15 @@ class DocumentPage(Page):
     credit = models.CharField(max_length=100, blank=True)
     # repository = models.CharField(max_length=100, blank=True)
     # repository_link = models.URLField(null=True, blank=True)
+    source_link = RichTextField(
+        blank=True,
+        features=['italic', 'bold', 'link',],
+    )
     search_term = models.CharField(max_length=100, blank=True)
-    source_library = models.CharField(max_length=100, blank=True)
+    source_library = RichTextField(
+        blank=True,
+        features=['italic', 'bold', 'link',],
+    )
     categories = ParentalManyToManyField(
         "documents.DocumentCategory", blank=True
     )
@@ -152,8 +139,8 @@ class DocumentPage(Page):
         StreamFieldPanel("notes"),
         FieldPanel("bibliography"),
         FieldPanel("credit"),
-        # FieldPanel("repository"),
-        InlinePanel("source_link", label="Source Links"),
+        # InlinePanel("source_link", label="Source Links"),
+        FieldPanel('source_link'),
         FieldPanel("search_term"),
         FieldPanel("source_library"),
         MultiFieldPanel(
@@ -210,3 +197,24 @@ class DocumentCategory(models.Model):
 
     def __str__(self):
         return self.name
+
+# DEPRECATED
+# class SourceLink(models.Model):
+#     source_link = RichTextField(
+#         blank=True,
+#         features=['italic', 'bold', 'link',],
+#     )
+
+#     panels = [
+#         FieldPanel('source_link'),
+#     ]
+
+#     class Meta:
+#         abstract = True
+
+# class DocumentPageSourceLinks(Orderable, SourceLink):
+#     page = ParentalKey(
+#         'documents.DocumentPage',
+#         on_delete=models.CASCADE,
+#         related_name='source_link'
+#     )

@@ -52,13 +52,14 @@
             <p><em>Credit</em>: {{ page.credit }}</p>
             <div class="links">
                 <p><em>Link(s)</em>:
-                    {% for item in page.source_link.all %}
-                        {{ item.source_link |richtext }}{% if not forloop.last %};{% endif %}
-                    {% endfor %}
+                    {{ page.source_link|richtext }}
                 </p>
             </div>
             <p><em>Search Term</em>: {{ page.search_term }}</p>
-            <p><em>Source Library</em>: {{ page.source_library }}</p>
+            <div class="links">
+                <p><em>Source Library</em>: {{ page.source_library|richtext }}
+                </p>
+            </div> 
             <p><em>Categories</em>: 
                 {% for cat in self.categories.all%}
                     {{ cat.name }}{% if not forloop.last %}, {% endif %}
