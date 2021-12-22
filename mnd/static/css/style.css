@@ -481,6 +481,9 @@ img {
     width: auto;
     max-width: 50%;
     margin-bottom: 5px;
+    border-style: solid;   
+    border-width: 1px;   
+    border-color: #ccc;
 }
 
 .centered-images {
@@ -490,6 +493,7 @@ img {
 
 .centered-text p {
     text-align: center;
+    min-width: 678px;
 }
 
 .annotation {
