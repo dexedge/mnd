@@ -10,13 +10,10 @@
   font-size: 1.2em !important;
 }
 
-/* Solution for centering span inside div from */
-/* https://stackoverflow.com/questions/16489937/how-do-i-horizontally-center-a-span-element-inside-a-div */
-.Draftail-block--center span {
-  display: table;
-  margin: 0 auto;
-}
-
 .fieldname-year_or_kv input {
   font-weight: bold;
+}
+
+.centered div{
+  text-align: center !important;
 }

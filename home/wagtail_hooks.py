@@ -243,10 +243,11 @@ def register_center_feature(features):
         "label": "☰",
         "description": "Center paragraph",
         "element": "div",
-        "style": {
-            "display": "block",
-            "text-align": "center",
-        }
+        "class": "center",
+        # "style": {
+        #     "display": "block",
+        #     "text-align": "center",
+        # }
     }
 
     features.register_editor_plugin(
@@ -254,11 +255,11 @@ def register_center_feature(features):
     )
 
     db_conversion = {
-        "from_database_format": {'p[class=center-paragraph]': BlockElementHandler(type_)},
+        "from_database_format": {'div[class=center-paragraph]': BlockElementHandler(type_)},
         "to_database_format": {
             "block_map": {
                 type_: {
-                    "element": "p",
+                    "element": "div",
                     "props": {"class": "center-paragraph"},
                 }
             }

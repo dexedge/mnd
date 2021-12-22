@@ -461,6 +461,7 @@ img {
 
 .left {
     float: left;
+    width: auto;
     margin: 0 20px 10px 10px;
     border-style: solid;   
     border-width: 1px;   
@@ -470,9 +471,25 @@ img {
 .center {
     display: block;
     margin: auto;
+    margin-bottom: 5px;
     border-style: solid;   
     border-width: 1px;   
     border-color: #ccc;
+}
+
+.smallcenter {
+    width: auto;
+    max-width: 50%;
+    margin-bottom: 5px;
+}
+
+.centered-images {
+    display: flex;
+    justify-content: center;
+}
+
+.centered-text p {
+    text-align: center;
 }
 
 .annotation {

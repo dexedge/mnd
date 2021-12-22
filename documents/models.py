@@ -37,10 +37,30 @@ class Heading(blocks.StructBlock):
         template = 'streams/heading.html'
 
 class Caption(blocks.StructBlock):
-    caption = blocks.RichTextBlock(features=['italic', 'bold', 'strikethrough', 'link'])
+    caption = blocks.RichTextBlock(
+        features=['italic', 'bold', 'strikethrough', 'link'],
+        form_classname='centered'
+        )
 
     class Meta:
         template = 'streams/caption.html'
+
+class Centered(blocks.StructBlock):
+    text = blocks.RichTextBlock(
+        features=['italic', 'bold', 'strikethrough', 'link'],
+        form_classname='centered'
+    )
+
+    class Meta:
+        template = 'streams/centered.html'
+
+class MultipleImages(blocks.StructBlock):
+    images = blocks.RichTextBlock(
+        features=['image']
+    )
+
+    class Meta:
+        template = 'streams/images.html'
 
 class DocumentPage(Page):
     template  = "documents/document.html"
@@ -76,7 +96,7 @@ class DocumentPage(Page):
             features=full_features_list,
         )),
         ("heading", Heading(icon='title')),
-        ("caption", Caption()),
+        ("caption", Caption(icon='edit')),
         ("table", TypedTableBlock([
                 ('text', blocks.CharBlock(required=False)),
                 ('numeric', blocks.FloatBlock(required=False)),
@@ -85,6 +105,8 @@ class DocumentPage(Page):
                     features=['italic', 'bold', 'strikethrough', 'red','link', 'h2'],)),
             ],
         )),
+        ('centered_text', Centered(icon="edit")),
+        ('images', MultipleImages(icon='image')),
     ], null=True, blank=True)
     
     notes = StreamField([
@@ -169,7 +191,6 @@ class DocumentPage(Page):
             return next_sibling.url
         elif next_parent_first:
             return next_parent_first.url
-            
     
 @register_snippet
 class DocumentCategory(models.Model):
