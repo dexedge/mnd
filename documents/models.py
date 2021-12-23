@@ -3,6 +3,7 @@ from django import forms
 from django.db.models.expressions import F
 from django.db.models.fields import related
 from datetime import datetime
+import re
 
 from modelcluster.fields import ParentalManyToManyField, ParentalKey
 from wagtail.core.models import Page, Orderable
@@ -151,10 +152,6 @@ class DocumentPage(Page):
         "documents.DocumentCategory", blank=True
     )
     author = models.CharField(max_length=200, blank=True)
-    citation_title = models.TextField(
-        help_text="Field allows HTML tagging",
-        blank=True
-    )
     first_published = models.DateField(null=True, blank=True)
     updated = models.DateField(null=True, blank=True)
     
@@ -181,7 +178,6 @@ class DocumentPage(Page):
             heading="Categories"
         ),
         FieldPanel("author"),
-        FieldPanel("citation_title"),
         FieldPanel("first_published"),
         FieldPanel("updated"),
     ]
@@ -197,6 +193,13 @@ class DocumentPage(Page):
             return self.date.strftime("%b %Y")
         else:
             return self.date.strftime("%Y")
+
+    # Strip <h1> tag from document_title
+    @property
+    def clean_title(self):
+        temp = self.document_title
+        temp = re.findall(r'>(.*?)</h1>', temp)[0]
+        return temp
 
     def prev(self):
         prev_sibling = self.get_prev_sibling()
