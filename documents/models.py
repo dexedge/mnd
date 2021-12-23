@@ -2,12 +2,13 @@ from django.db import models
 from django import forms
 from django.db.models.expressions import F
 from django.db.models.fields import related
+from datetime import datetime
 
 from modelcluster.fields import ParentalManyToManyField, ParentalKey
 from wagtail.core.models import Page, Orderable
 from wagtail.core import blocks
 from wagtail.core.fields import RichTextField, StreamField
-from wagtail.admin.edit_handlers import FieldPanel, StreamFieldPanel, MultiFieldPanel, InlinePanel
+from wagtail.admin.edit_handlers import FieldPanel, StreamFieldPanel, MultiFieldPanel, FieldRowPanel
 from wagtail.contrib.typed_table_block.blocks import TypedTableBlock
 from wagtail.images.blocks import ImageChooserBlock
 from wagtail.snippets.models import register_snippet
@@ -66,7 +67,16 @@ class DocumentPage(Page):
     template  = "documents/document.html"
     parent_page_types = ["top.IndexPage"]
     
-    date = models.DateField("Date", null=True, blank=True)
+    date = models.DateField("Date", null=True)
+    date_precision = models.CharField(
+        max_length=10,
+        
+        choices=(
+            ("full", "Full"),
+            ("month", "Month"),
+            ("year", "Year")
+        ), default="full", null=True
+    )
     document_title = RichTextField(
         blank=True,
         features=['italic', 'underline', 'h1'],
@@ -149,7 +159,10 @@ class DocumentPage(Page):
     updated = models.DateField(null=True, blank=True)
     
     content_panels = Page.content_panels + [
-        FieldPanel("date"),
+        MultiFieldPanel([
+            FieldPanel("date"),
+            FieldPanel("date_precision", widget=forms.RadioSelect()),
+        ], heading="Date"),
         FieldPanel("document_title"),
         FieldPanel("source"),
         StreamFieldPanel("source_image"),
@@ -176,6 +189,15 @@ class DocumentPage(Page):
     class Meta:
         ordering = ("date",)
     
+    @property
+    def display_date(self):
+        if self.date_precision=="full":
+            return self.date.strftime("%-d %b %Y")
+        elif self.date_precision=="month":
+            return self.date.strftime("%b %Y")
+        else:
+            return self.date.strftime("%Y")
+
     def prev(self):
         prev_sibling = self.get_prev_sibling()
         prev_parent_last = self.get_parent().get_prev_sibling().get_children().last()
