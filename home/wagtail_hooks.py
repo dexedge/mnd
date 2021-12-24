@@ -101,6 +101,35 @@ def register_blue_text(features):
     
     features.default_features.append(feature_name)
 
+# Green text
+@hooks.register("register_rich_text_features")
+def register_green_text(features):
+    """Add green color to richtext editor"""
+    feature_name = "green"
+    type_ = "GREEN"
+
+    control = {
+        "type": type_,
+        "label": "green",
+        "description": "Green",
+        "style": {
+            "color": "#00b800",
+        }
+    }
+
+    features.register_editor_plugin(
+        "draftail", feature_name, draftail_features.InlineStyleFeature(control)
+    )
+
+    db_conversion = {
+        "from_database_format": {'span[style="color: #00b800"]': InlineStyleElementHandler(type_)},
+        "to_database_format": {"style_map": {type_: 'span style="color: #00b800"'}},
+    }
+
+    features.register_converter_rule("contentstate", feature_name, db_conversion)
+    
+    features.default_features.append(feature_name)
+
 # Underline style
 @hooks.register("register_rich_text_features")
 def register_underline_styling(features):

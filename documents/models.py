@@ -29,7 +29,7 @@ from wagtail.snippets.models import register_snippet
 #     'autoColumnSize': False,
 # }
 
-full_features_list = ['h1', 'h2','h3', 'bold', 'italic', 'underline', 'strikethrough', 'small', 'red','blue', 'blockquote', 'blockindent', 'doubleindent', 'center', 'superscript', 'subscript', 'ul', 'image', 'link', 'hr', 'embed']
+full_features_list = ['h1', 'h2','h3', 'bold', 'italic', 'underline', 'strikethrough', 'small', 'red','blue', 'green', 'blockquote', 'blockindent', 'doubleindent', 'center', 'superscript', 'subscript', 'ul', 'image', 'link', 'hr', 'embed']
 
 class Heading(blocks.StructBlock):
     heading = blocks.CharBlock(classname='full-title')
@@ -80,8 +80,7 @@ class DocumentPage(Page):
     )
     document_title = RichTextField(
         blank=True,
-        features=['italic', 'underline', 'h1'],
-        help_text="Field must be manually marked as h1",
+        features=['italic', 'underline'],
     )
     source = RichTextField(
         blank=True,
@@ -160,7 +159,7 @@ class DocumentPage(Page):
             FieldPanel("date"),
             FieldPanel("date_precision", widget=forms.RadioSelect()),
         ], heading="Date"),
-        FieldPanel("document_title"),
+        FieldPanel("document_title", classname="title"),
         FieldPanel("source"),
         StreamFieldPanel("source_image"),
         FieldPanel("transcription"),
@@ -198,7 +197,7 @@ class DocumentPage(Page):
     @property
     def clean_title(self):
         temp = self.document_title
-        temp = re.findall(r'>(.*?)</h1>', temp)[0]
+        temp = re.findall(r'>(.*?)</p>', temp)[0]
         return temp
 
     def prev(self):
