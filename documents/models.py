@@ -1,36 +1,20 @@
 from django.db import models
 from django import forms
-from django.db.models.expressions import F
-from django.db.models.fields import related
-from datetime import datetime
 import re
 
-from modelcluster.fields import ParentalManyToManyField, ParentalKey
-from wagtail.core.models import Page, Orderable
+from modelcluster.fields import ParentalManyToManyField
+from wagtail.core.models import Page
 from wagtail.core import blocks
 from wagtail.core.fields import RichTextField, StreamField
-from wagtail.admin.edit_handlers import FieldPanel, StreamFieldPanel, MultiFieldPanel, FieldRowPanel
+from wagtail.admin.edit_handlers import FieldPanel, StreamFieldPanel, MultiFieldPanel
 from wagtail.contrib.typed_table_block.blocks import TypedTableBlock
 from wagtail.images.blocks import ImageChooserBlock
 from wagtail.snippets.models import register_snippet
 
-# new_table_options = {
-#     'minSpareRows': 0,
-#     'startRows': 2,
-#     'startCols': 3,
-#     'colHeaders': False,
-#     'rowHeaders': False,
-#     'contextMenu': True,
-#     'editor': 'text',
-#     'stretchH': 'all',
-#     'height': 216,
-#     'language': 'en',
-#     'renderer': 'html',
-#     'autoColumnSize': False,
-# }
-
+# Features list for Draftail editor
 full_features_list = ['h1', 'h2','h3', 'bold', 'italic', 'underline', 'strikethrough', 'small', 'red','blue', 'green', 'blockquote', 'blockindent', 'doubleindent', 'center', 'superscript', 'subscript', 'ul', 'image', 'link', 'hr', 'embed']
 
+# Custom StructBlocks
 class Heading(blocks.StructBlock):
     heading = blocks.CharBlock(classname='full-title')
     link_id = blocks.CharBlock(help_text='For making hyperlinks to this heading')
@@ -64,6 +48,7 @@ class MultipleImages(blocks.StructBlock):
     class Meta:
         template = 'streams/images.html'
 
+# Document Page
 class DocumentPage(Page):
     template  = "documents/document.html"
     parent_page_types = ["top.IndexPage"]
