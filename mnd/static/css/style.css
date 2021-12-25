@@ -80,6 +80,10 @@ p.doubleindent {
     line-height: 1rem !important;
 }
 
+.indent {
+    margin-left: 4rem;   
+}
+
 /* "Updated" dates on top-level pages */
 p#updated {                 
     font-size: 0.95rem;

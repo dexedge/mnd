@@ -7,38 +7,38 @@
 {% block content %}
     <div class="text index-page">
         <h1>{{ page.title }}</h1>
-        <h3>Biography</h3>
+        <h3 class="indent">Biography</h3>
             {% for doc in biography%}
                 <div class="row listing">
-                    <div class="col-2 date"><a href="{{ doc.url }}">{{ doc.display_date }}</a></div>
+                    <div class="col-3 date"><a href="{{ doc.url }}">{{ doc.display_date }}</a></div>
                     <div class="col-8">{{doc.clean_title|safe }}</div>
                 </div>
             {% endfor %}
-        <h3>Reception</h3>
+        <h3 class="indent">Reception</h3>
             {% for doc in reception %}
                 <div class="row listing">
-                    <div class="col-2 date"><a href="{{ doc.url }}">{{ doc.display_date }}</a></div>
+                    <div class="col-3 date"><a href="{{ doc.url }}">{{ doc.display_date }}</a></div>
                     <div class="col-8">{{doc.clean_title|safe }}</div>
                 </div>
             {% endfor %}
-        <h3>Advertisements</h3>
+        <h3 class="indent">Advertisements</h3>
             {% for doc in advertisement %}
                 <div class="row listing">
-                    <div class="col-2 date"><a href="{{ doc.url }}">{{ doc.display_date }}</a></div>
+                    <div class="col-3 date"><a href="{{ doc.url }}">{{ doc.display_date }}</a></div>
                     <div class="col-8">{{doc.clean_title|safe }}</div>
                 </div>
             {% endfor %}
-        <h3>Mozart in Literature</h3>
+        <h3 class="indent">Mozart in Literature</h3>
             {% for doc in literature %}
                 <div class="row listing">
-                    <div class="col-2 date"><a href="{{ doc.url }}">{{ doc.display_date }}</a></div>
+                    <div class="col-3 date"><a href="{{ doc.url }}">{{ doc.display_date }}</a></div>
                     <div class="col-8">{{doc.clean_title|safe }}</div>
                 </div>
             {% endfor %}
-        <h3>Addenda</h3>
+        <h3 class="indent">Addenda</h3>
             {% for doc in addenda %}
                 <div class="row listing">
-                    <div class="col-2 date"><a href="{{ doc.url }}">{{ doc.display_date }}</a></div>
+                    <div class="col-3 date"><a href="{{ doc.url }}">{{ doc.display_date }}</a></div>
                     <div class="col-8">{{doc.clean_title|safe }}</div>
                 </div>
             {% endfor %}
