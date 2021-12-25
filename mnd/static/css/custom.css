@@ -17,3 +17,8 @@
 .centered div{
   text-align: center !important;
 }
+
+.source .Draftail-block--unstyled{
+  font-weight: bold;
+  font-size: 1.2em;
+}

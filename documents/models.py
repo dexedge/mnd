@@ -84,8 +84,7 @@ class DocumentPage(Page):
     )
     source = RichTextField(
         blank=True,
-        features=['italic', 'underline', 'h2'],
-        help_text="Field must be manually marked as h2",
+        features=['italic', 'underline'],
     )
     source_image = StreamField([
         ('large_image', ImageChooserBlock(
@@ -160,7 +159,7 @@ class DocumentPage(Page):
             FieldPanel("date_precision", widget=forms.RadioSelect()),
         ], heading="Date"),
         FieldPanel("document_title", classname="title"),
-        FieldPanel("source"),
+        FieldPanel("source", classname="source"),
         StreamFieldPanel("source_image"),
         FieldPanel("transcription"),
         FieldPanel("translation"),
@@ -193,10 +192,17 @@ class DocumentPage(Page):
         else:
             return self.date.strftime("%Y")
 
-    # Strip <h1> tag from document_title
+    # Strip <p> tag from document_title
     @property
     def clean_title(self):
         temp = self.document_title
+        temp = re.findall(r'>(.*?)</p>', temp)[0]
+        return temp
+    
+    # Strip <p> tag from source
+    @property
+    def clean_source(self):
+        temp = self.source
         temp = re.findall(r'>(.*?)</p>', temp)[0]
         return temp
 
