@@ -60,8 +60,15 @@ class DocumentPage(Page):
         choices=(
             ("full", "Full"),
             ("month", "Month"),
-            ("year", "Year")
+            ("year", "Year"),
+            ("custom", "Custom")
         ), default="full", null=True
+    )
+    date_custom = models.CharField(
+        max_length=100,
+        help_text="Use only for date ranges",
+        blank=True,
+        null=True
     )
     document_title = RichTextField(
         blank=True,
@@ -142,6 +149,7 @@ class DocumentPage(Page):
         MultiFieldPanel([
             FieldPanel("date"),
             FieldPanel("date_precision", widget=forms.RadioSelect()),
+            FieldPanel("date_custom"),
         ], heading="Date"),
         FieldPanel("document_title", classname="title"),
         FieldPanel("source", classname="source"),
@@ -152,7 +160,6 @@ class DocumentPage(Page):
         StreamFieldPanel("notes"),
         FieldPanel("bibliography"),
         FieldPanel("credit"),
-        # InlinePanel("source_link", label="Source Links"),
         FieldPanel('source_link'),
         FieldPanel("search_term"),
         FieldPanel("source_library"),
@@ -174,9 +181,14 @@ class DocumentPage(Page):
             return self.date.strftime("%-d %b %Y")
         elif self.date_precision=="month":
             return self.date.strftime("%b %Y")
-        else:
+        elif self.date_precision=="year":
             return self.date.strftime("%Y")
-
+        else:
+            if self.date_custom:
+                return self.date_custom
+            else:
+                return "NO DATE"
+    
     # Strip <p> tag from document_title
     @property
     def clean_title(self):
