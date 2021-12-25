@@ -61,7 +61,6 @@ class DocumentPage(Page):
     date = models.DateField("Date", null=True)
     date_precision = models.CharField(
         max_length=10,
-        
         choices=(
             ("full", "Full"),
             ("month", "Month"),
@@ -102,8 +101,8 @@ class DocumentPage(Page):
             features=full_features_list,
         )),
         ("heading", Heading(icon='title')),
-        ('images', ImagesAndCaption(icon='image')),
-        ("caption", Caption(icon='edit')),
+        ('images', ImagesAndCaption(icon='image', label="Images with Caption")),
+        ("caption", Caption(icon='edit', label="Generic Caption")),
         ("table", TypedTableBlock([
                 ('text', blocks.CharBlock(required=False)),
                 ('numeric', blocks.FloatBlock(required=False)),
