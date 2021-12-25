@@ -1,3 +1,8 @@
 <div class='centered-images'>
     {{ self.images }}
 </div>
+{% if self.caption %}
+    <div class="caption">
+        {{ self.caption }}
+    </div>
+{% endif %}

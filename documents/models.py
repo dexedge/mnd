@@ -31,6 +31,19 @@ class Caption(blocks.StructBlock):
     class Meta:
         template = 'streams/caption.html'
 
+class ImagesAndCaption(blocks.StructBlock):
+    images = blocks.RichTextBlock(
+        features=['image']
+    )
+    caption = blocks.RichTextBlock(
+        features=['italic', 'bold', 'strikethrough', 'link'],
+        form_classname='centered',
+        required=False
+        )
+
+    class Meta:
+        template = 'streams/images.html'
+
 class Centered(blocks.StructBlock):
     text = blocks.RichTextBlock(
         features=['italic', 'bold', 'strikethrough', 'link'],
@@ -39,14 +52,6 @@ class Centered(blocks.StructBlock):
 
     class Meta:
         template = 'streams/centered.html'
-
-class MultipleImages(blocks.StructBlock):
-    images = blocks.RichTextBlock(
-        features=['image']
-    )
-
-    class Meta:
-        template = 'streams/images.html'
 
 # Document Page
 class DocumentPage(Page):
@@ -97,6 +102,7 @@ class DocumentPage(Page):
             features=full_features_list,
         )),
         ("heading", Heading(icon='title')),
+        ('images', ImagesAndCaption(icon='image')),
         ("caption", Caption(icon='edit')),
         ("table", TypedTableBlock([
                 ('text', blocks.CharBlock(required=False)),
@@ -107,7 +113,6 @@ class DocumentPage(Page):
             ],
         )),
         ('centered_text', Centered(icon="edit")),
-        ('images', MultipleImages(icon='image')),
     ], null=True, blank=True)
     
     notes = StreamField([
