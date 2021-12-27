@@ -92,6 +92,8 @@ p#updated {
 }
 
 hr {
+    max-width: 768px;
+    margin-left: 25px;
     margin-top: 30px !important;
     margin-bottom: 10px;
 }
@@ -299,11 +301,10 @@ b {
     min-width: 1000px;
 }
 
-.text {
+.text{
     max-width: 768px;
 }
-.text p, hr {
-    max-width: 768px;
+.text p {
     margin-top: 10px;
     margin-left: 25px;
     font-size: 1.2rem;
@@ -417,11 +418,11 @@ p.center-paragraph {
 }
 
 .endmatter {
-    max-width: 768px;
     font-size: 0.75rem;
 }
 
 .endmatter p, table {
+    max-width: 768px;
     margin-left: 25px;
     line-height: 1.4;
 }

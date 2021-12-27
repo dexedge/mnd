@@ -22,3 +22,7 @@
   font-weight: bold;
   font-size: 1.2em;
 }
+
+.fieldname-heading input {
+  font-weight: bold;
+}
