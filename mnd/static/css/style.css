@@ -161,10 +161,16 @@ div.block-large_image:first-of-type {
 .post-heading {
     font-weight: bold;
 }
+.post-image {
+    margin-left: 25px;
+}
 
-.post-image,
 .post-description {
     margin-left: 75px !important;
+}
+
+.news-image {
+    margin-left: 75px;
 }
 
 #title {
@@ -507,11 +513,10 @@ img {
     border-color: #ccc;
 }
 
-/* .centered-images {
-    margin-left: 50px;
+.centered-images {
     display: flex;
     justify-content: center;
-} */
+}
 
 .centered-text p {
     text-align: center;

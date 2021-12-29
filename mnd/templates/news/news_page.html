@@ -6,23 +6,9 @@
     <div class="text">
         <h1>{{ page.title }}</h1>
         <p class="post-date">Posted: {{ page.date|date:'D, j M Y'}}</p>
-        <div>{{ page.images }}</div>
+        <div class="post-image">{{ page.images }}</div>
         {% for block in page.body %}
-            {% comment %} {% if block.block_type == "item" %}
-                <div class="row news">
-                    <div class="col-2"><a href="{{ block.value.specific.url }}">{{ block.value.specific.display_date }}</a></div>
-                    <div class="col-10">{{ block.value.specific.clean_title }}</div>
-                </div>
-            {% elif block.block_type == "description" %}
-                <div class="row news">
-                    <div class="col-2"></div>
-                    <div class="col-10">
-                        {{ block|safe }}
-                    </div>
-                </div>
-            {% else %} {% endcomment %}
-                {{ block|safe }}
-            {% comment %} {% endif %} {% endcomment %}
+            {{ block|safe }}
         {% endfor %}
         <p><a href="{{ page.get_parent.url }}">Return to News</a></p>
     </div>

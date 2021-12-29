@@ -11,7 +11,7 @@
         <div class="text">
             <p class="post-heading"><a href="{% pageurl post %}">{{ post.specific.date|date:'D, j M Y' }}</a>. {{ post.title }}</p>
             {% if post.specific.images %}
-                <div class="post-image">{{ post.specific.images }}</div>
+                <div class="news-image">{{ post.specific.images }}</div>
             {% endif %}
             <p class="post-description">
                 {{ post.first_paragraph }}
