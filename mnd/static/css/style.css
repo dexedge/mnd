@@ -12,7 +12,7 @@
 
 body {
     font-family: 'PT Sans', sans-serif;
-    background: #f6f7f6;
+    background: #f6f7f6; 
     color: #003965;
 }
 
@@ -151,6 +151,14 @@ div.block-large_image:first-of-type {
 
 .citation {
     margin-left: 3rem !important;
+}
+
+.post {
+    margin-left: 50px;
+}
+
+.post-heading {
+    font-weight: bold;
 }
 
 #title {
@@ -351,7 +359,8 @@ td>p {
 
 p a:link, 
 blockquote a:link,
-.date>a:link {
+.date>a:link,
+.news a:link {
     text-decoration: none;
     /* color: #003fb6 !important; */
     color: #0046c9 !important;
@@ -359,7 +368,8 @@ blockquote a:link,
 
 p a:visited, 
 blockquote a:visited,
-.date>a:visited{
+.date>a:visited,
+.news a:visited {
     color: #8229cb !important;
 }
 
@@ -492,6 +502,7 @@ img {
 }
 
 .centered-images {
+    margin-left: 25px;
     display: flex;
     justify-content: center;
 }
@@ -507,6 +518,26 @@ img {
     font-size: 1rem !important;
     text-indent: 0;
     margin: 0;
+}
+
+.post-date {
+    font-style: italic;
+    font-size: 1rem !important;
+}
+
+.news {
+    margin-left: 25px;
+    font-size: 1.2rem;
+    line-height: 1.35;
+    font-weight: bold;
+}
+
+.news div {
+    padding: 0;
+}
+
+.news p {
+    margin-left: 0;
 }
 
 footer {

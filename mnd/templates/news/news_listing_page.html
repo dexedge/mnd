@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+{% load wagtailimages_tags wagtailcore_tags %}
+{% load static %}
+
+{% block content %}
+    <div class="text">
+        <h1>{{ page.title }}</h1>
+        {{ page.intro|safe }}
+    </div>
+    {% for post in newspages %}
+        <div class="text">
+            <p class="post-heading"><a href="{% pageurl post %}">{{ post.specific.date|date:'D, j M Y' }}</a>. {{ post.title }}</p>
+            {% if post.specific.images %}
+                <div class="post">{{ post.specific.images }}</div>
+            {% endif %}
+            <div class="post">{{ post.specific.body|first|safe }}</div>
+        </div>
+    {% endfor %}
+{% endblock content %}
+
+
