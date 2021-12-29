@@ -11,11 +11,11 @@
         <div class="text">
             <p class="post-heading"><a href="{% pageurl post %}">{{ post.specific.date|date:'D, j M Y' }}</a>. {{ post.title }}</p>
             {% if post.specific.images %}
-                <div class="post">{{ post.specific.images }}</div>
+                <div class="post-image">{{ post.specific.images }}</div>
             {% endif %}
-            <div class="post">{{ post.specific.body|first|safe }}</div>
+            <p class="post-description">
+                {{ post.first_paragraph }}
+            </p>
         </div>
     {% endfor %}
 {% endblock content %}
-
-

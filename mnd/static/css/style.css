@@ -153,12 +153,18 @@ div.block-large_image:first-of-type {
     margin-left: 3rem !important;
 }
 
-.post {
-    margin-left: 50px;
+.post-date {
+    font-style: italic;
+    font-size: 1rem !important;
 }
 
 .post-heading {
     font-weight: bold;
+}
+
+.post-image,
+.post-description {
+    margin-left: 75px !important;
 }
 
 #title {
@@ -501,11 +507,11 @@ img {
     border-color: #ccc;
 }
 
-.centered-images {
-    margin-left: 25px;
+/* .centered-images {
+    margin-left: 50px;
     display: flex;
     justify-content: center;
-}
+} */
 
 .centered-text p {
     text-align: center;
@@ -518,11 +524,6 @@ img {
     font-size: 1rem !important;
     text-indent: 0;
     margin: 0;
-}
-
-.post-date {
-    font-style: italic;
-    font-size: 1rem !important;
 }
 
 .news {

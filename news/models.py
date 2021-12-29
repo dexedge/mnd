@@ -1,5 +1,6 @@
 from django.db import models
 from django.db.models.expressions import F
+import re
 
 from wagtail.core.models import Page
 from wagtail.core import blocks
@@ -52,3 +53,10 @@ class NewsPage(Page):
         StreamFieldPanel('images'),
         StreamFieldPanel('body')  
     ]
+
+    def first_paragraph(self):
+        for block in self.body:
+            if block.block_type == "text":
+                temp = str(block.value)
+                temp = re.findall(r'>(.*?)</p>', temp)[0]
+                return temp + " […]"
