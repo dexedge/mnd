@@ -24,7 +24,7 @@ class RssFeed(Feed):
 
     # return the URL of the article
     def item_link(self, item):
-        return item.full_url
+        return item.url
 
     # return the date the article was published
     def item_pubdate(self, item):
