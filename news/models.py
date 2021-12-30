@@ -60,4 +60,4 @@ class NewsPage(Page):
             if block.block_type == "text":
                 temp = str(block.value)
                 temp = re.findall(r'>(.*?)</p>', temp)[0]
-                return temp + " […]"
+                return temp + " <em>[…]</em>"

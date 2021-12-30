@@ -14,7 +14,7 @@
                 <div class="news-image">{{ post.specific.images }}</div>
             {% endif %}
             <p class="post-description">
-                {{ post.first_paragraph }}
+                {{ post.first_paragraph|safe }}
             </p>
         </div>
     {% endfor %}
