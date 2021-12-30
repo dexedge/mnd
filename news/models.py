@@ -36,6 +36,7 @@ class NewsItem(blocks.StructBlock):
 
 class NewsPage(Page):
     template = "news/news_page.html"
+    parent_page_types = ["NewsListingPage"]
     
     date = models.DateField("Post date")
     images = StreamField([
