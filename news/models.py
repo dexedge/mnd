@@ -61,3 +61,6 @@ class NewsPage(Page):
                 temp = str(block.value)
                 temp = re.findall(r'>(.*?)</p>', temp)[0]
                 return temp + " <em>[…]</em>"
+
+    def get_absolute_url(self):
+        return self.full_url
