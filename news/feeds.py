@@ -6,7 +6,7 @@ class RssFeed(Feed):
     title = "Mozart: New Documents news page"
     link = "/"
     description = "A news blog for announcements about new posts on Mozart: New Documents"
-    feed_url = '/rss/'
+    feed_url = 'https://mozartdocuments.herokuapp.com/rss'
     author_name = 'Dexter Edge'
     categories = ("mozart", "musicology", "18th-century", "music history")
 
@@ -36,5 +36,5 @@ class RssFeed(Feed):
 
 class AtomFeed(RssFeed):
     feed_type = Atom1Feed
-    link = "/atom/"
+    link = "https://mozartdocuments.herokuapp.com/atom/"
     subtitle = RssFeed.description
