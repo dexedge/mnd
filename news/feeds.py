@@ -20,7 +20,7 @@ class RssFeed(Feed):
 
     # return a short description of article
     def item_description(self, item):
-        return item.first_paragraph
+        return item.first_paragraph()
 
     # return the URL of the article
     def item_link(self, item):
