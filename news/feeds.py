@@ -3,9 +3,9 @@ from news.models import NewsPage
 from django.utils.feedgenerator import Atom1Feed
 
 class RssFeed(Feed):
-    title = "Mozart: New Documents news page"
+    title = "Mozart: New Documents"
     link = "https://mozartdocuments.herokuapp.com"
-    description = "A news blog for announcements about new posts on Mozart: New Documents"
+    description = "Announcements from Mozart: New Documents"
     feed_url = 'https://mozartdocuments.herokuapp.com/rss'
     author_name = 'Dexter Edge'
     categories = ("mozart", "musicology", "18th-century", "music history")
