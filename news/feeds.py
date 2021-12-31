@@ -4,7 +4,7 @@ from django.utils.feedgenerator import Atom1Feed
 
 class RssFeed(Feed):
     title = "Mozart: New Documents news page"
-    link = "/"
+    link = "https://mozartdocuments.herokuapp.com"
     description = "A news blog for announcements about new posts on Mozart: New Documents"
     feed_url = 'https://mozartdocuments.herokuapp.com/rss'
     author_name = 'Dexter Edge'
@@ -24,7 +24,7 @@ class RssFeed(Feed):
 
     # return the URL of the article
     def item_link(self, item):
-        return item.full_url
+        return item.url
 
     # return the date the article was published
     def item_pubdate(self, item):
