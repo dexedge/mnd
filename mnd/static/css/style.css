@@ -98,6 +98,10 @@ hr {
     margin-bottom: 10px;
 }
 
+hr.short {
+    margin-top: 10px;
+}
+
 .news + p {
     margin-bottom: 0;
 }
@@ -666,8 +670,8 @@ footer {
     flex-direction: column !important;
     justify-content: center !important;
     margin: 0 auto;
-    padding: clamp(17px, 5%, 20px) clamp(17px, 7%, 50px) !important;
-    max-width: 50% !important;
+    padding: clamp(17px, 5%, 20px) clamp(17px, 7%, 30px) !important;
+    max-width: 40% !important;
     border-radius: 6px !important;
     box-shadow: 0 5px 25px rgba(34, 60, 47, 0.25) !important;
 }
@@ -683,12 +687,12 @@ footer {
     margin-bottom: 0 !important;
 }
 .followit--follow-form-container[attr-a][attr-b][attr-c][attr-d][attr-e][attr-f] .form-preview .preview-input-field {
-    margin-top: 20px !important;
+    margin-top: 10px !important;
     width: 100% !important;
 }
 .followit--follow-form-container[attr-a][attr-b][attr-c][attr-d][attr-e][attr-f] .form-preview .preview-input-field input {
     width: 100% !important;
-    height: 40px !important;
+    height: 30px !important;
     border-radius: 6px !important;
     border: 2px solid #e9e8e8 !important;
     background-color: #fff !important;
@@ -721,7 +725,7 @@ footer {
 }
 .followit--follow-form-container[attr-a][attr-b][attr-c][attr-d][attr-e][attr-f] .form-preview .preview-submit-button button {
     width: 100% !important;
-    height: 40px !important;
+    height: 30px !important;
     border: 0 !important;
     border-radius: 6px !important;
     line-height: 0px !important;
@@ -732,7 +736,7 @@ footer {
 .followit--follow-form-container[attr-a][attr-b][attr-c][attr-d][attr-e][attr-f] .powered-by-line {
     color: #231f20 !important;
     font-family: "PT Sans" !important;
-    font-size: 1rem !important;
+    font-size: .75rem !important;
     font-weight: 400 !important;
     line-height: 25px !important;
     text-align: center !important;
