@@ -1,12 +1,14 @@
 from django.db import models
 from django import forms
+from django.utils.html import strip_tags
 import re
 
-from modelcluster.fields import ParentalManyToManyField
-from wagtail.core.models import Page
+from modelcluster.fields import ParentalManyToManyField, ParentalKey
+from wagtail.core.models import Page, Orderable
 from wagtail.core import blocks
 from wagtail.core.fields import RichTextField, StreamField
-from wagtail.admin.edit_handlers import FieldPanel, StreamFieldPanel, MultiFieldPanel
+from wagtail.admin.edit_handlers import FieldPanel, StreamFieldPanel, MultiFieldPanel, InlinePanel, FieldRowPanel
+from wagtail.snippets.edit_handlers import SnippetChooserPanel
 from wagtail.contrib.typed_table_block.blocks import TypedTableBlock
 from wagtail.images.blocks import ImageChooserBlock
 from wagtail.snippets.models import register_snippet
@@ -14,7 +16,9 @@ from wagtail.snippets.models import register_snippet
 # Features list for Draftail editor
 full_features_list = ['h1', 'h2','h3', 'bold', 'italic', 'underline', 'strikethrough', 'small', 'red','blue', 'green', 'blockquote', 'blockindent', 'doubleindent', 'center', 'superscript', 'subscript', 'ul', 'image', 'link', 'hr', 'embed']
 
-# Custom StructBlocks
+#######################
+# Custom StructBlocks #
+#######################
 class Heading(blocks.StructBlock):
     heading = blocks.CharBlock(classname='full-title')
     link_id = blocks.CharBlock(help_text='For making hyperlinks to this heading')
@@ -53,7 +57,10 @@ class Centered(blocks.StructBlock):
     class Meta:
         template = 'streams/centered.html'
 
-# Document Page
+#################
+# Document Page #
+#################
+
 class DocumentPage(Page):
     template  = "documents/document.html"
     parent_page_types = ["top.IndexPage"]
@@ -171,6 +178,9 @@ class DocumentPage(Page):
             [FieldPanel("categories", widget=forms.CheckboxSelectMultiple)],
             heading="Categories"
         ),
+        MultiFieldPanel([
+            InlinePanel("koechel_numbers", label="Köchel Number")
+        ], heading="Köchel Numbers"),
         FieldPanel("author"),
         FieldPanel("first_published"),
         FieldPanel("updated"),
@@ -223,6 +233,9 @@ class DocumentPage(Page):
         elif next_parent_first:
             return next_parent_first.url
     
+#####################
+# Document Category #
+#####################
 @register_snippet
 class DocumentCategory(models.Model):
     """Document category for a snippet."""
@@ -248,23 +261,55 @@ class DocumentCategory(models.Model):
     def __str__(self):
         return self.name
 
-# DEPRECATED
-# class SourceLink(models.Model):
-#     source_link = RichTextField(
-#         blank=True,
-#         features=['italic', 'bold', 'link',],
-#     )
+##################
+# Koechel Number #
+##################
+@register_snippet
+class KoechelNumber(models.Model):
+    koechel_display = models.CharField(max_length=25)
+    koechel_sortable = models.CharField(max_length=25)
+    koechel_alternate = models.CharField(
+        max_length=25, 
+        blank=True,
+        null=True)
+    koechel_title = RichTextField(
+        features=['bold', 'italic',],
+        blank=True, null=True)
 
-#     panels = [
-#         FieldPanel('source_link'),
-#     ]
+    panels = [
+        MultiFieldPanel([
+            FieldRowPanel([
+                FieldPanel('koechel_display', heading="KV"),
+                FieldPanel('koechel_sortable', heading="Sortable"),
+                FieldPanel('koechel_alternate', heading="Alternate"),
+            ]),
+            FieldPanel('koechel_title', heading="Uniform Title"),
+        ], heading="Köchel Number",),
 
-#     class Meta:
-#         abstract = True
+    ]
 
-# class DocumentPageSourceLinks(Orderable, SourceLink):
-#     page = ParentalKey(
-#         'documents.DocumentPage',
-#         on_delete=models.CASCADE,
-#         related_name='source_link'
-#     )
+    def __str__(self):
+        return self.koechel_display + ": " + strip_tags(self.koechel_title)
+
+    # Strip <p> tag from koechel_title
+    @property
+    def clean_title(self):
+        temp = self.koechel_title
+        temp = re.findall(r'>(.*?)</p>', temp)[0]
+        return temp
+
+    class Meta:
+        ordering=("koechel_sortable",)
+        verbose_name = "Koechel Number"
+        verbose_name_plural = "Koechel Numbers"
+
+class KoechelNumberOrderable(Orderable):
+    page = ParentalKey("documents.DocumentPage", related_name="koechel_numbers")
+    koechel_number = models.ForeignKey(
+        "documents.KoechelNumber",
+        on_delete=models.CASCADE,
+    )
+
+    panels = [
+        SnippetChooserPanel("koechel_number")
+    ]

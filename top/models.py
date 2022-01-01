@@ -1,6 +1,6 @@
 from django.db import models
 
-from documents.models import DocumentPage
+from documents.models import DocumentPage, KoechelNumber
 
 from wagtail.core.models import Page
 from wagtail.core.fields import RichTextField, StreamField
@@ -75,3 +75,14 @@ class CategoryListingPage(Page):
     
     def next(self):
         return self.get_next_sibling().url
+
+class KoechelListingPage(Page):
+    parent_page_types = ["home.HomePage"]
+    template = "top/koechel.html"
+    max_count = 1
+
+    def get_context(self, request, *args, **kwargs):
+        context = super().get_context(request, *args, **kwargs)
+        context["koechel_numbers"] = KoechelNumber.objects.all()
+        
+        return context

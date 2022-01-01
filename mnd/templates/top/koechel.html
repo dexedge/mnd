@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+
+{% load wagtailcore_tags %}
+
+{% load static %}
+
+{% block content %}
+    <div class="text index-page">
+        <h1>{{ page.title }}</h1>
+        {% for kv in koechel_numbers %}
+            <div class="row">
+                <h2>K. {{ kv.koechel_display }}{% if kv.koechel_alternate %} ({{ kv.koechel_alternate }}){% endif %}. {{ kv.clean_title|safe }}</h2>
+                {% for doc in kv.get_usage%}
+                    <div class="listing">
+                        <p><a href="{{ doc.specific.url }}">{{ doc.specific.display_date }}</a>. {{ doc.specific.clean_title|safe }}</p>
+                    </div>
+                {% endfor %}
+            </div>
+        {% endfor %}     
+    </div>
+
+
+{% endblock content %}
