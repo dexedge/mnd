@@ -289,7 +289,9 @@ class KoechelNumber(models.Model):
     ]
 
     def __str__(self):
-        return self.koechel_display + ": " + strip_tags(self.koechel_title)
+        temp = strip_tags(self.koechel_title)
+        temp = temp.replace("&quot;", '"')
+        return self.koechel_display + ": " + temp
 
     # Strip <p> tag from koechel_title
     @property
