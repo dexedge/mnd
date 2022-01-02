@@ -47,7 +47,7 @@ class IndexPage(Page):
     def prev(self):
         prev_sibling = self.get_prev_sibling()
         
-        if not prev_sibling.title=="Abbreviations":
+        if not prev_sibling.title=="News":
             return prev_sibling.url
     
     def next(self):
@@ -86,3 +86,10 @@ class KoechelListingPage(Page):
         context["koechel_numbers"] = KoechelNumber.objects.all()
         
         return context
+
+    def prev(self):
+        return self.get_prev_sibling().url
+        
+    def next(self):
+        if not self.get_next_sibling().title=="Essays":
+            return self.get_next_sibling().url
