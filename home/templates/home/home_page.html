@@ -9,6 +9,7 @@
     <div class="text">
         {{ page.home_page_text|richtext }}
     </div>
+    <p id="updated">Updated: {{ page.last_published_at|date:'D, j M Y' }}</p>
       
 {% endblock content %}
 

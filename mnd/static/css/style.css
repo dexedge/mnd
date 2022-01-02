@@ -126,11 +126,12 @@ button {
     box-shadow: none !important;
     outline: none !important;
     border: none;
-    padding: 0.4rem 0.4rem;
+    padding: 0.25rem 0.25rem;
 }
 
 .btn-outline-dark:hover {
     background-color: #dfe4df;
+    color: #003965;
 }
 
 .logo {
@@ -273,12 +274,12 @@ div.block-large_image:first-of-type {
 }
 
 #sidebar ul.components {
-    padding: 5px 10px 10px 21px;
+    padding: 5px 10px 10px 23px;
 }
 
 #sidebar ul a,
 #sidebar span  {
-    padding: 10px 10px 10px 5px;
+    padding: 10px 10px 10px 10px;
     line-height: 0.6;
     font-size: 1.1rem;
     display: block;
