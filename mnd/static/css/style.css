@@ -64,6 +64,7 @@ blockquote {
     font-size: 1.1rem;
     line-height: 1.4rem;
     max-width: 650px;
+    min-width: 650px;
 }
 
 .bibliography blockquote {
@@ -391,6 +392,11 @@ td>p {
     margin-bottom: 10px;
 }
 
+.k-index {
+    margin-top: 0 !important;
+    margin-bottom: 5px !important;
+}
+
 p a:link, 
 blockquote a:link,
 .date>a:link,
@@ -447,6 +453,10 @@ p.center-paragraph {
 
 .listing p {
     font-size: 1rem;
+}
+
+.index {
+
 }
 
 .date {
@@ -645,7 +655,7 @@ footer {
     }
     
     #arrow-right {
-        right: ;
+        right: 0;
     }
 }
 
@@ -662,6 +672,10 @@ footer {
 
     p.center-paragraph {
         min-width: 600px;
+    }
+
+    .smallcenter {
+        max-width: 100%;
     }
 }
 /********************/

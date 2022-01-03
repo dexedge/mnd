@@ -28,10 +28,10 @@ class IndexPage(Page):
     template = "top/index_page.html"
 
     body = StreamField([
-        ('year_or_kv', blocks.CharBlock(
+        ('year', blocks.CharBlock(
             template="streams/h2.html", 
             required=True,
-            help_text='Year or Köchel number'
+            help_text='Year'
         )),
         ('page', blocks.RichTextBlock(
             template="streams/page.html",
