@@ -4,20 +4,24 @@ from django.template.response import TemplateResponse
 from wagtail.core.models import Page
 from wagtail.search.models import Query
 
+from documents.models import DocumentPage
+
 
 def search(request):
     search_query = request.GET.get('query', None)
     page = request.GET.get('page', 1)
 
+    search_results = DocumentPage.objects.live()
     # Search
     if search_query:
-        search_results = Page.objects.live().search(search_query)
+        search_results = list(search_results.search(search_query))
+        search_results.sort(key=lambda x: x.date)
         query = Query.get(search_query)
 
         # Record hit
         query.add_hit()
-    else:
-        search_results = Page.objects.none()
+    # else:
+    #     search_results = Page.objects.none()
 
     # Pagination
     paginator = Paginator(search_results, 10)

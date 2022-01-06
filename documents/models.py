@@ -70,9 +70,9 @@ class DocumentList(RoutablePageMixin, Page):
     def get_context(self, request, *args, **kwargs):
         context = super().get_context(request, *args, **kwargs)
         context['documents'] = DocumentPage.objects.live().order_by('date')
-        # query = request.GET.get("q", None)
-        # if query:
-        #     context['documents'] = context['documents'].search(query)
+        query = request.GET.get("q", None)
+        if query:
+            context['documents'] = context['documents'].search(query)
         return context
 
 #################
