@@ -15,6 +15,7 @@
                 <form action="{% url 'search' %}" method="get">
                     <input type="text" name="query"{% if search_query %} value="{{ search_query }}"{% endif %}>
                     <input type="submit" value="Search" class="button">
+                    <a class="button" href="/search" role="button">Reset</a>
                 </form>
             </div>
         </div>
@@ -24,10 +25,10 @@
             {% endfor %}
         
             {% if search_results.has_previous %}
-                <a href="{% url 'search' %}?query={{ search_query|urlencode }}&amp;page={{ search_results.previous_page_number }}">Previous</a>
+                <a href="{% url 'search' %}?query={{ search_query|urlencode }}&amp;page={{ search_results.previous_page_number }}">Previous Page</a>
             {% endif %}
             {% if search_results.has_next %}
-                <a href="{% url 'search' %}?query={{ search_query|urlencode }}&amp;page={{ search_results.next_page_number }}">Next</a>
+                <a href="{% url 'search' %}?query={{ search_query|urlencode }}&amp;page={{ search_results.next_page_number }}">Next Page</a>
             {% endif %}
         {% elif search_query %}
             <p>No results found</p>
