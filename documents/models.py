@@ -9,9 +9,11 @@ from wagtail.core import blocks
 from wagtail.core.fields import RichTextField, StreamField
 from wagtail.admin.edit_handlers import FieldPanel, StreamFieldPanel, MultiFieldPanel, InlinePanel, FieldRowPanel
 from wagtail.snippets.edit_handlers import SnippetChooserPanel
+from wagtail.contrib.routable_page.models import RoutablePageMixin, route
 from wagtail.contrib.typed_table_block.blocks import TypedTableBlock
 from wagtail.images.blocks import ImageChooserBlock
 from wagtail.snippets.models import register_snippet
+from wagtail.search import index
 
 # Features list for Draftail editor
 full_features_list = ['h1', 'h2','h3', 'bold', 'italic', 'underline', 'strikethrough', 'small', 'red','blue', 'green', 'blockquote', 'blockindent', 'doubleindent', 'center', 'superscript', 'subscript', 'ul', 'image', 'link', 'hr', 'embed']
@@ -56,6 +58,22 @@ class Centered(blocks.StructBlock):
 
     class Meta:
         template = 'streams/centered.html'
+
+#################
+# Document List #
+#################
+
+class DocumentList(RoutablePageMixin, Page):
+    parent_page_types = ["home.HomePage"]
+    template = "documents/document_list.html"
+
+    def get_context(self, request, *args, **kwargs):
+        context = super().get_context(request, *args, **kwargs)
+        context['documents'] = DocumentPage.objects.live().order_by('date')
+        # query = request.GET.get("q", None)
+        # if query:
+        #     context['documents'] = context['documents'].search(query)
+        return context
 
 #################
 # Document Page #
@@ -184,6 +202,17 @@ class DocumentPage(Page):
         FieldPanel("author"),
         FieldPanel("first_published"),
         FieldPanel("updated"),
+    ]
+
+    search_fields = Page.search_fields + [
+        index.SearchField('title'),
+        index.SearchField('document_title'),
+        index.SearchField('source'),
+        index.SearchField('transcription'),
+        index.SearchField('commentary'),
+        index.SearchField('notes'),
+        index.SearchField('bibliography'),
+        index.SearchField('author'),
     ]
 
     class Meta:

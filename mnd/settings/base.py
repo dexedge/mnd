@@ -36,6 +36,8 @@ INSTALLED_APPS = [
     'wagtail.contrib.redirects',
     'wagtail.contrib.table_block',
     'wagtail.contrib.typed_table_block',
+    'wagtail.contrib.routable_page',
+    'wagtail.contrib.postgres_search',
     'wagtail.embeds',
     'wagtail.sites',
     'wagtail.users',
@@ -187,6 +189,12 @@ DEFAULT_FILE_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
 # Wagtail settings
 
 WAGTAIL_SITE_NAME = "mnd"
+
+WAGTAILSEARCH_BACKENDS = {
+    'default': {
+        'BACKEND': 'wagtail.contrib.postgres_search.backend',
+    },
+}
 
 # Base URL to use when referring to full URLs within the Wagtail admin backend -
 # e.g. in notification emails. Don't include '/admin' or a trailing slash

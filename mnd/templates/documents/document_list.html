@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+{% load wagtailcore_tags wagtailroutablepage_tags %}
+
+{% block content %}
+    <div class="text index-page">
+        <div class="row">
+            <div class="col-8">
+                <h1>{{ page.title }}</h1>
+            </div>
+            <div class="col-4 pt-2">
+                <form role="search" method="get" class="form-search" action=".">
+                    <div class="input-group">
+                        <input type="text" class="form-control search-query" name="q" placeholder="Search&hellip;" title="Search for:" />
+                        {% comment %} <span class="input-group-btn">
+                            <button class="btn btn-secondary" type="submit">Go!</button>
+                        </span> {% endcomment %}
+                    </div>
+                </form>
+            </div>
+        </div>
+        {% for document in documents %}
+        <div class="#"> 
+            <p class="#"><a href="{% pageurl document %}">{{ document.specific.display_date }}</a>. {{ document.specific.clean_title|safe }}</p>
+        </div>
+    {% endfor %}
+    </div>
+
+{% endblock content %}
