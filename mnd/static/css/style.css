@@ -553,12 +553,17 @@ img {
     min-width: 678px;
 }
 
-.annotation {
+.annotation, 
+.pager {
     font-family: 'PT Sans', sans-serif;
     font-style: italic;
     font-size: 1rem !important;
     text-indent: 0;
     margin: 0;
+}
+
+.pager {
+    margin-left: 25px;
 }
 
 .news {
