@@ -20,7 +20,7 @@
             </div>
         </div>
         {% if search_results %}
-            <p class="annotation">Showing {{ search_results|length }} of {{ count_results }} results</p>
+            <p class="annotation">Showing {{ search_results|length }} of {{ count_results }} documents</p>
             <hr>
             {% for result in search_results %}
                 <p><a href="{% pageurl result %}">{{ result.specific.display_date }}</a>. {{ result.specific.clean_title|safe}}</p>  
