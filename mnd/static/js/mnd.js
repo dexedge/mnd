@@ -9,7 +9,12 @@ $(document).ready(function () {
         $("#sidebar a").eq(0).addClass('active')
     }
     else {
+        if (path.includes("documents")) {
+            $('#sidebar a[href*="/' + path.split("/")[2] + '"]').addClass('active');
+        }
+        else {
         $('#sidebar a[href*="/' + path.split("/")[1] + '"]').addClass('active');
+        };
     };
 });
 

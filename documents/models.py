@@ -1,6 +1,7 @@
 from django.db import models
 from django import forms
 from django.utils.html import strip_tags
+from django.shortcuts import render 
 import re
 
 from modelcluster.fields import ParentalManyToManyField, ParentalKey
@@ -60,28 +61,12 @@ class Centered(blocks.StructBlock):
         template = 'streams/centered.html'
 
 #################
-# Document List #
-#################
-
-class DocumentList(RoutablePageMixin, Page):
-    parent_page_types = ["home.HomePage"]
-    template = "documents/document_list.html"
-
-    def get_context(self, request, *args, **kwargs):
-        context = super().get_context(request, *args, **kwargs)
-        context['documents'] = DocumentPage.objects.live().order_by('date')
-        query = request.GET.get("q", None)
-        if query:
-            context['documents'] = context['documents'].search(query)
-        return context
-
-#################
 # Document Page #
 #################
 
 class DocumentPage(Page):
     template  = "documents/document.html"
-    parent_page_types = ["top.IndexPage"]
+    parent_page_types = ["top.IndexPage", "DocumentList"]
     
     date = models.DateField("Date", null=True)
     date_precision = models.CharField(
@@ -232,6 +217,24 @@ class DocumentPage(Page):
             else:
                 return "NO DATE"
     
+    @property
+    def index_date(self):
+        if self.date_precision=="full":
+            return self.date.strftime("%-d %b")
+        elif self.date_precision=="month":
+            return self.date.strftime("%b")
+        elif self.date_precision=="year":
+            return None
+        else:
+            if self.date_custom:
+                return self.date_custom
+            else:
+                return "NO DATE"
+    
+    @property
+    def year(self):
+        return self.date.year
+   
     # Strip <p> tag from document_title
     @property
     def clean_title(self):
@@ -248,20 +251,49 @@ class DocumentPage(Page):
 
     def prev(self):
         prev_sibling = self.get_prev_sibling()
-        prev_parent_last = self.get_parent().get_prev_sibling().get_children().last()
+        # prev_parent_last = self.get_parent().get_prev_sibling().get_children().last()
         if prev_sibling:
             return prev_sibling.url
-        elif prev_parent_last:
-            return prev_parent_last.url
+        # elif prev_parent_last:
+        #     return prev_parent_last.url
     
     def next(self):
         next_sibling = self.get_next_sibling()
-        next_parent_first = self.get_parent().get_next_sibling().get_children().first()
+        # next_parent_first = self.get_parent().get_next_sibling().get_children().first()
         if next_sibling:
             return next_sibling.url
-        elif next_parent_first:
-            return next_parent_first.url
+        # elif next_parent_first:
+        #     return next_parent_first.url
+
+#################
+# Document List #
+#################
+
+class DocumentList(RoutablePageMixin, Page):
+    parent_page_types = ["home.HomePage"]
+    template = "documents/document_list.html"
     
+    @route(r'^1760-1779/$')
+    def index_1760_to_1779 (self, request):
+        context = self.get_context(request)
+        context['range'] = "1760&ndash;1779"
+        context['documents'] = DocumentPage.objects.filter(date__year__lt=1780)
+        return render(request, "documents/document_list.html", context)
+    
+    @route(r'^1780-1787/$')
+    def index_1780_to_1787 (self, request):
+        context = self.get_context(request)
+        context['range'] = "1780&ndash;1787"
+        context['documents'] = DocumentPage.objects.filter(date__year__gte=1780, date__year__lt=1788)
+        return render(request, "documents/document_list.html", context)
+    
+    @route(r'^1788-1793/$')
+    def index_1788_to_1793 (self, request):
+        context = self.get_context(request)
+        context['range'] = "1788&ndash;1793"
+        context['documents'] = DocumentPage.objects.filter(date__year__gt=1787)
+        return render(request, "documents/document_list.html", context)
+
 #####################
 # Document Category #
 #####################
