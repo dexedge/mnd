@@ -18,7 +18,7 @@
             </div>
         {% endfor %} 
         
-        <!-- Previous and Next arrows -->
+        {% comment %} <!-- Previous and Next arrows -->
         <div class="arrow" id="arrow-left">  
             {% if page.prev %}
                 <a href="{{ page.prev }}">
@@ -33,7 +33,7 @@
                     <i class="bi-chevron-right"></i>
                 </a>
             {% endif %} 
-        </div>    
+        </div>     {% endcomment %}
     </div>
 
 

@@ -251,19 +251,14 @@ class DocumentPage(Page):
 
     def prev(self):
         prev_sibling = self.get_prev_sibling()
-        # prev_parent_last = self.get_parent().get_prev_sibling().get_children().last()
         if prev_sibling:
             return prev_sibling.url
-        # elif prev_parent_last:
-        #     return prev_parent_last.url
-    
+        
     def next(self):
         next_sibling = self.get_next_sibling()
-        # next_parent_first = self.get_parent().get_next_sibling().get_children().first()
         if next_sibling:
             return next_sibling.url
-        # elif next_parent_first:
-        #     return next_parent_first.url
+
 
 #################
 # Document List #

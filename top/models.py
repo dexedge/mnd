@@ -44,15 +44,15 @@ class IndexPage(Page):
         StreamFieldPanel('body')
     ]
     
-    def prev(self):
-        prev_sibling = self.get_prev_sibling()
+    # def prev(self):
+    #     prev_sibling = self.get_prev_sibling()
         
-        if not prev_sibling.title=="News":
-            return prev_sibling.url
+    #     if not prev_sibling.title=="News":
+    #         return prev_sibling.url
     
-    def next(self):
-        if self.get_next_sibling():
-            return self.get_next_sibling().url
+    # def next(self):
+    #     if self.get_next_sibling():
+    #         return self.get_next_sibling().url
 
 class CategoryListingPage(Page):
     parent_page_types = ["home.HomePage"]
@@ -70,11 +70,11 @@ class CategoryListingPage(Page):
         
         return context
 
-    def prev(self):
-        return self.get_prev_sibling().url
+    # def prev(self):
+    #     return "/documents/1788-1793"
     
-    def next(self):
-        return self.get_next_sibling().url
+    # def next(self):
+    #     return self.get_next_sibling().url
 
 class KoechelListingPage(Page):
     parent_page_types = ["home.HomePage"]
@@ -87,9 +87,9 @@ class KoechelListingPage(Page):
         
         return context
 
-    def prev(self):
-        return self.get_prev_sibling().url
+    # def prev(self):
+    #     return self.get_prev_sibling().url
         
-    def next(self):
-        if not self.get_next_sibling().title=="Essays":
-            return self.get_next_sibling().url
+    # def next(self):
+    #     if not self.get_next_sibling().title=="Essays":
+    #         return self.get_next_sibling().url

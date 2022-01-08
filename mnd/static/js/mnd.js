@@ -3,19 +3,26 @@
 // Change highlight to active menu item
 
 $(document).ready(function () {
-    let path = location.pathname;
+    let path = location.pathname
+    let pathlist = path.split("/");
     $('#sidebar a').removeClass('active');
-    if (path === '/') {
-        $("#sidebar a").eq(0).addClass('active')
+    if (path == "/") {
+        $('#sidebar a[href="/"]').addClass('active');
     }
-    else {
-        if (path.includes("documents")) {
-            $('#sidebar a[href*="/' + path.split("/")[2] + '"]').addClass('active');
+    else if (pathlist[1] == "documents") {
+        if (pathlist[2] == "1760-1779") {
+            $('#sidebar a[href="' + path + '"]').addClass('active');
         }
-        else {
-        $('#sidebar a[href*="/' + path.split("/")[1] + '"]').addClass('active');
-        };
-    };
+        else if (pathlist[2] == "1780-1787") {
+            $('#sidebar a[href*="' + path + '"]').addClass('active');
+        }
+        else if (pathlist[2] == "1788-1793") {
+            $('#sidebar a[href="' + path + '"]').addClass('active');
+        }
+    }
+    else if (pathlist[1] != "" && pathlist[2] == "") {
+        $('#sidebar a[href="' + path + '"]').addClass('active');
+    }
 });
 
 // Open or close sidebar with hamburger button
