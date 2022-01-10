@@ -118,7 +118,7 @@ class DocumentPage(Page):
                 ('numeric', blocks.FloatBlock(required=False)),
                 ('rich_text', blocks.RichTextBlock(
                     required=False,
-                    features=['italic', 'bold', 'strikethrough', 'red','link', 'h2'],)),
+                    features=['italic', 'bold', 'strikethrough', 'red', 'blue', 'green', 'link', 'h2'],)),
             ],
         )),
         ('centered_text', Centered(icon="edit")),
