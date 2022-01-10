@@ -137,6 +137,7 @@ class DocumentPage(Page):
                     features=['italic', 'bold', 'strikethrough','red', 'link', 'h2'],)),
             ],
         )),
+        ('images', ImagesAndCaption(icon='image', label="Images with Caption")),
     ], null=True, blank=True)
     bibliography = RichTextField(
         blank=True,
