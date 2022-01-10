@@ -443,8 +443,6 @@ p.center-paragraph {
     line-height: 1;
 }
 
-
-
 .caption p {
     margin-top: 0;
     text-align: center;
@@ -545,6 +543,7 @@ img {
 
 .centered-images {
     display: flex;
+    margin-left: 25px;
     justify-content: center;
 }
 
