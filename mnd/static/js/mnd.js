@@ -1,5 +1,6 @@
-// MND
+// Mozart: New Documents (MND)
 // Custom JavaScript
+
 // Change highlight to active menu item
 
 $(document).ready(function () {

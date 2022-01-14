@@ -39,7 +39,7 @@
     {% wagtailuserbar %}
 
     <!-- Sidebar -->
-    {% cache 259200 sidebar %}
+    {% comment %} {% cache 259200 sidebar %} {% endcomment %}
     <nav id="sidebar" style="background-image: url({% static 'img/background-3-small.jpg' %});">
         <ul class="list-unstyled components">
             <li>
@@ -70,10 +70,10 @@
                         <a href="/categories/">By Category</a>
                     </li>
                     <li>
-                        <a href="/koechel">By Köchel</a>
+                        <a href="/koechel/">By Köchel</a>
                     </li>
                     <li>
-                        <a href="/search">Search</a>
+                        <a href="/search/">Search</a>
                     </li>
                 </ul>
             </li>
@@ -106,7 +106,7 @@
     <button type="button" id="sidebarCollapse" class="btn btn-outline-dark">
         <i class="bi bi-list"></i>
     </button>
-    {% endcache %}
+    {% comment %} {% endcache %} {% endcomment %}
     <div id="content">
         <div class="container-fluid">
             {% cache 259200 logo %}

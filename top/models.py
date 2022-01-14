@@ -7,6 +7,7 @@ from wagtail.core.fields import RichTextField, StreamField
 from wagtail.core import blocks
 from wagtail.admin.edit_handlers import FieldPanel, StreamFieldPanel
 
+
 class TopLevelPage(Page):
     parent_page_types = ["home.HomePage"]
     template = "top/top_level_page.html"

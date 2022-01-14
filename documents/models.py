@@ -203,7 +203,7 @@ class DocumentPage(Page):
 
     class Meta:
         ordering = ("date",)
-    
+
     @property
     def display_date(self):
         if self.date_precision=="full":
