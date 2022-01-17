@@ -16,6 +16,8 @@ from wagtail.images.blocks import ImageChooserBlock
 from wagtail.snippets.models import register_snippet
 from wagtail.search import index
 
+from wagtail_pdf_view.mixins import PdfViewPageMixin
+
 # Features list for Draftail editor
 full_features_list = ['h1', 'h2','h3', 'bold', 'italic', 'underline', 'strikethrough', 'small', 'red','blue', 'green', 'blockquote', 'blockindent', 'doubleindent', 'center', 'superscript', 'subscript', 'ul', 'image', 'link', 'hr', 'embed']
 
@@ -64,10 +66,15 @@ class Centered(blocks.StructBlock):
 # Document Page #
 #################
 
-class DocumentPage(Page):
+class DocumentPage(PdfViewPageMixin, Page):
     template  = "documents/document.html"
     parent_page_types = ["top.IndexPage", "DocumentList"]
-    
+
+    # HTML first
+    ROUTE_CONFIG = [
+        ("html", r'^$'),
+        ("pdf", r'^pdf/$'),
+    ]
     date = models.DateField("Date", null=True)
     date_precision = models.CharField(
         max_length=10,
@@ -203,6 +210,16 @@ class DocumentPage(Page):
 
     class Meta:
         ordering = ("date",)
+
+    pdf_base_template = "documents/document_pdf.html"
+
+    def get_context(self, request, mode=None, **kwargs):
+        context = super().get_context(request, **kwargs)
+        
+        if mode == 'pdf':
+            context["override_base"] = self.pdf_base_template
+        
+        return context
 
     @property
     def display_date(self):

@@ -33,6 +33,7 @@ h2 {
 
 /* Section heads */
 h3 {                     
+    display: inline;
     font-size: 1.2rem; 
     font-style: italic;
     font-weight: normal;
@@ -399,6 +400,7 @@ td>p {
 
 p a:link, 
 blockquote a:link,
+span a:link,
 .date>a:link,
 .news a:link {
     text-decoration: none;
@@ -408,6 +410,7 @@ blockquote a:link,
 
 p a:visited, 
 blockquote a:visited,
+span a:visited,
 .date>a:visited,
 .news a:visited {
     color: #8229cb !important;
@@ -456,6 +459,10 @@ p.center-paragraph {
 .date {
     display: inline-block;
     text-align: right;
+}
+
+.pdf_link {
+    float: right;
 }
 
 .transcription p {

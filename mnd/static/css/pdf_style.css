@@ -1,0 +1,32 @@
+/* MND */
+/* PDF style sheet */
+
+/* @import url('https://fonts.googleapis.com/css2?family=Libre+Caslon+Text:ital,wght@0,400;0,700;1,400&family=PT+Serif:ital,wght@0,400;0,700;1,400;1,700&display=swap'); */
+
+@import url('https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,600;1,400;1,600&display=swap');
+
+body {
+  font-family: 'EB Garamond', serif;
+  font-size: 16px;
+}
+
+h1 {
+
+}
+
+.author {
+  font-weight: bold;
+}
+
+.title {
+  font-size: 1.2em;
+  font-weight: bold;
+}
+
+.center {
+  text-align: center;
+}
+
+.citation {
+  font-size: 1em;
+}

@@ -58,15 +58,3 @@ $(document).ready(function(){
         $("#notes").append(" (<a href='#toc'>⇧</a>)");
     }
 });
-
-
-// Deprecated code
-
-// Change highlight on active menu item
-
-// $(document).ready(function () {
-//     $('ul.list-unstyled > li').click(function (e) {     
-//         $('ul.list-unstyled > li')
-//             .removeClass('active');
-//     });
-// });

@@ -1,0 +1,27 @@
+{% load static wagtailcore_tags %}
+<!DOCTYPE html>
+<html lang="">
+<head>
+    <meta charset="utf-8">
+    <title>
+        {% block title %}
+            {% if page.seo_title %}{{ page.seo_title }}{% else %}{{ page.title }}{% endif %}
+        {% endblock %}
+    </title>
+    
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="{% static 'css/pdf_style.css' %}">
+</head>
+<body>    
+    {% block content %}
+    {% endblock content %}
+</body>
+</html>
+
+
+{% comment %} <p class="citation">{{ page.author }}. {{ page.first_published|date:'Y' }}. &ldquo;{{ page.clean_title|safe }} ({{ page.display_date }}).&rdquo; In: <a href="https://doi.org/10.7302/Z20P0WXJ"><em>Mozart: New Documents</em></a>, edited by Dexter Edge and David Black. First published {{ page.first_published|date:'j M Y'}}{% if page.updated %}; updated {{ page.updated|date:'j M Y' }}{% endif %}. [<a href="{{page.url}}">direct link</a>]
+</p>
+<hr>
+<p class="center author">{{ page.author }}</p>
+<p class="center title">{{ page.clean_title|safe }} ({{ page.display_date }})</p>
+<p>{{ page.clean_source|safe }}</p>  {% endcomment %}
