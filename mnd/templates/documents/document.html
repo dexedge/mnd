@@ -53,18 +53,21 @@
         <hr>
         <div class="credits">
             <p><em>Credit</em>: {{ page.credit }}</p>
+            <p><em>{{ author_heading }}</em>: {{ author_names }}
+            </p>
             <div class="links">
                 <p><em>Link(s)</em>:
                     {{ page.source_link|richtext }}
                 </p>
             </div>
             <p><em>Search Term</em>: {{ page.search_term }}</p>
+                
             <div class="links">
                 <p><em>Source Library</em>: {{ page.source_library|richtext }}
                 </p>
             </div> 
             <p><em>Categories</em>: 
-                {% for cat in self.categories.all%}
+                {% for cat in self.categories.all %}
                     {{ cat.name }}{% if not forloop.last %}, {% endif %}
                 {% endfor %}
             </p>
@@ -76,10 +79,10 @@
         </div>
         <div>
             <p><em>Print Citation</em>:</p>
-                <p class="citation">{{ page.author }}. {{ page.first_published|date:'Y' }}. &ldquo;{{ page.clean_title|safe }} ({{ page.display_date }}).&rdquo; In: <em>Mozart: New Documents</em>, edited by Dexter Edge and David Black.<br> First published {{ page.first_published|date:'j M Y'}}{% if page.updated %}; updated {{ page.updated|date:'j M Y' }}{% endif %}. https://doi.org/10.7302/Z20P0WXJ
+                <p class="citation">{{ citation_names }}. {{ page.first_published|date:'Y' }}. &ldquo;{{ page.clean_title|safe }} ({{ page.display_date }}).&rdquo; In: <em>Mozart: New Documents</em>, edited by Dexter Edge and David Black.<br> First published {{ page.first_published|date:'j M Y'}}{% if page.updated %}; updated {{ page.updated|date:'j M Y' }}{% endif %}. https://doi.org/10.7302/Z20P0WXJ
                 </p>
             <p><em>Web Citation</em>:</p>
-                <p class="citation">{{ page.author }}. {{ page.first_published|date:'Y' }}. &ldquo;{{ page.clean_title|safe }} ({{ page.display_date }}).&rdquo; In: <a href="https://doi.org/10.7302/Z20P0WXJ"><em>Mozart: New Documents</em></a>, edited by Dexter Edge and David Black.<br> First published {{ page.first_published|date:'j M Y'}}{% if page.updated %}; updated {{ page.updated|date:'j M Y' }}{% endif %}. [<a href="{{pageurl}}">direct link</a>]
+                <p class="citation">{{ citation_names }}. {{ page.first_published|date:'Y' }}. &ldquo;{{ page.clean_title|safe }} ({{ page.display_date }}).&rdquo; In: <a href="https://doi.org/10.7302/Z20P0WXJ"><em>Mozart: New Documents</em></a>, edited by Dexter Edge and David Black.<br> First published {{ page.first_published|date:'j M Y'}}{% if page.updated %}; updated {{ page.updated|date:'j M Y' }}{% endif %}. [<a href="{{pageurl}}">direct link</a>]
                 </p>
         </div> 
         <!-- Previous and Next arrows -->

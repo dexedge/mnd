@@ -281,7 +281,8 @@ div.block-large_image:first-of-type {
 
 #sidebar ul a,
 #sidebar span  {
-    padding: 10px 10px 10px 10px;
+    padding: 9px 10px 11px 10px;
+    border-radius: 4px;
     line-height: 0.6;
     font-size: 1.1rem;
     display: block;

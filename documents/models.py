@@ -192,6 +192,9 @@ class DocumentPage(PdfViewPageMixin, Page):
         MultiFieldPanel([
             InlinePanel("koechel_numbers", label="Köchel Number")
         ], heading="Köchel Numbers"),
+        MultiFieldPanel([
+            InlinePanel("authors", label="Author")
+        ], heading="Author(s)"),
         FieldPanel("author"),
         FieldPanel("first_published"),
         FieldPanel("updated"),
@@ -219,6 +222,27 @@ class DocumentPage(PdfViewPageMixin, Page):
         if mode == 'pdf':
             context["override_base"] = self.pdf_base_template
         
+        # Build author names
+        authors = self.authors.all()
+        if authors.count() == 1:
+            context["author_heading"] = "Author"
+            context["author_names"] = authors.first().author.full_name
+            context["citation_names"] = authors.first().author
+
+        else:
+            context["author_heading"] = "Authors"
+            author_names = authors.first().author.full_name
+            citation_names = authors.first().author.last_name + ", "  + authors.first().author.first_names
+            for i in range(1, len(authors)):
+                author_names = author_names + ", " + authors[i].author.full_name
+                if i == (len(authors) - 1):
+                    citation_names = citation_names + ", and " + authors[i].author.full_name
+                else:
+                    citation_names = citation_names + ", " + authors[i].author.full_name
+            
+            context["author_names"] = author_names
+            context["citation_names"] = citation_names
+
         return context
 
     @property
@@ -267,6 +291,7 @@ class DocumentPage(PdfViewPageMixin, Page):
         temp = re.findall(r'>(.*?)</p>', temp)[0]
         return temp
 
+    # Previous and Next links
     def prev(self):
         prev_sibling = self.get_prev_sibling()
         if prev_sibling:
@@ -389,3 +414,43 @@ class KoechelNumberOrderable(Orderable):
     panels = [
         SnippetChooserPanel("koechel_number")
     ]
+
+###########
+# Authors #
+###########
+@register_snippet
+class Author(models.Model):
+    last_name = models.CharField(max_length = 50)
+    first_names = models.CharField(max_length = 50)
+
+    panels = [
+        FieldRowPanel([
+            FieldPanel('last_name', heading="Last Name"),
+            FieldPanel('first_names', heading="First Names"),
+        ], heading="Author"),
+    ]
+
+    def __str__(self):
+        return self.last_name + ", " + self.first_names
+
+    class Meta:
+        ordering = ("last_name", "first_names")
+        verbose_name = "Author"
+        verbose_name_plural = "Authors"
+
+    @property
+    def full_name(self):
+        return self.first_names + " " + self.last_name
+
+
+class AuthorOrderable(Orderable):
+    page = ParentalKey("documents.DocumentPage", related_name="authors")
+    author = models.ForeignKey(
+        "documents.Author",
+        on_delete=models.CASCADE,
+    )
+
+    panels = [
+        SnippetChooserPanel("author")
+    ]
+
