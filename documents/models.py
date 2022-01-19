@@ -163,7 +163,6 @@ class DocumentPage(PdfViewPageMixin, Page):
     categories = ParentalManyToManyField(
         "documents.DocumentCategory", blank=True
     )
-    author = models.CharField(max_length=200, blank=True)
     first_published = models.DateField(null=True, blank=True)
     updated = models.DateField(null=True, blank=True)
     
@@ -195,7 +194,6 @@ class DocumentPage(PdfViewPageMixin, Page):
         MultiFieldPanel([
             InlinePanel("authors", label="Author")
         ], heading="Author(s)"),
-        FieldPanel("author"),
         FieldPanel("first_published"),
         FieldPanel("updated"),
     ]
@@ -208,7 +206,6 @@ class DocumentPage(PdfViewPageMixin, Page):
         index.SearchField('commentary'),
         index.SearchField('notes'),
         index.SearchField('bibliography'),
-        index.SearchField('author'),
     ]
 
     class Meta:
