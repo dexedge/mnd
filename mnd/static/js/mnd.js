@@ -1,7 +1,7 @@
 // Mozart: New Documents (MND)
 // Custom JavaScript
 
-// Change highlight to active menu item
+// Change highlight to the active menu item
 
 $(document).ready(function () {
     let path = location.pathname
@@ -44,7 +44,7 @@ $(document).ready(function () {
 });
 
 $(document).ready(function(){
-    // external links to new window
+    // Set external links to open in new window
     //$('a[href^="http://"]').not('a[href*="mydomainname"]').attr('target','_blank') USE ON LIVE SITE
     $('a[href^="http://"], a[href^="https://"]').attr('target','_blank')
    });

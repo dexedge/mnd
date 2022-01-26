@@ -245,9 +245,9 @@ class DocumentPage(PdfViewPageMixin, Page):
     @property
     def display_date(self):
         if self.date_precision=="full":
-            return self.date.strftime("%-d %b %Y")
+            return self.date.strftime("%-d %b %Y")
         elif self.date_precision=="month":
-            return self.date.strftime("%b %Y")
+            return self.date.strftime("%b %Y")
         elif self.date_precision=="year":
             return self.date.strftime("%Y")
         else:
@@ -259,7 +259,7 @@ class DocumentPage(PdfViewPageMixin, Page):
     @property
     def index_date(self):
         if self.date_precision=="full":
-            return self.date.strftime("%-d %b")
+            return self.date.strftime("%-d %b")
         elif self.date_precision=="month":
             return self.date.strftime("%b")
         elif self.date_precision=="year":
