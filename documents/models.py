@@ -427,6 +427,11 @@ class Author(models.Model):
         ], heading="Author"),
     ]
 
+    search_fields = Page.search_fields + [
+         index.SearchField('last_name'),
+         index.SearchField('first_names'),
+    ]
+
     def __str__(self):
         return self.last_name + ", " + self.first_names
 
