@@ -1,15 +1,16 @@
-/* -------------------------------
-    MND Custom Styles
-----------------------------------*/
-@import url('https://fonts.googleapis.com/css?family=Tinos:400,400i,700,700i&amp;subset=latin-ext');
+/***************************/
+/* MND custom styles       */
+/***************************/
 
-/* @import url('https://fonts.googleapis.com/css2?family=Ibarra+Real+Nova:ital,wght@0,400;0,700;1,400;1,700&display=swap'); */
+/* @import url('https://fonts.googleapis.com/css?family=Tinos:400,400i,700,700i&amp;subset=latin-ext'); */
+
+@import url('https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,600;0,700;1,400;1,600;1,700&display=swap');
 
 @import url('https://fonts.googleapis.com/css?family=PT+Sans:400,400i,700,700i&subset=latin-ext');
 
-/* @import url('https://fonts.googleapis.com/css2?family=Nunito+Sans:ital,wght@0,400;0,700;1,400;1,700&display=swap'); */
-
-
+/***************************/
+/* Page and element styles */
+/***************************/
 body {
     font-family: 'PT Sans', sans-serif;
     background: #f6f7f6; 
@@ -18,7 +19,7 @@ body {
 
 /* Document title, etc */
 h1 {                      
-    font-family: 'Tinos', serif;
+    font-family: 'EB Garamond', serif;
     font-weight: bold;
     font-size: 1.5rem;
     margin-top: 8px;
@@ -29,6 +30,7 @@ h1 {
 h2 {
     font-size: 1rem;
     font-weight: bold;
+    margin-bottom: 10px;
 }
 
 /* Section heads */
@@ -50,10 +52,6 @@ h4 {
     margin-bottom: 0.75rem;
 }
 
-h4 a {
-    color: #004ddd;
-}
-
 p {
     font-family: 'PT Sans', sans-serif;
     font-size: 1.1rem;
@@ -61,36 +59,8 @@ p {
     line-height: 1.7rem;
 }
 
-blockquote {
-    font-size: 1.1rem;
-    line-height: 1.4rem;
-    max-width: 650px;
-    min-width: 650px;
-}
-
-.bibliography blockquote {
-    max-width: 768px;
-}
-
-p.blockindent,
-blockquote {
-    margin-left: 3rem !important;
-}
-
-p.doubleindent {
-    margin-left: 6rem !important;
-    line-height: 1rem !important;
-}
-
-.indent {
-    margin-left: 4rem;   
-}
-
-/* "Updated" dates on top-level pages */
-p#updated {                 
-    font-size: 0.95rem;
-    font-style: italic;
-    text-align: right;
+p + hr {
+    margin-top: 5px;
 }
 
 hr {
@@ -104,20 +74,303 @@ hr.short {
     margin-top: 10px;
 }
 
+b {
+    font-weight: 700;
+}
+
+blockquote {
+    font-size: 1.1rem;
+    line-height: 1.4rem;
+    max-width: 650px;
+    min-width: 650px;
+    margin-left: 3rem !important;
+}
+
+footer {
+    display: block;
+    margin: 0 auto;
+    padding-top: 40px;
+    text-align: center;
+    font-size: 0.8rem;
+}
+
+/*********************/
+/* Text class styles */
+/*********************/
+
+.document {
+    min-width: 1000px;
+}
+
+.transcription p {
+    min-width: 600px;
+    font-family: 'EB Garamond', serif;
+    font-size: 1.2rem;
+    line-height: 1.2;
+    margin: 0 0 15px 25px;
+}
+
+.text {
+    max-width: 768px;
+}
+
+.text p {
+    margin-top: 10px;
+    margin-left: 25px;
+    font-size: 1.2rem;
+    line-height: 1.35;
+}
+
+.text h1, h2, h3 {
+    margin-left: 25px;
+}
+
+.centered-text p {
+    text-align: center;
+    min-width: 678px;
+}
+
+/* Broken as of 2022-01-26 */
+.center-paragraph {
+    text-align: center;
+    margin: 0;
+    padding-bottom: 0.5rem;
+    line-height: 1;
+}
+
+.blockindent {
+    margin-left: 3rem !important;
+}
+
+.indent {
+    margin-left: 4rem;   
+}
+
+.doubleindent {
+    margin-left: 6rem !important;
+    line-height: 1rem !important;
+}
+
+.bibliography blockquote {
+    max-width: 768px;
+}
+
 .news + p {
     margin-bottom: 0;
 }
 
-p + hr {
-    margin-top: 5px;
+.citation {
+    margin-left: 3rem !important;
 }
 
+.post-date {
+    font-style: italic;
+    font-size: 1rem !important;
+}
+
+.post-heading {
+    font-weight: bold;
+}
+
+.post-description {
+    margin-left: 75px !important;
+}
+
+.index-page p {
+    margin-bottom: 10px;
+}
+
+.k-index {
+    margin-top: 0 !important;
+    margin-bottom: 5px !important;
+}
+
+.listing {
+    min-width: 600px;
+    font-size: 1rem;
+    margin-bottom: 0.5rem;
+    margin-left: 2rem;
+    line-height: 1.4;
+}
+
+.caption p {
+    margin-top: 0;
+    text-align: center;
+    font-size: 1rem;
+}
+
+.listing p {
+    font-size: 1rem;
+}
+
+.date {
+    display: inline-block;
+    text-align: right;
+}
+
+.pdf_link {
+    float: right;
+}
+
+.endmatter {
+    font-size: 0.75rem;
+}
+
+.endmatter p, table {
+    max-width: 768px;
+    margin-left: 25px;
+    line-height: 1.4;
+}
+
+.endmatter table {
+    width: auto;
+    font-size: 1rem;
+    color: #003965;
+}
+
+.credits p {
+    line-height: 1.2rem !important;
+}
+
+/* For larger size at beginning of paragraph */
+.paragraph-lede {           
+    font-family: 'EB Garamond', serif;
+    font-weight: bold;
+    font-style: italic;
+    font-size: 22px;
+}
+
+.annotation, 
+.pager {
+    font-family: 'PT Sans', sans-serif;
+    font-style: italic;
+    font-size: 1rem !important;
+    text-indent: 0;
+    margin: 0;
+}
+
+.pager {
+    margin-left: 25px;
+}
+
+.news {
+    margin-left: 25px;
+    font-size: 1.2rem;
+    line-height: 1.35;
+    font-weight: bold;
+}
+
+.news div {
+    padding: 0;
+}
+
+.news p {
+    margin-left: 0;
+}
+
+/* Creative Commons License */
+.CCL {
+    padding-bottom: 10px;
+}
+
+/******************/
+/* Text ID styles */
+/******************/
+
+#title {
+    font-family: 'EB Garamond', serif;
+    font-weight: 400;
+    font-style: italic;
+    color: #003965;
+    margin-top: -140px;
+    margin-left: 30px;
+    font-size: 52px;
+    position: absolute;
+}
+
+#attribution {
+    font-family: 'EB Garamond', serif;
+    font-weight: 400;
+    font-style: italic;
+    color: #003965;
+    margin-top: -75px;
+    margin-left: 70px;
+    font-size: 28px;
+    position: absolute;
+}
+
+/* "Updated" dates on top-level pages */
+#updated {                 
+    font-size: 0.95rem;
+    font-style: italic;
+    text-align: right;
+}
+
+#content {
+    width: calc(100%-200px);
+    min-height: 100vh;
+    transition: all 0.3s;
+    position: absolute;
+    top: 0;
+    left: 200px;
+}
+
+#bibliography, #notes {
+    font-size: 1.2rem;
+}
+
+#site-credit {
+    font-size: 0.75rem;
+    font-style: italic;
+    padding: 10px 0;
+}
+
+/**************************/
+/* Links, buttons, arrows */
+/**************************/
 a,
 a:hover,
 a:focus {
     color: inherit;
     text-decoration: none;
     transition: all 0.5s;
+}
+
+p a:link, 
+blockquote a:link,
+span a:link,
+.date>a:link,
+.news a:link {
+    text-decoration: none;
+    /* color: #003fb6 !important; */
+    color: #0046c9 !important;
+}
+
+p a:visited, 
+blockquote a:visited,
+span a:visited,
+.date>a:visited,
+.news a:visited {
+    color: #8229cb !important;
+}
+
+.links {
+    margin-bottom: 1rem;
+    /* Hanging indent */
+    padding-left: 5rem;
+    text-indent: -5rem;
+}
+
+.links p {
+    display: inline;
+}
+
+.links p:not(:first-child) {
+    margin-left: 0 !important;
+}
+
+h4 a {
+    color: #004ddd;
 }
 
 button {
@@ -134,6 +387,30 @@ button {
 .btn-outline-dark:hover {
     background-color: #dfe4df;
     color: #003965;
+}
+
+.arrow {
+    position: fixed;
+    top: 50%;
+    font-size: 2rem;
+    color: #003965;
+    opacity: 50%;
+    /* color: #a9a9aa; */
+  }
+  
+#arrow-left {
+    left: 197px;
+}
+
+#arrow-right {
+    right: 20px;
+}
+
+/****************/
+/* Image styles */
+/****************/
+img {
+    max-width: 100%;       /* For responsive size */
 }
 
 .logo {
@@ -154,27 +431,52 @@ button {
     max-width: 768px;
     height: auto;
     margin-left: 25px;
+    margin-top: 25px;
     margin-bottom: 15px;
     border-style: solid;   
     border-width: 1px;   
     border-color: #ccc;
 }
 
-div.block-large_image:first-of-type {
-    padding-top: 20px;
+.right {
+    float: right;
+    margin: 0 0 10px 25px;
+    border-style: solid;   
+    border-width: 1px;   
+    border-color: #ccc;
 }
 
-.citation {
-    margin-left: 3rem !important;
+.left {
+    float: left;
+    width: auto;
+    margin: 0 20px 10px 10px;
+    border-style: solid;   
+    border-width: 1px;   
+    border-color: #ccc;
 }
 
-.post-date {
-    font-style: italic;
-    font-size: 1rem !important;
+.center {
+    display: block;
+    margin: auto;
+    margin-bottom: 5px;
+    border-style: solid;   
+    border-width: 1px;   
+    border-color: #ccc;
 }
 
-.post-heading {
-    font-weight: bold;
+.smallcenter {
+    width: auto;
+    max-width: 50%;
+    margin-bottom: 5px;
+    border-style: solid;   
+    border-width: 1px;   
+    border-color: #ccc;
+}
+
+.centered-images {
+    display: flex;
+    margin-left: 25px;
+    justify-content: center;
 }
 
 .post-image img,
@@ -193,60 +495,39 @@ div.block-large_image:first-of-type {
     margin-left: 75px !important;
 }
 
-.post-description {
-    margin-left: 75px !important;
+/****************/
+/* Table styles */
+/****************/
+
+table {
+    margin-left: 3rem;
+    margin-bottom: 1rem;
+    table-layout: auto;
 }
 
-#title {
-    font-family: 'Tinos', serif;
-    font-weight: 400;
-    font-style: italic;
-    color: #003965;
-    margin-top: -140px;
-    margin-left: 30px;
-    font-size: 52px;
-    position: absolute;
+table, th, td {
+    border: 1px solid #003965;
+    vertical-align: top;
 }
 
-#attribution {
-    font-family: 'Tinos', serif;
-    font-weight: 400;
-    font-style: italic;
-    color: #003965;
-    margin-top: -75px;
-    margin-left: 70px;
-    font-size: 28px;
-    position: absolute;
+th {
+    background-color: lightgrey;
+    text-align: left;
 }
 
-.arrow {
-    position: fixed;
-    top: 50%;
-    font-size: 2rem;
-    color: #003965;
-    opacity: 50%;
-    /* color: #a9a9aa; */
-  }
-  
-  #arrow-left {
-    left: 197px;
-  }
-  
-  #arrow-right {
-    right: 20px;
-  }
-
-/* Customization of Wagtail userbar */
-.wagtail-userbar-trigger {
-    box-shadow: none !important;
-    background-color: transparent !important;
-    border-width: thin !important;
-    border-color: rgb(204, 204,204) !important;
+td {
+    padding: 1px 4px 4px 5px;
 }
 
-/* ---------------------------------------------------
-    SIDEBAR STYLE
------------------------------------------------------ */
+td>p {
+    margin: 0 !important;
+    text-align: left;
+    font-size: 1rem !important;
+}
+
+/******************/
+/* Sidebar styles */
+/******************/
 .wrapper {
     display: flex;
     width: 100%;
@@ -265,7 +546,7 @@ div.block-large_image:first-of-type {
 }
 
 #sidebar .sidebar-header {
-    font-family: 'Tinos', serif;
+    font-family: 'EB Garamond', serif;
     font-size: 2rem;
     line-height: 1.2;
     font-weight: 500;
@@ -326,292 +607,9 @@ ul.CTAs a {
     font-size: 0.9rem !important;
 }
 
-/* ---------------------------------------------------
-    CONTENT STYLE
------------------------------------------------------ */
-#content {
-    width: calc(100%-200px);
-    min-height: 100vh;
-    transition: all 0.3s;
-    position: absolute;
-    top: 0;
-    left: 200px;
-}
-
-b {
-    font-weight: 700;
-}
-
-.document {
-    min-width: 1000px;
-}
-
-.text{
-    max-width: 768px;
-}
-.text p {
-    margin-top: 10px;
-    margin-left: 25px;
-    font-size: 1.2rem;
-    line-height: 1.35;
-}
-
-.text h1, h2, h3 {
-    margin-left: 25px;
-}
-
-h2 {
-    margin-bottom: 10px;
-}
-
-table {
-    margin-left: 3rem;
-    margin-bottom: 1rem;
-    table-layout: auto;
-}
-
-table, th, td {
-    border: 1px solid #003965;
-    vertical-align: top;
-}
-
-th {
-    background-color: lightgrey;
-    text-align: left;
-}
-
-td {
-    padding: 1px 4px 4px 5px;
-}
-
-td>p {
-    margin: 0 !important;
-    text-align: left;
-    font-size: 1rem !important;
-}
-
-.index-page p {
-    margin-bottom: 10px;
-}
-
-.k-index {
-    margin-top: 0 !important;
-    margin-bottom: 5px !important;
-}
-
-p a:link, 
-blockquote a:link,
-span a:link,
-.date>a:link,
-.news a:link {
-    text-decoration: none;
-    /* color: #003fb6 !important; */
-    color: #0046c9 !important;
-}
-
-p a:visited, 
-blockquote a:visited,
-span a:visited,
-.date>a:visited,
-.news a:visited {
-    color: #8229cb !important;
-}
-
-.links {
-    margin-bottom: 1rem;
-    /* Hanging indent */
-    padding-left: 5rem;
-    text-indent: -5rem;
-}
-
-.links p {
-    display: inline;
-}
-
-.links p:not(:first-child) {
-    margin-left: 0 !important;
-}
-
-p.center-paragraph {
-    text-align: center;
-    margin: 0;
-    padding-bottom: 0.5rem;
-    line-height: 1;
-}
-
-.listing {
-    min-width: 600px;
-    font-size: 1rem;
-    margin-bottom: 0.5rem;
-    margin-left: 2rem;
-    line-height: 1.4;
-}
-
-.caption p {
-    margin-top: 0;
-    text-align: center;
-    font-size: 1rem;
-}
-
-.listing p {
-    font-size: 1rem;
-}
-
-.date {
-    display: inline-block;
-    text-align: right;
-}
-
-.pdf_link {
-    float: right;
-}
-
-.transcription p {
-    /* max-width: 550px; */
-    min-width: 600px;
-    font-family: 'Tinos', serif;
-    font-size: 1.2rem;
-    line-height: 1.2;
-    margin: 0 0 15px 25px;
-}
-
-.endmatter {
-    font-size: 0.75rem;
-}
-
-.endmatter p, table {
-    max-width: 768px;
-    margin-left: 25px;
-    line-height: 1.4;
-}
-
-.endmatter table {
-    width: auto;
-    font-size: 1rem;
-    color: #003965;
-}
-
-.credits p {
-    line-height: 1.2rem !important;
-}
-
-/* For larger size at beginning of paragraph */
-.paragraph-lede {           
-    font-family: 'Tinos', serif;
-    font-weight: bold;
-    font-style: italic;
-    font-size: 22px;
-}
-
-/* "Updated" dates on top-level pages */
-p#updated {                 
-    font-size: 0.95rem;
-    font-style: italic;
-    text-align: right;
-}
-
-img {
-    max-width: 100%;       /* For responsive size */
-}
-
-.right {
-    float: right;
-    margin: 0 0 10px 25px;
-    border-style: solid;   
-    border-width: 1px;   
-    border-color: #ccc;
-}
-
-.left {
-    float: left;
-    width: auto;
-    margin: 0 20px 10px 10px;
-    border-style: solid;   
-    border-width: 1px;   
-    border-color: #ccc;
-}
-
-.center {
-    display: block;
-    margin: auto;
-    margin-bottom: 5px;
-    border-style: solid;   
-    border-width: 1px;   
-    border-color: #ccc;
-}
-
-.smallcenter {
-    width: auto;
-    max-width: 50%;
-    margin-bottom: 5px;
-    border-style: solid;   
-    border-width: 1px;   
-    border-color: #ccc;
-}
-
-.centered-images {
-    display: flex;
-    margin-left: 25px;
-    justify-content: center;
-}
-
-.centered-text p {
-    text-align: center;
-    min-width: 678px;
-}
-
-.annotation, 
-.pager {
-    font-family: 'PT Sans', sans-serif;
-    font-style: italic;
-    font-size: 1rem !important;
-    text-indent: 0;
-    margin: 0;
-}
-
-.pager {
-    margin-left: 25px;
-}
-
-.news {
-    margin-left: 25px;
-    font-size: 1.2rem;
-    line-height: 1.35;
-    font-weight: bold;
-}
-
-.news div {
-    padding: 0;
-}
-
-.news p {
-    margin-left: 0;
-}
-
-footer {
-    display: block;
-    margin: 0 auto;
-    padding-top: 40px;
-    text-align: center;
-    font-size: 0.8rem;
-}
-
-.CCL {
-    padding-bottom: 10px;
-}
-
-#bibliography, #notes {
-    font-size: 1.2rem;
-}
-
-#site-credit {
-    font-size: 0.75rem;
-    font-style: italic;
-    padding: 10px 0;
-}
-/* ---------------------------------------------------
-    MEDIAQUERIES
------------------------------------------------------ */
+/*****************/
+/* MEDIAQUERIES  */
+/*****************/
 
 @media (max-width: 768px) {
     
@@ -624,11 +622,6 @@ footer {
     button.open {
         margin-left: 0;
     }
-
-    /* .transcription {
-        min-width: 475px;
-        font-size: 1rem;
-    } */
 
     #sidebar {
         margin-left: -200px;
@@ -686,6 +679,15 @@ footer {
         max-width: 100%;
     }
 }
+
+/* Customization of Wagtail userbar */
+.wagtail-userbar-trigger {
+    box-shadow: none !important;
+    background-color: transparent !important;
+    border-width: thin !important;
+    border-color: rgb(204, 204,204) !important;
+}
+
 /********************/
 /* follow.it styles */
 /********************/
@@ -786,3 +788,9 @@ footer {
         z-index: 0;
     }
 }
+
+/* Deprecated */
+
+/* @import url('https://fonts.googleapis.com/css2?family=Ibarra+Real+Nova:ital,wght@0,400;0,700;1,400;1,700&display=swap'); */
+
+/* @import url('https://fonts.googleapis.com/css2?family=Nunito+Sans:ital,wght@0,400;0,700;1,400;1,700&display=swap'); */

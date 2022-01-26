@@ -1,10 +1,9 @@
 /* MND */
 /* PDF style sheet */
 
-/* @import url('https://fonts.googleapis.com/css2?family=Libre+Caslon+Text:ital,wght@0,400;0,700;1,400&family=PT+Serif:ital,wght@0,400;0,700;1,400;1,700&display=swap'); */
-
 @import url('https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,600;1,400;1,600&display=swap');
 
+/* Page and element styles */
 @page {
   size: letter;
   @top-center {
@@ -25,7 +24,6 @@
 div.header {
   position: running(header)
 }
-
 
 body {
   font-family: 'EB Garamond', serif;
@@ -71,6 +69,7 @@ blockquote {
   min-width: 500px;
 }
 
+/* Text class styles */
 .blockindent,
 blockquote {
     margin-right: 3rem;
@@ -103,10 +102,6 @@ blockquote {
 .transcription {
   line-height: 1.2;
 }
-
-/* .commentary {
-  page-break-before: always;
-} */
 
 .text {
   max-width: 700px;
@@ -152,7 +147,7 @@ blockquote {
   page-break-after: avoid;
 }
 
-/* Images */
+/* Image styles */
 .block-large_image img {
   position: relative;
   width: 100%;
@@ -204,7 +199,7 @@ blockquote {
   border-color: darkgrey;
 }
 
-/* Tables */
+/* Table styles */
 
 table, th, td {
   border: 1px solid #003965;
