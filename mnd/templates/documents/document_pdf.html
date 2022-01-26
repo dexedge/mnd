@@ -13,7 +13,8 @@
     <!-- Custom CSS -->
     <link rel="stylesheet" href="{% static 'css/pdf_style.css' %}">
 </head>
-<body>    
+<body>
+    <div class="header">{{author_surnames}}, &ldquo;{{ page.clean_title|safe }}&rdquo;</div> 
     <h1 class="title centered">{{ page.clean_title|safe }} ({{ page.display_date }})</h1>
     <p class="author centered">{{ author_names }}</p>
     <h2>{{ page.clean_source|safe }}</h2>

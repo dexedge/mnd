@@ -229,15 +229,20 @@ class DocumentPage(PdfViewPageMixin, Page):
         else:
             context["author_heading"] = "Authors"
             author_names = authors.first().author.full_name
+            author_surnames = authors.first().author.last_name
             citation_names = authors.first().author.last_name + ", "  + authors.first().author.first_names
             for i in range(1, len(authors)):
-                author_names = author_names + ", " + authors[i].author.full_name
                 if i == (len(authors) - 1):
+                    author_names = author_names + " and " + authors[i].author.full_name
+                    author_surnames = author_surnames + " & " + authors[i].author.last_name
                     citation_names = citation_names + ", and " + authors[i].author.full_name
                 else:
+                    author_names = author_names + ", " + authors[i].author.full_name
+                    author_surnames = author_surnames + ", " + authors[i].author.last_name
                     citation_names = citation_names + ", " + authors[i].author.full_name
             
             context["author_names"] = author_names
+            context["author_surnames"] = author_surnames
             context["citation_names"] = citation_names
 
         return context

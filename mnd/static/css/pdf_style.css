@@ -11,7 +11,8 @@
     font-family: 'EB Garamond', serif;
     font-style: italic;
     font-size: 16px;
-    content: "Mozart: New Documents";
+    content: element(header)
+    /* content: "Mozart: New Documents"; */
   }
   @bottom-center {
     padding-right: 20px;
@@ -19,6 +20,10 @@
     font-size: 16px;
     content: counter(page);
   }
+}
+
+div.header {
+  position: running(header)
 }
 
 
