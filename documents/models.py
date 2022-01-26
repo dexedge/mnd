@@ -224,8 +224,8 @@ class DocumentPage(PdfViewPageMixin, Page):
         if authors.count() == 1:
             context["author_heading"] = "Author"
             context["author_names"] = authors.first().author.full_name
+            context["author_surnames"] = authors.first().author.last_name
             context["citation_names"] = authors.first().author
-
         else:
             context["author_heading"] = "Authors"
             author_names = authors.first().author.full_name
