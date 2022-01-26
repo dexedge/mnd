@@ -5,28 +5,243 @@
 
 @import url('https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,600;1,400;1,600&display=swap');
 
+@page {
+  size: letter;
+  @top-center {
+    font-family: 'EB Garamond', serif;
+    font-style: italic;
+    font-size: 16px;
+    content: "Mozart: New Documents";
+  }
+  @bottom-center {
+    padding-right: 20px;
+    font-family: 'EB Garamond', serif;
+    font-size: 16px;
+    content: counter(page);
+  }
+}
+
+
 body {
   font-family: 'EB Garamond', serif;
   font-size: 16px;
 }
 
-/* h1 {
-  font-size: 1rem;
-} */
+* {
+  box-sizing: border-box;
+}
 
-.author {
+h2 {
+  font-size: 1rem;
   font-weight: bold;
+}
+
+/* h3 is used for section heads */
+h3 {                     
+  display: inline;
+  font-size: 1.2rem; 
+  font-style: italic;
+  font-weight: normal;
+  margin-top: 0.75rem;
+  margin-bottom: 0.75rem;
+}
+
+hr {
+  max-width: 768px;
+  margin-top: 30px;
+  margin-bottom: 10px;
+  color: darkgrey;
+  opacity: 0.5;
+}
+
+a {
+  text-decoration: none;
+}
+
+blockquote {
+  font-size: 0.9rem;
+  line-height: 1.2rem;
+  margin-left: 3rem;
+  max-width: 500px;
+  min-width: 500px;
+}
+
+.blockindent,
+blockquote {
+    margin-right: 3rem;
+}
+
+.blockindent {
+  margin-left: 3rem;
 }
 
 .title {
-  font-size: 1.2em;
+  font-size: 1.4rem;
   font-weight: bold;
 }
 
-.center {
+.author {
+  font-weight: bold;
+  font-size: 1.2rem;
+  padding-bottom: 2rem;
+}
+
+.document {
+  display: block flow;
+}
+
+.col {
+  width: 60%;
+}
+
+
+.source {
+  text-align: left;
+  font-size: 1rem;
+}
+
+.transcription {
+  line-height: 1.2;
+}
+
+/* .commentary {
+  page-break-before: always;
+} */
+
+.text {
+  max-width: 700px;
+}
+
+.text div {
+  line-height: 1.2;
+}
+
+.text p {
+  margin-top: 10px;
+  font-size: 1.1rem;
+  line-height: 1.2;
+}
+
+.centered-text p {
   text-align: center;
+  min-width: 678px;
 }
 
 .citation {
   font-size: 1em;
+  margin-left: 3rem;
+  page-break-before: avoid;
 }
+
+.caption p {
+  margin-top: 0;
+  text-align: center;
+  font-size: small !important;
+}
+
+.credits p {
+  line-height: 1.2rem !important;
+}
+
+.centered {
+  text-align: center;
+}
+
+#bibliography, #notes {
+  font-size: 1.1rem;
+  page-break-after: avoid;
+}
+
+/* Images */
+.block-large_image img {
+  position: relative;
+  width: 100%;
+  max-width: 768px;
+  height: auto;
+  margin-top: 15px;
+  margin-bottom: 15px;
+  border-style: solid;   
+  border-width: 1px;   
+  border-color: #ccc;
+}
+
+.full-width {
+  max-width: 650px;
+}
+
+.centered-images {
+  float: none;
+  width: 100%;
+  padding: 10px;
+}
+
+.center {
+  display: block;
+  margin: auto;
+  margin-bottom: 5px;
+  border-style: solid;   
+  border-width: 1px;   
+  border-color: darkgrey;
+}
+
+.right {
+  float: right;
+  max-width: 300px;
+  height: auto;
+  margin: 0 0 10px 10px;
+  border-style: solid;   
+  border-width: 1px;   
+  border-color: #ccc;
+}
+.smallcenter {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  max-width: 50%;
+  margin-bottom: 5px;
+  border-style: solid;   
+  border-width: 1px;   
+  border-color: darkgrey;
+}
+
+/* Tables */
+
+table, th, td {
+  border: 1px solid #003965;
+  border-collapse: collapse;
+  vertical-align: top;
+  margin-bottom: 1rem;
+}
+
+th {
+  background-color: lightgrey;
+  text-align: left;
+}
+
+td {
+  padding: 1px 4px 4px 5px;
+}
+
+td>p {
+  margin: 0 !important;
+  text-align: left;
+  font-size: 1rem !important;
+}
+
+/* Source and library links */
+.links {
+  margin-bottom: 1rem;
+  /* Hanging indent */
+  padding-left: 5rem;
+  text-indent: -5rem;
+}
+
+.links p {
+  display: inline;
+}
+
+.links p:not(:first-child) {
+  margin-left: 0 !important;
+}
+
+ 

@@ -1,4 +1,6 @@
 {% load static wagtailcore_tags %}
+{% load wagtailimages_tags%}
+
 <!DOCTYPE html>
 <html lang="">
 <head>
@@ -8,20 +10,81 @@
             {% if page.seo_title %}{{ page.seo_title }}{% else %}{{ page.title }}{% endif %}
         {% endblock %}
     </title>
-    
+    {% comment %} <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous"> {% endcomment %}
     <!-- Custom CSS -->
     <link rel="stylesheet" href="{% static 'css/pdf_style.css' %}">
 </head>
 <body>    
-    {% block content %}
-    {% endblock content %}
+    <h1 class="title centered">{{ page.clean_title|safe }} ({{ page.display_date }})</h1>
+    <p class="author centered">{{ author_names }}</p>
+    <h2>{{ page.clean_source|safe }}</h2>
+    <div class="document">
+        <div class="col">
+            <div class="transcription">
+                {{ page.transcription|safe }}
+            </div>
+        </div>
+        <div class="col">
+            {% include_block page.source_image %}
+        </div>
+    </div>
+    {% if page.translation %}
+        <p class="annotation">[translation:]</p><br>
+        <div class="transcription">
+            {{ page.translation|safe }}
+        </div>
+    {% endif %}
+    <div class="text commentary">
+        <hr>
+        <h3>Commentary</h3>
+        {% for block in page.commentary %}
+            {% include_block block %}
+        {% endfor %}
+    </div>
+    <div class="endmatter">
+        {% if page.notes %} 
+            <hr>
+            <p id="notes"><em>Notes</em></p>
+            {% for block in page.notes %}
+                {% include_block block %}
+            {% endfor %}
+        {% endif %}
+        {% if page.bibliography %} 
+            <hr>
+            <p id="bibliography"><em>Bibliography</em></p>  
+            <div class="bibliography">
+                {{ page.bibliography|richtext }} 
+            </div>
+        {% endif %}
+        <hr>
+        <div class="credits">
+            <p><em>Credit</em>: {{ page.credit }}</p>
+            <p><em>{{ author_heading }}</em>: {{ author_names }}
+            </p>
+            <div class="links">
+                <p><em>Link(s)</em>:
+                    {{ page.source_link|richtext }}
+                </p>
+            </div>
+            <p><em>Search Term</em>: {{ page.search_term }}</p>
+                
+            <div class="links">
+                <p><em>Source Library</em>: {{ page.source_library|richtext }}
+                </p>
+            </div> 
+            <p><em>Categories</em>: 
+                {% for cat in self.categories.all %}
+                    {{ cat.name }}{% if not forloop.last %}, {% endif %}
+                {% endfor %}
+            </p>
+            <p><em>First Published</em>: {{ page.first_published|date:'D, j M Y' }}</p>
+            {% if page.updated %}
+                <p><em>Updated</em>: {{ page.updated|date:'D, j M Y' }}</p>
+            {% endif %}
+            <hr style="margin-top:2rem">
+            <p><em>Citation</em>:</p>
+            <p class="citation">{{ citation_names }}. {{ page.first_published|date:'Y' }}. &ldquo;{{ page.clean_title|safe }} ({{ page.display_date }}).&rdquo; In: <a href="https://doi.org/10.7302/Z20P0WXJ"><em>Mozart: New Documents</em></a>, edited by Dexter Edge and David Black.<br> First published {{ page.first_published|date:'j M Y'}}{% if page.updated %}; updated {{ page.updated|date:'j M Y' }}{% endif %}. [<a href="{{page.url}}">direct link</a>]
+                </p>
+        </div>
 </body>
 </html>
-
-
-{% comment %} <p class="citation">{{ page.author }}. {{ page.first_published|date:'Y' }}. &ldquo;{{ page.clean_title|safe }} ({{ page.display_date }}).&rdquo; In: <a href="https://doi.org/10.7302/Z20P0WXJ"><em>Mozart: New Documents</em></a>, edited by Dexter Edge and David Black. First published {{ page.first_published|date:'j M Y'}}{% if page.updated %}; updated {{ page.updated|date:'j M Y' }}{% endif %}. [<a href="{{page.url}}">direct link</a>]
-</p>
-<hr>
-<p class="center author">{{ page.author }}</p>
-<p class="center title">{{ page.clean_title|safe }} ({{ page.display_date }})</p>
-<p>{{ page.clean_source|safe }}</p>  {% endcomment %}
