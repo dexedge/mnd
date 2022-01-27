@@ -75,6 +75,7 @@ class DocumentPage(PdfViewPageMixin, Page):
         ("html", r'^$'),
         ("pdf", r'^pdf/$'),
     ]
+    
     date = models.DateField("Date", null=True)
     date_precision = models.CharField(
         max_length=10,

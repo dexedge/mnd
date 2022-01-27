@@ -2,8 +2,6 @@
 /* MND custom styles       */
 /***************************/
 
-/* @import url('https://fonts.googleapis.com/css?family=Tinos:400,400i,700,700i&amp;subset=latin-ext'); */
-
 @import url('https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,600;0,700;1,400;1,600;1,700&display=swap');
 
 @import url('https://fonts.googleapis.com/css?family=PT+Sans:400,400i,700,700i&subset=latin-ext');
@@ -15,6 +13,11 @@ body {
     font-family: 'PT Sans', sans-serif;
     background: #f6f7f6; 
     color: #003965;
+}
+
+
+h1, h2, h3 {
+    margin-left: 25px;
 }
 
 /* Document title, etc */
@@ -39,8 +42,6 @@ h3 {
     font-size: 1.2rem; 
     font-style: italic;
     font-weight: normal;
-    margin-top: 0.75rem;
-    margin-bottom: 0.75rem;
 }
 
 /* Internal headings */
@@ -83,7 +84,7 @@ blockquote {
     line-height: 1.4rem;
     max-width: 650px;
     min-width: 650px;
-    margin-left: 3rem !important;
+    margin-left: 3rem;
 }
 
 footer {
@@ -119,10 +120,6 @@ footer {
     margin-left: 25px;
     font-size: 1.2rem;
     line-height: 1.35;
-}
-
-.text h1, h2, h3 {
-    margin-left: 25px;
 }
 
 .centered-text p {
@@ -552,7 +549,6 @@ td>p {
     font-weight: 500;
     font-style: italic;
     color: #003965;
-    /* text-shadow: 0 1px 0 rgba(246, 247, 246, 0.4); */
     padding: 20px 10px 10px 27px;
 }
 
@@ -789,7 +785,9 @@ ul.CTAs a {
     }
 }
 
-/* Deprecated */
+/* Deprecated Fonts */
+
+/* @import url('https://fonts.googleapis.com/css?family=Tinos:400,400i,700,700i&amp;subset=latin-ext'); */
 
 /* @import url('https://fonts.googleapis.com/css2?family=Ibarra+Real+Nova:ital,wght@0,400;0,700;1,400;1,700&display=swap'); */
 
