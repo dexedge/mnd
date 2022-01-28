@@ -14,17 +14,17 @@
     <link rel="stylesheet" href="{% static 'css/pdf_style.css' %}">
 </head>
 <body>
-    <div class="header">{{author_surnames}}, &ldquo;{{ page.clean_title|safe }}&rdquo;</div> 
+    <div class="header">{{author_surnames}}, &ldquo;{{ page.clean_title|safe }}&rdquo;</div>
     <h1 class="title centered">{{ page.clean_title|safe }} ({{ page.display_date }})</h1>
     <p class="author centered">{{ author_names }}</p>
     <h2>{{ page.clean_source|safe }}</h2>
-    <div class="document">
-        <div class="col">
+    <div class="row document">
+        <div class="col-a">
             <div class="transcription">
                 {{ page.transcription|safe }}
             </div>
         </div>
-        <div class="col">
+        <div class="col-b">
             {% include_block page.source_image %}
         </div>
     </div>
@@ -42,18 +42,18 @@
         {% endfor %}
     </div>
     <div class="endmatter">
-        {% if page.notes %} 
+        {% if page.notes %}
             <hr>
             <p id="notes"><em>Notes</em></p>
             {% for block in page.notes %}
                 {% include_block block %}
             {% endfor %}
         {% endif %}
-        {% if page.bibliography %} 
+        {% if page.bibliography %}
             <hr>
-            <p id="bibliography"><em>Bibliography</em></p>  
+            <p id="bibliography"><em>Bibliography</em></p>
             <div class="bibliography">
-                {{ page.bibliography|richtext }} 
+                {{ page.bibliography|richtext }}
             </div>
         {% endif %}
         <hr>
@@ -67,12 +67,12 @@
                 </p>
             </div>
             <p><em>Search Term</em>: {{ page.search_term }}</p>
-                
+    
             <div class="links">
                 <p><em>Source Library</em>: {{ page.source_library|richtext }}
                 </p>
-            </div> 
-            <p><em>Categories</em>: 
+            </div>
+            <p><em>Categories</em>:
                 {% for cat in self.categories.all %}
                     {{ cat.name }}{% if not forloop.last %}, {% endif %}
                 {% endfor %}
