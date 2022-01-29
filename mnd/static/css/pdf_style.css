@@ -11,7 +11,6 @@
     font-style: italic;
     font-size: 16px;
     content: element(header)
-    /* content: "Mozart: New Documents"; */
   }
   @bottom-center {
     padding-right: 20px;
@@ -75,25 +74,6 @@ sup {
 
 /* Class styles */
 
-.row {
-  display: flex;
-  flex-wrap: wrap;
-}
-
-.col-a {
-  flex: 0 0 auto;
-  min-width: 50%;
-}
-
-.col-b {
-  flex: 1 0 0%;
-  min-width: 50%;
-}
-
-.col-b img {
-  width: 80%;
-}
-
 .blockindent,
 blockquote {
     margin-right: 3rem;
@@ -101,6 +81,10 @@ blockquote {
 
 .blockindent {
   margin-left: 3rem;
+}
+
+.document {
+  page-break-inside: avoid;
 }
 
 .title {
@@ -117,6 +101,26 @@ blockquote {
 .source {
   text-align: left;
   font-size: 1rem;
+}
+
+.row {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.col-a {
+  flex: 0 0 auto;
+  min-width: 50%;
+}
+
+.col-b {
+  flex: 1 0 0%;
+  min-width: 300px;
+  max-width: 80%;
+}
+
+.col-b img {
+  width: 80%;
 }
 
 .transcription {
@@ -212,6 +216,7 @@ blockquote {
   border-color: #ccc;
 }
 .smallcenter {
+  width: auto;
   display: block;
   margin-left: auto;
   margin-right: auto;
@@ -221,6 +226,10 @@ blockquote {
   border-width: 1px;   
   border-color: darkgrey;
 }
+
+/* .smallcenter:nth-of-type(2) {
+ 
+} */
 
 /* Table styles */
 
