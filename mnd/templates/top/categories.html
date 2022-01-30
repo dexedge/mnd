@@ -42,6 +42,13 @@
                     <div class="col-8">{{doc.clean_title|safe }}</div>
                 </div>
             {% endfor %}
+        <h3 class="indent">corrigenda</h3>
+            {% for doc in addenda %}
+                <div class="row listing">
+                    <div class="col-3 date"><a href="{{ doc.url }}">{{ doc.display_date }}</a></div>
+                    <div class="col-8">{{doc.clean_title|safe }}</div>
+                </div>
+            {% endfor %}
     </div>
     {% comment %} <!-- Previous and Next arrows -->
         <div class="arrow" id="arrow-left">  

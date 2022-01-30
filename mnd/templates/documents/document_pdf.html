@@ -15,21 +15,20 @@
 </head>
 <body>
     <div class="header">{{author_surnames}}, &ldquo;{{ page.clean_title|safe }}&rdquo;</div>
-    <div class="document">
+    <div class="prelim">
         <h1 class="title centered">{{ page.clean_title|safe }} ({{ page.display_date }})</h1>
         <p class="author centered">{{ author_names }}</p>
         <h2>{{ page.clean_source|safe }}</h2>
-
-        <div class="row">
-            <div class="col-a">
-                <div class="transcription">
-                    {{ page.transcription|safe }}
-                </div>
-            </div>
-            <div class="col-b">
-                {% include_block page.source_image %}
-            </div>
     </div>
+    <div class="row">
+        <div class="col-a">
+            <div class="transcription">
+                {{ page.transcription|safe }}
+            </div>
+        </div>
+        <div class="col-b">
+            {% include_block page.source_image %}
+        </div>
     </div>
     {% if page.translation %}
         <p class="annotation">[translation:]</p><br>

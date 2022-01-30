@@ -83,7 +83,7 @@ blockquote {
   margin-left: 3rem;
 }
 
-.document {
+.prelim {
   page-break-inside: avoid;
 }
 
@@ -109,7 +109,7 @@ blockquote {
 }
 
 .col-a {
-  flex: 0 0 auto;
+  flex: 0 0 max-content;
   min-width: 50%;
 }
 
