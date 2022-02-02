@@ -1,27 +1,31 @@
 // Mozart: New Documents (MND)
 // Custom JavaScript
 
-// Change highlight to the active menu item
-
+// Change highlight to active menu item
 $(document).ready(function () {
     let path = location.pathname
-    let pathlist = path.split("/");
-    $('#sidebar a').removeClass('active');
+    let pathlist = path.split("/")
+    // If Home page
     if (path == "/") {
         $('#sidebar a[href="/"]').addClass('active');
     }
+    // Else if chronological index page or document page
     else if (pathlist[1] == "documents") {
-        if (pathlist[2] == "1760-1779") {
-            $('#sidebar a[href="' + path + '"]').addClass('active');
+        // Grab end of URL as integer
+        let urldate = parseInt(pathlist[2].slice(-4));
+        // Highlight appropriate chronological index page
+        if (urldate <= 1779) {
+            $('#sidebar a[href*="1760-1779"]').addClass('active');
         }
-        else if (pathlist[2] == "1780-1787") {
-            $('#sidebar a[href*="' + path + '"]').addClass('active');
+        else if (urldate <= 1787) {
+            $('#sidebar a[href*="1780-1787"]').addClass('active');
         }
-        else if (pathlist[2] == "1788-1793") {
-            $('#sidebar a[href="' + path + '"]').addClass('active');
+        else if (urldate >= 1788) {
+            $('#sidebar a[href*="1788-1793"]').addClass('active');
         }
     }
-    else if (pathlist[1] != "" && pathlist[2] == "") {
+    // Else highlight the current page
+    else {
         $('#sidebar a[href="' + path + '"]').addClass('active');
     }
 });
