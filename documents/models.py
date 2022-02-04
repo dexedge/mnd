@@ -62,6 +62,15 @@ class Centered(blocks.StructBlock):
     class Meta:
         template = 'streams/centered.html'
 
+class Reference(blocks.StructBlock):
+    reference = blocks.RichTextBlock(
+        features=['italic', 'bold', 'strikethrough', 'link']
+    )
+    link_id = blocks.CharBlock(help_text='For making hyperlinks to this heading')
+
+    class Meta:
+        template = 'streams/reference.html'
+
 #################
 # Document Page #
 #################
@@ -151,6 +160,9 @@ class DocumentPage(PdfViewPageMixin, Page):
         blank=True,
         features=full_features_list,
     )
+    bibliography_test = StreamField([
+        ('reference', Reference(icon='edit', label="Reference"))
+    ], null=True, blank=True)
     credit = models.CharField(max_length=100, blank=True)
     source_link = RichTextField(
         blank=True,
@@ -181,6 +193,7 @@ class DocumentPage(PdfViewPageMixin, Page):
         StreamFieldPanel("commentary"),
         StreamFieldPanel("notes"),
         FieldPanel("bibliography"),
+        StreamFieldPanel("bibliography_test"),
         FieldPanel("credit"),
         FieldPanel('source_link'),
         FieldPanel("search_term"),

@@ -62,3 +62,42 @@ $(document).ready(function(){
         $("#notes").append(" (<a href='#toc'>⇧</a>)");
     }
 });
+///////////////
+// References /
+///////////////
+
+
+$(document).ready(function(){
+    // For each item in bibliography, if author is "————", set
+    // author attribute current_author. The author attribute
+    // is used to replace "————" in pop-up references
+    current_author = ""
+    $(".biblio p").each(function (){
+        author = this.innerHTML.split(".")[0];
+        if (author == "————"){
+            $(this).attr("author", current_author)
+        }
+        else {current_author = author}
+        console.log(author);   
+    });
+    // Prepare popovers for bibliographic references
+    $("p a[href^='#'], blockquote a[href^='#']").each(function(){
+        refID = this.hash.slice(1)
+        refText = $(".biblio[id="+refID+"] p")[0].innerHTML
+        author = refText.split(".")[0]
+        if (author == "————"){
+            refText = refText.replace("————", $(".biblio[id="+refID+"] p").attr("author"))
+        }
+        $(this).attr({
+            "data-bs-toggle":"popover",
+            "data-bs-placement":"bottom",
+            "data-bs-trigger":"hover",
+            "data-bs-html":"true",
+            "data-bs-content":refText
+        })
+        $(this).addClass("reference")
+        $(this).removeAttr("href")
+    });
+    $('[data-bs-toggle="popover"]').popover({container: "body"});
+});
+

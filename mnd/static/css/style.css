@@ -160,6 +160,11 @@ footer {
     margin-left: 3rem !important;
 }
 
+.biblio {
+    margin-left: 25px;
+    max-width: 718px;
+}
+
 .post-date {
     font-style: italic;
     font-size: 1rem !important;
@@ -601,6 +606,40 @@ ul.CTAs a {
 #admin {
     margin-top: 100px;
     font-size: 0.9rem !important;
+}
+
+/******************/
+/* Popover styles */
+/******************/
+.reference {
+    position: relative;
+    white-space: nowrap;
+    border-bottom: 1px dotted;
+}
+
+.popover {
+    background-color: #e3e7e3;
+    font-family: 'PT Sans', sans-serif;
+}
+
+.popover-body {
+    font-size: 0.75rem;
+    color: #003965;
+    padding: 8px 10px;
+}
+
+.popover-arrow::before,
+.popover-arrow::after {
+    border-top-color: #ccc !important;
+    border-bottom-color: #ccc !important;
+}
+
+.popover-content a {
+    color: #003fb6;
+}
+
+.popover-content a:visited {
+    color: #6d22aa;
 }
 
 /*****************/

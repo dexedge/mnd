@@ -48,6 +48,13 @@
                 {{ page.bibliography|richtext }} 
             </div>
         {% endif %}
+        {% if page.bibliography_test %} 
+            <hr>
+            <p id="bibliography"><em>Bibliography Test</em></p>  
+            {% for block in page.bibliography_test %}
+                {% include_block block %}
+            {% endfor %}
+        {% endif %}
         <hr>
         <div class="credits">
             <p><em>Credit</em>: {{ page.credit }}</p>
