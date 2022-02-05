@@ -62,14 +62,14 @@ $(document).ready(function(){
         $("#notes").append(" (<a href='#toc'>⇧</a>)");
     }
 });
-///////////////
-// References /
-///////////////
 
+////////////////
+// References //
+////////////////
 
 $(document).ready(function(){
     // For each item in bibliography, if author is "————", set
-    // author attribute current_author. The author attribute
+    // author attribute to current_author. The author attribute
     // is used to replace "————" in pop-up references
     current_author = ""
     $(".biblio p").each(function (){
@@ -78,10 +78,9 @@ $(document).ready(function(){
             $(this).attr("author", current_author)
         }
         else {current_author = author}
-        console.log(author);   
     });
     // Prepare popovers for bibliographic references
-    $("p a[href^='#'], blockquote a[href^='#']").each(function(){
+    $("p:not('#notes, #bibliography, .blockindent') a[href^='#'], blockquote a[href^='#']").each(function(){
         refID = this.hash.slice(1)
         refText = $(".biblio[id="+refID+"] p")[0].innerHTML
         author = refText.split(".")[0]
