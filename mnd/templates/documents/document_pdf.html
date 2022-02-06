@@ -51,12 +51,12 @@
                 {% include_block block %}
             {% endfor %}
         {% endif %}
-        {% if page.bibliography %}
+        {% if page.bibliography %} 
             <hr>
-            <p id="bibliography"><em>Bibliography</em></p>
-            <div class="bibliography">
-                {{ page.bibliography|richtext }}
-            </div>
+            <p id="bibliography"><em>Bibliography</em></p>  
+            {% for block in page.bibliography %}
+                {% include_block block %}
+            {% endfor %}
         {% endif %}
         <hr>
         <div class="credits">
