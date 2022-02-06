@@ -44,14 +44,7 @@
         {% if page.bibliography %} 
             <hr>
             <p id="bibliography"><em>Bibliography</em></p>  
-            <div class="bibliography">
-                {{ page.bibliography|richtext }} 
-            </div>
-        {% endif %}
-        {% if page.bibliography_test %} 
-            <hr>
-            <p id="bibliography"><em>Bibliography Test</em></p>  
-            {% for block in page.bibliography_test %}
+            {% for block in page.bibliography %}
                 {% include_block block %}
             {% endfor %}
         {% endif %}

@@ -156,11 +156,7 @@ class DocumentPage(PdfViewPageMixin, Page):
         )),
         ('images', ImagesAndCaption(icon='image', label="Images with Caption")),
     ], null=True, blank=True)
-    bibliography = RichTextField(
-        blank=True,
-        features=full_features_list,
-    )
-    bibliography_test = StreamField([
+    bibliography = StreamField([
         ('reference', Reference(icon='edit', label="Reference"))
     ], null=True, blank=True)
     credit = models.CharField(max_length=100, blank=True)
@@ -192,16 +188,16 @@ class DocumentPage(PdfViewPageMixin, Page):
         FieldPanel("translation"),
         StreamFieldPanel("commentary"),
         StreamFieldPanel("notes"),
-        FieldPanel("bibliography"),
-        StreamFieldPanel("bibliography_test"),
-        FieldPanel("credit"),
-        FieldPanel('source_link'),
-        FieldPanel("search_term"),
-        FieldPanel("source_library"),
-        MultiFieldPanel(
-            [FieldPanel("categories", widget=forms.CheckboxSelectMultiple)],
-            heading="Categories"
-        ),
+        StreamFieldPanel("bibliography"),
+        MultiFieldPanel([
+            FieldPanel("credit"),
+            FieldPanel('source_link'),
+            FieldPanel("search_term"),
+            FieldPanel("source_library"),
+        ], heading="Credits"),
+        MultiFieldPanel([
+            FieldPanel("categories", widget=forms.CheckboxSelectMultiple)
+        ], heading="Categories"),
         MultiFieldPanel([
             InlinePanel("koechel_numbers", label="Köchel Number")
         ], heading="Köchel Numbers"),
@@ -219,7 +215,7 @@ class DocumentPage(PdfViewPageMixin, Page):
         index.SearchField('transcription'),
         index.SearchField('commentary'),
         index.SearchField('notes'),
-        index.SearchField('bibliography'),
+        # index.SearchField('bibliography'),
     ]
 
     class Meta:
