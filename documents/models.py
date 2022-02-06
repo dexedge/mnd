@@ -215,7 +215,7 @@ class DocumentPage(PdfViewPageMixin, Page):
         index.SearchField('transcription'),
         index.SearchField('commentary'),
         index.SearchField('notes'),
-        # index.SearchField('bibliography'),
+        index.SearchField('bibliography'),
     ]
 
     class Meta:
