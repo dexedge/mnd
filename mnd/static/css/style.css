@@ -428,12 +428,13 @@ img {
     max-width: 768px;
 }
 
-.block-large_image img {
+.block-large_image img,
+.source-image img {
     position: relative;
     max-width: 768px;
     height: auto;
     margin-left: 25px;
-    margin-top: 20px;
+    margin-top: 30px;
     margin-bottom: 15px;
     border-style: solid;   
     border-width: 1px;   

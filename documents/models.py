@@ -24,9 +24,22 @@ full_features_list = ['h1', 'h2','h3', 'bold', 'italic', 'underline', 'strikethr
 #######################
 # Custom StructBlocks #
 #######################
+class Transcription(blocks.StructBlock):
+    transcription_text = blocks.RichTextBlock(
+        features=full_features_list,
+    )
+    source_image = ImageChooserBlock(
+        help_text="Source image",
+        required=False
+    )
+    
+    class Meta: 
+        template = 'streams/transcription.html'
+
 class Heading(blocks.StructBlock):
     heading = blocks.CharBlock(classname='full-title')
-    link_id = blocks.CharBlock(help_text='For making hyperlinks to this heading')
+    link_id = blocks.CharBlock(
+        help_text='For making hyperlinks to this heading')
 
     class Meta:
         template = 'streams/heading.html'
@@ -118,6 +131,9 @@ class DocumentPage(PdfViewPageMixin, Page):
         blank=True,
         features=full_features_list,
     )
+    transcription_test = StreamField([
+        ('transcription_row', Transcription(icon='edit'))
+    ], null=True, blank=True)
     translation = RichTextField(
         blank=True,
         features=full_features_list,
@@ -183,6 +199,7 @@ class DocumentPage(PdfViewPageMixin, Page):
         ], heading="Date"),
         FieldPanel("document_title", classname="title"),
         FieldPanel("source", classname="source"),
+        StreamFieldPanel("transcription_test"),
         StreamFieldPanel("source_image"),
         FieldPanel("transcription"),
         FieldPanel("translation"),

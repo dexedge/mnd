@@ -9,6 +9,11 @@
         <h1>{{ page.clean_title|safe }}</h1>
         <h2>{{ page.clean_source|safe }}</h2>
         <div class="row document">
+            {% for block in page.transcription_test %}
+                {% include_block block %}
+            {% endfor %}
+        </div>
+        <div class="row document">
             <div class="col-6">
                 <div class="transcription">
                     {{ page.transcription|safe }}
