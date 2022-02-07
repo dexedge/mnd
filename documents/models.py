@@ -122,16 +122,7 @@ class DocumentPage(PdfViewPageMixin, Page):
         blank=True,
         features=['italic', 'underline'],
     )
-    source_image = StreamField([
-        ('large_image', ImageChooserBlock(
-            help_text="Source image",
-        )),
-    ], null=True, blank=True)
-    transcription = RichTextField(
-        blank=True,
-        features=full_features_list,
-    )
-    transcription_test = StreamField([
+    transcription = StreamField([
         ('transcription_row', Transcription(icon='edit'))
     ], null=True, blank=True)
     translation = RichTextField(
@@ -199,9 +190,7 @@ class DocumentPage(PdfViewPageMixin, Page):
         ], heading="Date"),
         FieldPanel("document_title", classname="title"),
         FieldPanel("source", classname="source"),
-        StreamFieldPanel("transcription_test"),
-        StreamFieldPanel("source_image"),
-        FieldPanel("transcription"),
+        StreamFieldPanel("transcription"),
         FieldPanel("translation"),
         StreamFieldPanel("commentary"),
         StreamFieldPanel("notes"),
