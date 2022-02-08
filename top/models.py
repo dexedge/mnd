@@ -24,6 +24,65 @@ class TopLevelPage(Page):
         FieldPanel("updated")
     ]
 
+# Abbrevations #
+class Heading(blocks.StructBlock):
+    heading = blocks.CharBlock(
+        max_length = 100,
+        required=False,
+    )
+
+    class Meta:
+        template = "streams/abbreviation-heading.html"
+
+class Subheading(blocks.StructBlock):
+    subheading = blocks.CharBlock(
+        max_length = 100,
+        required=False,
+    )
+
+    class Meta:
+        template = "streams/abbreviation-subheading.html"
+
+class Abbreviation(blocks.StructBlock):
+        abbreviation = blocks.RichTextBlock(
+            features = ["italic", "underline"],
+            form_classname="abbreviation",
+        )
+        link_id = blocks.CharBlock(
+            help_text='For making hyperlinks to this heading'
+        )
+        reference = blocks.RichTextBlock(
+            features = ["italic", "underline"]
+        )
+        
+        class Meta:
+            template = 'streams/abbreviation.html'
+
+class AbbreviationsPage(Page):
+    parent_page_types = ["home.HomePage"]
+    template = "top/abbreviations.html"
+    max_count = 1
+
+    abbreviations = StreamField([
+        ("heading", Heading(
+            icon='edit',
+            label="Heading"
+        )),
+        ("subheading", Subheading(
+            icon='edit',
+            label="Subheading"
+        )),
+        ("item", Abbreviation(
+            icon='edit', 
+            label="Abbreviation"
+        )),
+    ], blank=True, null=True)
+
+    content_panels = Page.content_panels + [
+        StreamFieldPanel("abbreviations"),
+    ]
+
+# Index Pages
 class IndexPage(Page):
     parent_page_types = ["home.HomePage"]
     template = "top/index_page.html"
@@ -45,16 +104,6 @@ class IndexPage(Page):
         StreamFieldPanel('body')
     ]
     
-    # def prev(self):
-    #     prev_sibling = self.get_prev_sibling()
-        
-    #     if not prev_sibling.title=="News":
-    #         return prev_sibling.url
-    
-    # def next(self):
-    #     if self.get_next_sibling():
-    #         return self.get_next_sibling().url
-
 class CategoryListingPage(Page):
     parent_page_types = ["home.HomePage"]
     template = "top/categories.html"
@@ -72,12 +121,6 @@ class CategoryListingPage(Page):
         
         return context
 
-    # def prev(self):
-    #     return "/documents/1788-1793"
-    
-    # def next(self):
-    #     return self.get_next_sibling().url
-
 class KoechelListingPage(Page):
     parent_page_types = ["home.HomePage"]
     template = "top/koechel.html"
@@ -88,10 +131,3 @@ class KoechelListingPage(Page):
         context["koechel_numbers"] = KoechelNumber.objects.all()
         
         return context
-
-    # def prev(self):
-    #     return self.get_prev_sibling().url
-        
-    # def next(self):
-    #     if not self.get_next_sibling().title=="Essays":
-    #         return self.get_next_sibling().url

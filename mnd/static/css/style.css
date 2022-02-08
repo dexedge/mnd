@@ -156,6 +156,33 @@ footer {
     margin-bottom: 0;
 }
 
+.abbreviation-heading {
+    margin-left: 25px;
+    margin-bottom: 10px;
+    font-size: 1.1rem;
+    font-weight: bold;
+}
+
+.abbreviation-subheading {
+    margin-left: 25px;
+    margin-bottom: 10px;
+    font-size: 1.1rem;
+    text-decoration: underline;
+}
+
+.abbreviation {
+    margin-left: 25px;
+}
+
+.abbreviation p {
+    margin-bottom: 10px;
+}
+
+.abbreviation-text {
+    margin-left: 50px;
+    max-width: 768px;
+}
+
 .citation {
     margin-left: 3rem !important;
 }
