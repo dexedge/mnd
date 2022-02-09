@@ -72,6 +72,8 @@ $(document).ready(function(){
     // author attribute to current_author. The author attribute
     // is used to replace "————" in pop-up references
     current_author = ""
+    $refID = $("p:not('#notes, #bibliography, .blockindent') a[href^='#'], blockquote a[href^='#']")
+    $abbr = []
     $(".biblio p").each(function (){
         author = this.innerHTML.split(".")[0];
         if (author == "————"){
@@ -80,23 +82,43 @@ $(document).ready(function(){
         else {current_author = author}
     });
     // Prepare popovers for bibliographic references
-    $("p:not('#notes, #bibliography, .blockindent') a[href^='#'], blockquote a[href^='#']").each(function(){
+    $refID.each(function(){
         refID = this.hash.slice(1)
-        refText = $(".biblio[id="+refID+"] p")[0].innerHTML
-        author = refText.split(".")[0]
-        if (author == "————"){
-            refText = refText.replace("————", $(".biblio[id="+refID+"] p").attr("author"))
+        if ($(".biblio[id="+refID+"]").length != 0) {
+            refText = $(".biblio[id="+refID+"] p")[0].innerHTML
+            author = refText.split(".")[0]
+            if (author == "————"){
+                refText = refText.replace("————", $(".biblio[id="+refID+"] p").attr("author"))
+            }
+            $(this).attr({
+                "data-bs-toggle":"popover",
+                "data-bs-placement":"bottom",
+                "data-bs-trigger":"hover",
+                "data-bs-html":"true",
+                "data-bs-content":refText
+            })
+            $(this).addClass("reference")
+            $(this).removeAttr("href")
         }
-        $(this).attr({
-            "data-bs-toggle":"popover",
-            "data-bs-placement":"bottom",
-            "data-bs-trigger":"hover",
-            "data-bs-html":"true",
-            "data-bs-content":refText
-        })
-        $(this).addClass("reference")
-        $(this).removeAttr("href")
+        else { $abbr.push(refID)}
     });
     $('[data-bs-toggle="popover"]').popover({container: "body"});
+    $.get("/abbreviations/", function(data){
+        abbrHTML = data
+        $abbr.forEach(function(refID){
+            refText = $("#" + refID + " p", abbrHTML).html()
+            $("a[href*='" + refID + "']").each(function(){
+                $(this).attr({
+                    "data-bs-toggle":"popover",
+                    "data-bs-placement":"bottom",
+                    "data-bs-trigger":"hover",
+                    "data-bs-html":"true",
+                    "data-bs-content":refText
+                })
+                $(this).addClass("reference")
+                $(this).removeAttr("href")
+            })
+        });
+        $('[data-bs-toggle="popover"]').popover({container: "body"})
+    });         
 });
-
