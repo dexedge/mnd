@@ -52,7 +52,7 @@ class Abbreviation(blocks.StructBlock):
             help_text='For making hyperlinks to this heading'
         )
         reference = blocks.RichTextBlock(
-            features = ["italic", "underline"]
+            features = ["italic", "underline", "link"]
         )
         
         class Meta:
