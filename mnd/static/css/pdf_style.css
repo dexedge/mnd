@@ -199,6 +199,7 @@ blockquote {
 .centered-images img {
   width: 50%;
   height: auto;
+  margin-bottom: 0;
 }
 
 .center {
