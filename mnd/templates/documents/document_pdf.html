@@ -20,7 +20,7 @@
         <p class="author centered">{{ author_names }}</p>
         <h2>{{ page.clean_source|safe }}</h2>
     </div>
-    <div class="row document">
+    <div>
         {% for block in page.transcription %}
             {% include_block block %}
         {% endfor %}

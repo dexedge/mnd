@@ -228,6 +228,7 @@ class DocumentPage(PdfViewPageMixin, Page):
         ordering = ("date",)
 
     pdf_base_template = "documents/document_pdf.html"
+    stylesheets = ["css/pdf_style.css"]
 
     def get_context(self, request, mode=None, **kwargs):
         context = super().get_context(request, **kwargs)

@@ -105,30 +105,40 @@ blockquote {
   font-size: 1rem;
 }
 
+/* Transcription rows */
+
 .row {
   display: flex;
   flex-wrap: wrap;
+  width: 100%;
+  /* background-color: whitesmoke; */
 }
 
 .col-6 {
-  flex: 0 0 max-content;
-  min-width: 50%;
+  flex: 0 0 auto;
+  min-width: 55%;
+  /* border: 1px solid darkgrey; */
 }
 
 .col {
-  flex: 1 0 0%;
-  min-width: 300px;
-  max-width: 80%;
+  flex: 1 0 auto;
+  min-width: 40%;
+  /* border: 1px solid darkgrey; */
 }
 
 .col img {
-  width: 80%;
+  width: 100%;
+  margin-top: 30px;
+  margin-bottom: 15px;
+  margin-left: 10px;
+  border: 1px solid darkgrey;
 }
 
 .transcription {
   line-height: 1.2;
 }
 
+/* Text */
 .text {
   max-width: 700px;
 }
@@ -171,17 +181,6 @@ blockquote {
 #bibliography, #notes {
   font-size: 1.1rem;
   page-break-after: avoid;
-}
-
-.source-image img {
-  position: relative;
-  max-width: 768px;
-  height: auto;
-  margin-top: 30px;
-  margin-bottom: 15px;
-  border-style: solid;   
-  border-width: 1px;   
-  border-color: darkgrey;
 }
 
 .full-width {
@@ -233,10 +232,6 @@ blockquote {
   border-color: darkgrey;
 }
 
-/* .smallcenter:nth-of-type(2) {
- 
-} */
-
 /* Table styles */
 
 table, th, td {
@@ -276,5 +271,3 @@ td>p {
 .links p:not(:first-child) {
   margin-left: 0 !important;
 }
-
- 
