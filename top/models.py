@@ -131,3 +131,5 @@ class KoechelListingPage(Page):
         context["koechel_numbers"] = KoechelNumber.objects.all()
         
         return context
+
+

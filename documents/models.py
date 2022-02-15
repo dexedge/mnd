@@ -238,6 +238,7 @@ class DocumentPage(PdfViewPageMixin, Page):
         
         # Build author names
         authors = self.authors.all()
+        context["authors"] = authors
         if authors.count() == 1:
             context["author_heading"] = "Author"
             context["author_names"] = authors.first().author.full_name

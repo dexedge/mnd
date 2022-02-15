@@ -1,0 +1,13 @@
+{% extends override_base|default:'base.html' %}
+{% load wagtailcore_tags %}
+
+{% block content %}
+    <div class="text">
+        <h1>Commentaries by {{author.full_name}}</h1>
+        {% for doc in author.get_usage %}
+            <div class="listing">
+                <p class=""><a href="{{ doc.specific.url }}">{{ doc.specific.display_date }}</a>. {{ doc.specific.clean_title|safe }}</p>
+            </div>
+        {% endfor %}
+    </div>
+{% endblock  %}
