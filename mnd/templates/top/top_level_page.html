@@ -6,7 +6,16 @@
 {% block content %}
     <div class="text">
         <h1>{{ page.title }}</h1>
-        {{ page.top_level_text|richtext }}
+        {% for block in page.top_level_text %}
+            {% include_block block %}
+        {% endfor %}
+        {% if page.bibliography %} 
+            <hr>
+            <p id="bibliography"><em>Bibliography</em></p>  
+            {% for block in page.bibliography %}
+                {% include_block block %}
+            {% endfor %}
+        {% endif %}
     </div>
     <p id="updated">Updated: {{ page.last_published_at|date:'D, j M Y' }}</p>
       

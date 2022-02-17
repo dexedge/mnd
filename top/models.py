@@ -7,32 +7,42 @@ from wagtail.core.fields import RichTextField, StreamField
 from wagtail.core import blocks
 from wagtail.admin.edit_handlers import FieldPanel, StreamFieldPanel
 
+from documents.models import Heading, Reference
+
 
 class TopLevelPage(Page):
     parent_page_types = ["home.HomePage"]
     template = "top/top_level_page.html"
 
-    top_level_text = RichTextField(
-        blank=True,
-        features=['h1', 'h2', 'bold', 'italic', 'blockindent', 'ul', 'image', 'link', 'hr'],
-    )
+    top_level_text = StreamField([
+        ("heading", Heading(icon='title')),
+        ("richtext", blocks.RichTextBlock(
+            template="streams/richtext_block.html",
+            features=['h1', 'h2', 'bold', 'italic', 'blockindent', 'ul', 'image', 'link', 'hr'],
+        )),
+    ])
+
+    bibliography = StreamField([
+        ('reference', Reference(icon='edit', label="Reference"))
+    ], null=True, blank=True)
 
     updated = models.DateField("Updated", blank=True, null=True)
 
     content_panels = Page.content_panels + [
-        FieldPanel("top_level_text"),
+        StreamFieldPanel("top_level_text"),
+        StreamFieldPanel("bibliography"),
         FieldPanel("updated")
     ]
 
 # Abbrevations #
-class Heading(blocks.StructBlock):
-    heading = blocks.CharBlock(
-        max_length = 100,
-        required=False,
-    )
+# class Heading(blocks.StructBlock):
+#     heading = blocks.CharBlock(
+#         max_length = 100,
+#         required=False,
+#     )
 
-    class Meta:
-        template = "streams/abbreviation-heading.html"
+#     class Meta:
+#         template = "streams/abbreviation-heading.html"
 
 class Subheading(blocks.StructBlock):
     subheading = blocks.CharBlock(
