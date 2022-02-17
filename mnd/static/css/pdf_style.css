@@ -196,26 +196,17 @@ a[href^='#'] {
 }
 
 /* Images */
-.full-width {
-  width: 100% !important;
-}
+
 
 .centered-images {
-  page-break-before: avoid;
-  page-break-after: avoid;
-  float: none;
-  width: 100%;
-  padding: 10px;
-}
-
-.centered-images img {
-  width: 50%;
-  height: auto;
-  margin-bottom: 0;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
 }
 
 .center {
   display: block;
+  width: 50%;
   margin: auto;
   margin-bottom: 5px;
   border-style: solid;   
@@ -233,17 +224,25 @@ a[href^='#'] {
   border-width: 1px;   
   border-color: #ccc;
 }
-.smallcenter {
+.smallcenter,
+.full-width {
+  flex: 0;
   width: auto;
-  display: block;
-  margin-left: auto;
-  margin-right: auto;
-  max-width: 50%;
+  max-width: 75%;
   margin-bottom: 5px;
   border-style: solid;   
   border-width: 1px;   
-  border-color: darkgrey;
+  border-color: #ccc;
 }
+
+.full-width {
+  max-width: 650px;
+  /* margin-bottom: 5px; */
+  border-style: solid;   
+  border-width: 1px;   
+  border-color: #ccc;
+}
+
 
 /* Table styles */
 

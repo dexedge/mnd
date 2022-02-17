@@ -495,6 +495,7 @@ img {
 }
 
 .smallcenter {
+    flex: 0;
     width: auto;
     max-width: 50%;
     margin-bottom: 5px;
@@ -505,6 +506,7 @@ img {
 
 .centered-images {
     display: flex;
+    flex-wrap: wrap;
     margin-left: 25px;
     justify-content: center;
 }
@@ -710,8 +712,8 @@ ul.CTAs a {
     .center {
         display: flex;
         float: none;
-        margin-left: auto;
-        margin-right: auto;
+        /* margin-left: auto; */
+        /* margin-right: auto; */
     }
 
     #arrow-left {
@@ -727,11 +729,10 @@ ul.CTAs a {
     .right,
     .left,
     .center {
-        max-width: 600px;
-        display: flex;
-        float: none;
-        margin-left: auto;
-        margin-right: auto;
+        flex: 0;
+        justify-content: center;
+        /* margin-left: auto;
+        margin-right: auto; */
     }
 
     p.center-paragraph {
