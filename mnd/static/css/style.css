@@ -418,22 +418,23 @@ button {
     color: #003965;
 }
 
-.arrow {
+.arrows {
+    display: flex;
+    width: 80vw;
+    max-width: 975px;
+    justify-content: space-between;
+    align-items: center;
+    border: 3px solid blue;
     position: fixed;
     top: 50%;
-    font-size: 2rem;
-    color: #003965;
-    opacity: 50%;
-    /* color: #a9a9aa; */
-  }
-  
-#arrow-left {
     left: 197px;
 }
 
-#arrow-right {
-    right: 20px;
-}
+.arrow {
+    font-size: 2rem;
+    color: #003965;
+    opacity: 50%;
+  }
 
 /****************/
 /* Image styles */
@@ -712,16 +713,11 @@ ul.CTAs a {
     .center {
         display: flex;
         float: none;
-        /* margin-left: auto; */
-        /* margin-right: auto; */
     }
 
-    #arrow-left {
+    .arrows {
+        width: 100vw;
         left: 3px;
-    }
-    
-    #arrow-right {
-        right: 0;
     }
 }
 
