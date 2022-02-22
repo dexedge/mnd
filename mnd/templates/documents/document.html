@@ -13,19 +13,9 @@
                 {% include_block block %}
             {% endfor %}
         </div>
-        {% comment %} <div class="row">
-            <div class="col-6">
-                <div class="transcription">
-                    {{ page.transcription|safe }}
-                </div>
-            </div>
-            <div class="col">
-                {% include_block page.source_image %}
-            </div>
-        </div> {% endcomment %}
         {% if page.translation %}
             <p class="annotation">[translation:]</p><br>
-            <div class="transcription">
+            <div class="transcription translation">
                 {{ page.translation|safe }}
             </div>
         {% endif %}

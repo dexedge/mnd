@@ -1,9 +1,7 @@
 {% load wagtailimages_tags %}
     <div class="row">
         <div class="col-a">
-            {% comment %} <div class="transcription"> {% endcomment %}
-                {{ self.transcription_text|safe }}
-            {% comment %} </div> {% endcomment %}
+            {{ self.transcription_text|safe }}
         </div>
         <div class="col-b source-image">
             {% image self.source_image original %}

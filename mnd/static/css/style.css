@@ -130,6 +130,10 @@ footer {
     /* border: 1px solid darkgrey; */
   }
 
+.translation {
+    min-width: max-content;
+}
+
 
 .text {
     max-width: 768px;
@@ -441,7 +445,7 @@ button {
 .arrow {
     display: flex;
     position: fixed;
-    top: 50%;
+    top: 50vh;
     width: 80vw;
     max-width: 975px;
     justify-content: space-between;
