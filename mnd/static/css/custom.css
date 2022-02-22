@@ -10,6 +10,10 @@
   font-size: 1.2em !important;
 }
 
+.Draftail-block--center div {
+  text-align: center;
+}
+
 .fieldname-year input {
   font-weight: bold;
 }

@@ -4,16 +4,16 @@
 {% load static %}
 
 {% block content %}
-    <div class="text">
+    {% comment %} <div class=""> {% endcomment %}
         <h1>{{ page.title }}</h1>
         <h1>{{ page.clean_title|safe }}</h1>
         <h2>{{ page.clean_source|safe }}</h2>
-        <div class="document">
-            {% for block in page.transcription_test %}
+        <div class="transcription">
+            {% for block in page.transcription %}
                 {% include_block block %}
             {% endfor %}
         </div>
-        <div class="row document">
+        {% comment %} <div class="row">
             <div class="col-6">
                 <div class="transcription">
                     {{ page.transcription|safe }}
@@ -22,14 +22,14 @@
             <div class="col">
                 {% include_block page.source_image %}
             </div>
-        </div>
+        </div> {% endcomment %}
         {% if page.translation %}
             <p class="annotation">[translation:]</p><br>
             <div class="transcription">
                 {{ page.translation|safe }}
             </div>
         {% endif %}
-    </div>
+    {% comment %} </div> {% endcomment %}
     <hr>
     <div class="text">
         <h3>Commentary</h3>

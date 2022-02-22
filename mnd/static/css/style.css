@@ -13,6 +13,7 @@ body {
     font-family: 'PT Sans', sans-serif;
     background: #f6f7f6; 
     color: #003965;
+    overflow: visible;
 }
 
 h1, h2, h3 {
@@ -98,18 +99,37 @@ footer {
 /* Text class styles */
 /*********************/
 
-.document {
-    min-width: 1000px;
+.transcription {
+    /* width: 1000px; */
 }
 
 .transcription p {
-    min-width: 600px;
-    max-width: 600px;
     font-family: 'EB Garamond', serif;
     font-size: 1.2rem;
     line-height: 1.2;
     margin: 0 0 15px 25px;
 }
+
+.row {
+    width: 100vw;
+    max-width: 1000px;
+}
+
+.col-a {
+    flex-grow: 0;
+    flex-shrink: 0;
+    flex-basis: content;
+    min-width: min-content;
+    /* border: 1px solid darkgrey; */
+  }
+  
+.col-b {
+    flex-grow: 0;
+    flex-shrink: 0;
+    flex-basis: content;
+    /* border: 1px solid darkgrey; */
+  }
+
 
 .text {
     max-width: 768px;
@@ -451,6 +471,7 @@ img {
     position: relative;
     width: 100%; 
     max-width: 768px;
+    /* min-width: 600px; */
 }
 
 .block-large_image img,
@@ -483,9 +504,12 @@ img {
     border-color: #ccc;
 }
 
-.center {
-    display: block;
-    margin: auto;
+.center,
+.full-width {
+    flex: 0;
+    width: auto;
+    height: auto;
+    justify-content: center;
     margin-bottom: 5px;
     border-style: solid;   
     border-width: 1px;   
@@ -505,8 +529,16 @@ img {
 .centered-images {
     display: flex;
     flex-wrap: wrap;
-    margin-left: 25px;
     justify-content: center;
+    margin-left: 25px;
+}
+
+.centered-images p {
+    margin-left: 0;
+}
+
+.centered-images img {
+    margin-right: 10px;
 }
 
 .post-image img,
@@ -572,7 +604,7 @@ td>p {
     z-index: 999;
     background: #f6f7f6;
     color:  #003965;
-    transition: all 0.3s;
+    transition: width 0.3s;
 }
 
 #sidebar .sidebar-header {
@@ -678,8 +710,8 @@ ul.CTAs a {
     
     button {
         position: fixed;
-        margin-left: 0;
         top: 0;
+        margin-left: 0;
         z-index: 999;
     }
 
@@ -731,10 +763,23 @@ ul.CTAs a {
     p.center-paragraph {
         min-width: 600px;
     }
+    
+    .post-description {
+        margin-left: 25px  !important;
+    }
 
     .smallcenter {
         max-width: 100%;
     }
+
+    .centered-images {
+        margin-left: 0;
+    }
+    
+    .news-image {
+        margin-left: 25px !important;
+    }
+
 }
 
 /* Customization of Wagtail userbar */
