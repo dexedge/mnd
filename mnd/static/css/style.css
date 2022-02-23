@@ -134,7 +134,6 @@ footer {
     min-width: max-content;
 }
 
-
 .text {
     max-width: 768px;
 }
@@ -508,12 +507,26 @@ img {
     border-color: #ccc;
 }
 
+.centered-images {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-left: 25px;
+}
+
+.centered-images p {
+    margin-left: 0;
+}
+
+.centered-images img {
+    margin-right: 10px;
+}
+
 .center,
 .full-width {
     flex: 0;
     width: auto;
     height: auto;
-    justify-content: center;
     margin-bottom: 5px;
     border-style: solid;   
     border-width: 1px;   
@@ -528,21 +541,6 @@ img {
     border-style: solid;   
     border-width: 1px;   
     border-color: #ccc;
-}
-
-.centered-images {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    margin-left: 25px;
-}
-
-.centered-images p {
-    margin-left: 0;
-}
-
-.centered-images img {
-    margin-right: 10px;
 }
 
 .post-image img,
@@ -687,7 +685,7 @@ ul.CTAs a {
 }
 
 .popover-body {
-    font-size: 0.75rem;
+    font-size: 0.8rem;
     color: #003965;
     padding: 8px 10px;
 }
