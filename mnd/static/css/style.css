@@ -98,6 +98,12 @@ footer {
 /*********************/
 /* Text class styles */
 /*********************/
+.frontmatter,
+.text,
+.bibliography,
+.abbreviation-text {
+    max-width: 768px;
+}
 
 .transcription {
     /* width: 1000px; */
@@ -134,10 +140,6 @@ footer {
     min-width: max-content;
 }
 
-.text {
-    max-width: 768px;
-}
-
 .text p {
     margin-top: 10px;
     margin-left: 25px;
@@ -171,10 +173,6 @@ footer {
     line-height: 1rem !important;
 }
 
-.bibliography blockquote {
-    max-width: 768px;
-}
-
 .news + p {
     margin-bottom: 0;
 }
@@ -203,7 +201,6 @@ footer {
 
 .abbreviation-text {
     margin-left: 50px;
-    max-width: 768px;
 }
 
 .citation {
