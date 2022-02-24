@@ -251,8 +251,8 @@ class DocumentPage(PdfViewPageMixin, Page):
             citation_names = authors.first().author.last_name + ", "  + authors.first().author.first_names
             for i in range(1, len(authors)):
                 if i == (len(authors) - 1):
-                    author_names = author_names + ", and " + authors[i].author.full_name
-                    author_surnames = author_surnames + ", & " + authors[i].author.last_name
+                    author_names = author_names + " and " + authors[i].author.full_name
+                    author_surnames = author_surnames + " & " + authors[i].author.last_name
                     citation_names = citation_names + ", and " + authors[i].author.full_name
                 else:
                     author_names = author_names + ", " + authors[i].author.full_name

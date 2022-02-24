@@ -126,6 +126,7 @@ footer {
     flex-shrink: 0;
     flex-basis: content;
     min-width: max-content;
+    margin-right: 10px;
     /* border: 1px solid darkgrey; */
   }
   
@@ -295,11 +296,7 @@ footer {
     font-style: italic;
     font-size: 1rem !important;
     text-indent: 0;
-    margin: 0;
-}
-
-.pager {
-    margin-left: 25px;
+    margin: 25px;
 }
 
 .news {
@@ -533,7 +530,7 @@ img {
 .smallcenter {
     flex: 0;
     width: auto;
-    max-width: 50%;
+    /* max-width: 50%; */
     margin-bottom: 5px;
     border-style: solid;   
     border-width: 1px;   
@@ -705,7 +702,7 @@ ul.CTAs a {
 /* MEDIAQUERIES  */
 /*****************/
 
-@media (max-width: 768px) {
+@media (max-width: 810px) {
     
     button {
         position: fixed;
