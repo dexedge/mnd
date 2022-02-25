@@ -53,6 +53,16 @@ class Caption(blocks.StructBlock):
     class Meta:
         template = 'streams/caption.html'
 
+class Annotation(blocks.StructBlock):
+    annotation = blocks.RichTextBlock(
+        features=full_features_list,
+        form_classname='centered-annotation'
+    )
+
+    class Meta:
+        template = 'streams/annotation.html'
+
+
 class ImagesAndCaption(blocks.StructBlock):
     images = blocks.RichTextBlock(
         features=['image']
@@ -137,6 +147,7 @@ class DocumentPage(PdfViewPageMixin, Page):
         ("heading", Heading(icon='title')),
         ('images', ImagesAndCaption(icon='image', label="Images with Caption")),
         ("caption", Caption(icon='edit', label="Generic Caption")),
+        ("annotation", Annotation(icon='edit', label="Annotation Box")),
         ("table", TypedTableBlock([
                 ('text', blocks.CharBlock(required=False)),
                 ('numeric', blocks.FloatBlock(required=False)),
