@@ -100,6 +100,7 @@ footer {
 /*********************/
 .frontmatter,
 .text,
+.endmatter,
 .bibliography,
 .abbreviation-text {
     max-width: 768px;
@@ -535,12 +536,16 @@ img {
     margin-right: 10px;
 }
 
-.center,
+.center {
+    margin-bottom: 5px;
+}
+
 .full-width {
     flex: 0;
-    width: auto;
+    width: content;
     height: auto;
-    margin-bottom: 5px;
+    margin-top: -10px;
+    margin-bottom: -15px;
     border-style: solid;   
     border-width: 1px;   
     border-color: #ccc;
