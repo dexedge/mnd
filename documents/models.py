@@ -19,7 +19,7 @@ from wagtail.search import index
 from wagtail_pdf_view.mixins import PdfViewPageMixin
 
 # Features list for Draftail editor
-full_features_list = ['h1', 'h2','h3', 'bold', 'italic', 'underline', 'strikethrough', 'small', 'red','blue', 'green', 'blockquote', 'blockindent', 'doubleindent', 'center', 'superscript', 'subscript', 'ul', 'image', 'link', 'hr', 'embed']
+full_features_list = ['h1', 'h2','h3', 'bold', 'italic', 'underline', 'strikethrough', 'small', 'red','blue', 'green', 'blockquote', 'blockindent', 'doubleindent', 'superscript', 'subscript', 'ul', 'image', 'link', 'hr', 'embed']
 
 #######################
 # Custom StructBlocks #
@@ -61,6 +61,15 @@ class Annotation(blocks.StructBlock):
 
     class Meta:
         template = 'streams/annotation.html'
+
+class LeftJustifiedBlock(blocks.StructBlock):
+    left_justified_block = blocks.RichTextBlock(
+        features=full_features_list,
+        form_classname='left-justified-block'
+    )
+
+    class Meta:
+        template = 'streams/left-justified-block.html'
 
 
 class ImagesAndCaption(blocks.StructBlock):
@@ -144,10 +153,11 @@ class DocumentPage(PdfViewPageMixin, Page):
             template="streams/richtext_block.html",
             features=full_features_list,
         )),
-        ("heading", Heading(icon='title')),
-        ('images', ImagesAndCaption(icon='image', label="Images with Caption")),
+        ('images', ImagesAndCaption(icon='image', label="Image(s) with Caption")),
         ("caption", Caption(icon='edit', label="Generic Caption")),
+        ("heading", Heading(icon='title')),
         ("annotation", Annotation(icon='edit', label="Annotation Box")),
+        ("left_justified_block", LeftJustifiedBlock(icon='edit', label="Left Justified Block")),
         ("table", TypedTableBlock([
                 ('text', blocks.CharBlock(required=False)),
                 ('numeric', blocks.FloatBlock(required=False)),
@@ -356,10 +366,10 @@ class DocumentList(RoutablePageMixin, Page):
         context['documents'] = DocumentPage.objects.filter(date__year__gte=1780, date__year__lt=1788)
         return render(request, "documents/document_list.html", context)
     
-    @route(r'^1788-1793/$')
-    def index_1788_to_1793 (self, request):
+    @route(r'^1788-1829/$')
+    def index_1788_to_1829 (self, request):
         context = self.get_context(request)
-        context['range'] = "1788&ndash;1793"
+        context['range'] = "1788&ndash;1829"
         context['documents'] = DocumentPage.objects.filter(date__year__gt=1787)
         return render(request, "documents/document_list.html", context)
 
