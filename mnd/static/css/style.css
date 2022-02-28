@@ -483,7 +483,8 @@ button {
 /* Image styles */
 /****************/
 img {
-    max-width: 100%;       /* For responsive size */
+    max-width: 100%;      /* For responsive size */
+    height: auto;
 }
 
 .logo {
@@ -549,7 +550,8 @@ img {
 }
 
 .full-width {
-    flex: 0;
+    flex-shrink: 0;
+    flex-basis: content;
     margin-top: -10px;
     margin-bottom: -15px;
     border-style: solid;   
@@ -732,7 +734,7 @@ ul.CTAs a {
 /* MEDIAQUERIES  */
 /*****************/
 
-@media (max-width: 810px) {
+@media (max-width: 768px) {
     
     button {
         position: fixed;
