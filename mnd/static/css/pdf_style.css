@@ -85,6 +85,11 @@ blockquote {
   margin-left: 3rem;
 }
 
+.doubleindent {
+  margin-left: 6rem !important;
+  line-height: 1rem !important;
+}
+
 .prelim {
   page-break-inside: avoid;
 }
