@@ -125,6 +125,7 @@ class CategoryListingPage(Page):
         context["biography"] = documents.filter(categories__name="Biography")
         context["reception"] = documents.filter(categories__name="Reception")
         context["literature"] = documents.filter(categories__name="Mozart in Literature")
+        context["publication"] = documents.filter(categories__name="Publication")
         context["advertisement"] = documents.filter(categories__name="Advertisement")
         context["addenda"] = documents.filter(categories__name="Addenda")
         context["corrigenda"] = documents.filter(categories__name="Corrigenda")

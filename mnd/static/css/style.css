@@ -415,7 +415,8 @@ p a:link,
 blockquote a:link,
 span a:link,
 .date>a:link,
-.news a:link {
+.news a:link,
+.menu a:link {
     text-decoration: none;
     /* color: #003fb6 !important; */
     color: #0046c9 !important;
@@ -425,7 +426,8 @@ p a:visited,
 blockquote a:visited,
 span a:visited,
 .date>a:visited,
-.news a:visited {
+.news a:visited,
+.menu a:visited {
     color: #8229cb !important;
 }
 
@@ -696,6 +698,23 @@ ul.CTAs a {
     font-size: 0.9rem !important;
 }
 
+/*******************/
+/* Categories Menu */
+/*******************/
+.menu {
+    display: flex;
+    flex-wrap: wrap;
+    list-style-type: none;
+}
+
+.menu li {
+    flex: 0;
+    flex-basis: content;
+    justify-content: space-evenly;
+    padding: 5px;
+    text-decoration: underline;
+}
+
 /******************/
 /* Popover styles */
 /******************/
@@ -706,7 +725,7 @@ ul.CTAs a {
 }
 
 .popover {
-    background-color: #e3e7e3;
+    background-color: #eef0ee;
     font-family: 'PT Sans', sans-serif;
 }
 

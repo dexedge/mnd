@@ -7,46 +7,62 @@
 {% block content %}
     <div class="text index-page">
         <h1>{{ page.title }}</h1>
-        <h3 class="indent">Biography</h3>
+        <ul id="menu" class="menu" >
+            <li><a href="#biography">Biography</a></li>
+            <li><a href="#reception">Reception</a></li>
+            <li><a href="#publication">Publication</a></li>
+            <li><a href="#advertisement">Advertisements</a></li>
+            <li><a href="#literature">Mozart in Literature</a></li>
+            <li><a href="#addenda">Addenda</a></li>
+            <li><a href="#corrigenda">Corrigenda</a></li>
+        </ul>
+        <h4 id="biography">Biography (<a href='#menu'>⇧)</a></h4>
             {% for doc in biography%}
                 <div class="row listing">
-                    <div class="col-3 date"><a href="{{ doc.url }}">{{ doc.display_date }}</a></div>
-                    <div class="col-8">{{doc.clean_title|safe }}</div>
+                    <div class="col-2 date"><a href="{{ doc.url }}">{{ doc.display_date }}</a></div>
+                    <div class="col-7">{{doc.clean_title|safe }}</div>
                 </div>
             {% endfor %}
-        <h3 class="indent">Reception</h3>
+        <h4 id="reception">Reception (<a href='#menu'>⇧)</h4>
             {% for doc in reception %}
                 <div class="row listing">
-                    <div class="col-3 date"><a href="{{ doc.url }}">{{ doc.display_date }}</a></div>
-                    <div class="col-8">{{doc.clean_title|safe }}</div>
+                    <div class="col-2 date"><a href="{{ doc.url }}">{{ doc.display_date }}</a></div>
+                    <div class="col-7">{{doc.clean_title|safe }}</div>
                 </div>
             {% endfor %}
-        <h3 class="indent">Advertisements</h3>
+        <h4 id="publication">Publication (<a href='#menu'>⇧)</h4>
+            {% for doc in publication %}
+                <div class="row listing">
+                    <div class="col-2 date"><a href="{{ doc.url }}">{{ doc.display_date }}</a></div>
+                    <div class="col-7">{{doc.clean_title|safe }}</div>
+                </div>
+            {% endfor %}
+        <h4 id="advertisement">Advertisements (<a href='#menu'>⇧)</h4>
             {% for doc in advertisement %}
                 <div class="row listing">
-                    <div class="col-3 date"><a href="{{ doc.url }}">{{ doc.display_date }}</a></div>
-                    <div class="col-8">{{doc.clean_title|safe }}</div>
+                    <div class="col-2 date"><a href="{{ doc.url }}">{{ doc.display_date }}</a></div>
+                    <div class="col-7">{{doc.clean_title|safe }}</div>
                 </div>
             {% endfor %}
-        <h3 class="indent">Mozart in Literature</h3>
+        <h4 id="literature">Mozart in Literature (<a href='#menu'>⇧)</h4>
             {% for doc in literature %}
                 <div class="row listing">
-                    <div class="col-3 date"><a href="{{ doc.url }}">{{ doc.display_date }}</a></div>
-                    <div class="col-8">{{doc.clean_title|safe }}</div>
+                    <div class="col-2 date"><a href="{{ doc.url }}">{{ doc.display_date }}</a></div>
+                    <div class="col-7">{{doc.clean_title|safe }}</div>
                 </div>
             {% endfor %}
-        <h3 class="indent">Addenda</h3>
+        <h4 id="addenda">Addenda (<a href='#menu'>⇧)</h4>
             {% for doc in addenda %}
                 <div class="row listing">
-                    <div class="col-3 date"><a href="{{ doc.url }}">{{ doc.display_date }}</a></div>
-                    <div class="col-8">{{doc.clean_title|safe }}</div>
+                    <div class="col-2 date"><a href="{{ doc.url }}">{{ doc.display_date }}</a></div>
+                    <div class="col-7">{{doc.clean_title|safe }}</div>
                 </div>
             {% endfor %}
-        <h3 class="indent">Corrigenda</h3>
+        <h4 id="corridgenda">Corrigenda (<a href='#menu'>⇧)</h4>
             {% for doc in addenda %}
                 <div class="row listing">
-                    <div class="col-3 date"><a href="{{ doc.url }}">{{ doc.display_date }}</a></div>
-                    <div class="col-8">{{doc.clean_title|safe }}</div>
+                    <div class="col-2 date"><a href="{{ doc.url }}">{{ doc.display_date }}</a></div>
+                    <div class="col-7">{{doc.clean_title|safe }}</div>
                 </div>
             {% endfor %}
     </div>
