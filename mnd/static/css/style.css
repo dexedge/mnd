@@ -243,6 +243,7 @@ footer {
 
 .listing {
     min-width: 600px;
+    max-width: 768px;
     font-size: 1rem;
     margin-bottom: 0.5rem;
     margin-left: 2rem;
