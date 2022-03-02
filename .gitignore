@@ -15,6 +15,7 @@ dumpfile
 latest.dump
 mnd-local-dumpfile
 hpull.sh
+mnd-dump-*
 
 #
 __pycache__

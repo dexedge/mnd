@@ -481,6 +481,10 @@ button {
     left: 197px;
   }
 
+  .donate {
+      margin-left: 12px;
+  }
+
 
 /****************/
 /* Image styles */
