@@ -149,6 +149,10 @@ footer {
     line-height: 1.35;
 }
 
+.text .search {
+    font-size: 1rem;
+}
+
 .centered-text p {
     text-align: center;
     min-width: 678px;
@@ -482,7 +486,8 @@ button {
   }
 
   .donate {
-      margin-left: 12px;
+    margin-top: 150px;
+    margin-left: 54px;
   }
 
 
@@ -652,12 +657,13 @@ td>p {
     padding: 20px 10px 10px 27px;
 }
 
-#sidebar ul.components {
+#sidebar .components {
     padding: 5px 10px 10px 23px;
 }
 
 #sidebar ul a,
-#sidebar span  {
+#sidebar p a,
+#sidebar span {
     padding: 9px 10px 11px 10px;
     border-radius: 4px;
     line-height: 0.6;
@@ -699,7 +705,8 @@ ul.CTAs a {
 }
 
 #admin {
-    margin-top: 100px;
+    margin-top: 30px;
+    margin-left: 33px;
     font-size: 0.9rem !important;
 }
 

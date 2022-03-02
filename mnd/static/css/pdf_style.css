@@ -112,28 +112,29 @@ blockquote {
 
 /* Transcription rows */
 
-.row {
+/* .row {
   display: flex;
   flex-wrap: wrap;
-}
+} */
 
 .col-a {
   flex: 0 0 content;
   min-width: max-content;
-  margin-right: 15px;
+  /* margin-right: 15px; */
   /* border: 1px solid darkgrey; */
 }
 
 .col-b {
-  flex: 1 0 auto;
-  min-width: 40%;
+  flex: 0 0 content;
+  /* min-width: max-content; */
+  /* min-width: 40%; */
   /* border: 1px solid darkgrey; */
 }
 
 .col-b img {
-  width: 100%;
-  margin-top: 25px;
-  margin-bottom: 15px;
+  width: min-content;
+  /* margin-top: 25px; */
+  /* margin-bottom: 15px; */
   border: 1px solid darkgrey;
 }
 
@@ -226,12 +227,14 @@ a[href^='#'] {
 }
 
 /* Images */
-
-
 .centered-images {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
+}
+
+.centered-images img {
+  margin-right: 10px;
 }
 
 .center {
