@@ -125,16 +125,14 @@ blockquote {
 }
 
 .col-b {
-  flex: 0 0 content;
-  /* min-width: max-content; */
-  /* min-width: 40%; */
+  flex-grow: 0;
+  flex-shrink: 0;
+  flex-basis: content;
   /* border: 1px solid darkgrey; */
 }
 
 .col-b img {
-  width: min-content;
-  /* margin-top: 25px; */
-  /* margin-bottom: 15px; */
+  width: 100%;
   border: 1px solid darkgrey;
 }
 
