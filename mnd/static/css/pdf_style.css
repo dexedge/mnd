@@ -126,13 +126,15 @@ blockquote {
 
 .col-b {
   flex-grow: 0;
-  flex-shrink: 0;
+  flex-shrink: 1;
   flex-basis: content;
+  min-width: content;
   /* border: 1px solid darkgrey; */
 }
 
 .col-b img {
-  width: 100%;
+  /* width: 100%; */
+  max-width: 680px;
   border: 1px solid darkgrey;
 }
 
