@@ -15,7 +15,7 @@ $(document).ready(function () {
         if (parseInt(pathlist[2].slice(-4))) {
             urldate = parseInt(pathlist[2].slice(-4));
         }
-        // Else grab first four characters of that component
+        // Else grab first four characters of final component
         // for URLs like "1760-murr"
         else {
             urldate = parseInt(pathlist[2].slice(0, 4))

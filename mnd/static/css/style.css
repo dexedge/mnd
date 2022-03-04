@@ -11,6 +11,7 @@
 /***************************/
 body {
     font-family: 'PT Sans', sans-serif;
+    font-size: 1.1rem;
     background: #f6f7f6; 
     color: #003965;
     overflow: visible;
@@ -54,9 +55,6 @@ h4 {
 }
 
 p {
-    /* font-family: 'PT Sans', sans-serif; */
-    font-size: 1.1rem;
-    font-weight: 300;
     line-height: 1.7rem;
 }
 
@@ -80,7 +78,6 @@ b {
 }
 
 blockquote {
-    font-size: 1.1rem;
     line-height: 1.4rem;
     max-width: 650px;
     min-width: 650px;
@@ -104,10 +101,6 @@ footer {
 .bibliography,
 .abbreviation-text {
     max-width: 768px;
-}
-
-.transcription {
-    /* width: 1000px; */
 }
 
 .transcription p {
@@ -168,6 +161,8 @@ footer {
 }
 
 .blockindent {
+    max-width: 600px;
+    font-size: 1.1rem !important;
     margin-left: 3rem !important;
 }
 
@@ -187,14 +182,12 @@ footer {
 .abbreviation-heading {
     margin-left: 25px;
     margin-bottom: 10px;
-    font-size: 1.1rem;
     font-weight: bold;
 }
 
 .abbreviation-subheading {
     margin-left: 25px;
     margin-bottom: 10px;
-    font-size: 1.1rem;
     text-decoration: underline;
 }
 
@@ -217,10 +210,6 @@ footer {
 .biblio {
     margin-left: 25px;
     max-width: 718px;
-}
-
-.biblio p {
-    font-size: 1.1rem;
 }
 
 .post-date {
@@ -248,7 +237,6 @@ footer {
 .listing {
     /* min-width: 600px; */
     max-width: 768px;
-    font-size: 1rem;
     margin-bottom: 0.5rem;
     margin-left: 2rem;
     line-height: 1.4;
@@ -278,12 +266,13 @@ footer {
 
 .left-justified-block p {
     flex-basis: content;
-    font-size: 1.1rem;
+    font-size: 1.1rem !important;
     margin-top: 0;
     margin-left: 0;
 }
 
-.listing p {
+.listing p,
+.listing div {
     font-size: 1rem;
 }
 
@@ -294,10 +283,6 @@ footer {
 
 .pdf_link {
     float: right;
-}
-
-.endmatter {
-    font-size: 0.75rem;
 }
 
 .endmatter p, table {
@@ -326,7 +311,6 @@ footer {
 
 .annotation, 
 .pager {
-    /* font-family: 'PT Sans', sans-serif; */
     font-style: italic;
     font-size: 1rem !important;
     text-indent: 0;
@@ -423,7 +407,6 @@ span a:link,
 .news a:link,
 .menu a:link {
     text-decoration: none;
-    /* color: #003fb6 !important; */
     color: #0046c9 !important;
 }
 
@@ -630,7 +613,6 @@ td>p {
 /* Sidebar styles */
 /******************/
 .wrapper {
-    /* display: flex; */
     width: 100%;
 }
 
@@ -666,7 +648,6 @@ td>p {
     padding: 9px 10px 11px 10px;
     border-radius: 4px;
     line-height: 0.6;
-    font-size: 1.1rem;
     display: block;
 }
 
@@ -686,7 +667,7 @@ a[aria-expanded="true"] {
     background: #f6f7f6;
 }
 
-#sidebar ul ul li a{
+#sidebar ul ul li a {
     font-size: 0.9rem !important;
     padding-left: 25px !important;
 }
@@ -737,7 +718,6 @@ ul.CTAs a {
 
 .popover {
     background-color: #eef0ee;
-    /* font-family: 'PT Sans', sans-serif; */
 }
 
 .popover-body {

@@ -78,10 +78,10 @@
         </div>
         <div>
             <p><em>Print Citation</em>:</p>
-                <p class="citation">{{ citation_names }}. {{ page.first_published|date:'Y' }}. &ldquo;{{ page.clean_title|safe }} ({{ page.display_date }}).&rdquo; In: <em>Mozart: New Documents</em>, edited by Dexter Edge and David Black. First published {{ page.first_published|date:'j M Y'}}{% if page.updated %}; updated {{ page.updated|date:'j M Y' }}{% endif %}. https://doi.org/10.7302/Z20P0WXJ
+                <p class="citation">{{ citation_names }}. {{ page.first_published|date:'Y' }}. &ldquo;{{ page.clean_title|safe }} ({{ page.display_date }}).&rdquo; In: <em>Mozart: New Documents</em>, edited by Dexter Edge and David Black. First published {{ page.first_published|date:'j M Y'}}{% if page.updated %}; updated {{ page.updated|date:'j M Y' }}{% endif %}. https://doi.org/10.7302/Z20P0WXJ
                 </p>
             <p><em>Web Citation</em>:</p>
-                <p class="citation">{{ citation_names }}. {{ page.first_published|date:'Y' }}. &ldquo;{{ page.clean_title|safe }} ({{ page.display_date }}).&rdquo; In: <a href="https://doi.org/10.7302/Z20P0WXJ"><em>Mozart: New Documents</em></a>, edited by Dexter Edge and David Black. First published {{ page.first_published|date:'j M Y'}}{% if page.updated %}; updated {{ page.updated|date:'j M Y' }}{% endif %}. [<a href="{{page.url}}">direct link</a>]
+                <p class="citation">{{ citation_names }}. {{ page.first_published|date:'Y' }}. &ldquo;{{ page.clean_title|safe }} ({{ page.display_date }}).&rdquo; In: <a href="https://doi.org/10.7302/Z20P0WXJ"><em>Mozart: New Documents</em></a>, edited by Dexter Edge and David Black. First published {{ page.first_published|date:'j M Y'}}{% if page.updated %}; updated {{ page.updated|date:'j M Y' }}{% endif %}. [<a href="{{page.url}}">direct link</a>]
                 </p>
         </div> 
         <!-- Previous and Next arrows -->
