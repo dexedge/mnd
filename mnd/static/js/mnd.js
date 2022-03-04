@@ -11,9 +11,16 @@ $(document).ready(function () {
     }
     // Else if chronological index page or document page
     else if (pathlist[1] == "documents") {
-        // Grab end of URL as integer
-        let urldate = parseInt(pathlist[2].slice(-4));
-        // Highlight appropriate chronological index page
+        // If last 4 characters of URL are integer, grab it
+        if (parseInt(pathlist[2].slice(-4))) {
+            urldate = parseInt(pathlist[2].slice(-4));
+        }
+        // Else grab first four characters of that component
+        // for URLs like "1760-murr"
+        else {
+            urldate = parseInt(pathlist[2].slice(0, 4))
+        }
+        // Highlight the appropriate chronological index page
         if (urldate <= 1779) {
             $('#sidebar a[href*="1760-1779"]').addClass('active');
         }
@@ -48,7 +55,7 @@ $(document).ready(function () {
 });
 
 $(document).ready(function(){
-    // Set external links to open in new window
+    // Set all external links to open in new window
     //$('a[href^="http://"]').not('a[href*="mydomainname"]').attr('target','_blank') USE ON LIVE SITE
     $('a[href^="http://"], a[href^="https://"]').attr('target','_blank')
    });
@@ -68,12 +75,12 @@ $(document).ready(function(){
 ////////////////
 
 $(document).ready(function(){
-    // For each item in bibliography, if author is "————", set
-    // author attribute to current_author. The author attribute
-    // is used to replace "————" in pop-up references
     current_author = ""
     $refID = $("p:not('#notes, #bibliography, .blockindent') a[href^='#'], blockquote a[href^='#']")
     $abbr = []
+    // For each item in bibliography, if author is "————", set
+    // author attribute to current_author. The author attribute
+    // is used to replace "————" in pop-up references
     $(".biblio p").each(function (){
         author = this.innerHTML.split(".")[0];
         if (author == "————"){
@@ -103,6 +110,7 @@ $(document).ready(function(){
         else { $abbr.push(refID)}
     });
     $('[data-bs-toggle="popover"]').popover({container: "body"});
+    // Prepare Abbreviation pop-ups
     $.get("/abbreviations/", function(data){
         abbrHTML = data
         $abbr.forEach(function(refID){
