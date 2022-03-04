@@ -630,7 +630,7 @@ td>p {
 /* Sidebar styles */
 /******************/
 .wrapper {
-    display: flex;
+    /* display: flex; */
     width: 100%;
 }
 

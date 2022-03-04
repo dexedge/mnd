@@ -21,7 +21,7 @@ $(document).ready(function () {
             $('#sidebar a[href*="1780-1787"]').addClass('active');
         }
         else if (urldate >= 1788) {
-            $('#sidebar a[href*="1788-1793"]').addClass('active');
+            $('#sidebar a[href*="1788-1829"]').addClass('active');
         }
     }
     // Else highlight the current page
