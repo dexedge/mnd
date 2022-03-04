@@ -66,21 +66,5 @@
                 </div>
             {% endfor %}
     </div>
-    {% comment %} <!-- Previous and Next arrows -->
-        <div class="arrow" id="arrow-left">  
-            {% if page.prev %}
-                <a href="{{ page.prev }}">
-                    <i class="bi-chevron-left"></i>
-                </a>
-            {% endif %}
-        
-        </div> 
-        <div class="arrow" id="arrow-right">
-            {% if page.next %}
-                <a href="{{ page.next }}">
-                    <i class="bi-chevron-right"></i>
-                </a>
-            {% endif %} 
-        </div> {% endcomment %}
 
 {% endblock content %}
