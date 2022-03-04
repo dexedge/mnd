@@ -40,11 +40,11 @@ $(document).ready(function () {
         // open or close navbar
         $('#sidebar, #content, button').toggleClass('open');
         // close dropdowns
-        $('.collapse.in').toggleClass('in');
+        // $('.collapse.in').toggleClass('in');
         // and also adjust aria-expanded attributes we use for the open/closed arrows
         // in our CSS
-        $('a[aria-expanded=true]').attr('aria-expanded', 'false');
-            });
+        // $('a[aria-expanded=true]').attr('aria-expanded', 'false');
+        //     });
 });
 
 $(document).ready(function(){
