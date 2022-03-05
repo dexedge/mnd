@@ -111,7 +111,7 @@ footer {
 }
 
 .row {
-    width: 100vw;
+    width: 100%;
     max-width: 1000px;
 }
 
@@ -223,6 +223,10 @@ footer {
 
 .post-description {
     margin-left: 75px !important;
+}
+
+.index-page {
+    max-width: 768px;
 }
 
 .index-page p {
