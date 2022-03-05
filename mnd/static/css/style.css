@@ -111,7 +111,7 @@ footer {
 }
 
 .row {
-    width: 100%;
+    width: 100vw;
     max-width: 1000px;
 }
 
