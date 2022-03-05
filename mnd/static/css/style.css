@@ -459,17 +459,25 @@ button {
 }
 
 .arrow {
-    display: flex;
-    position: fixed;
-    top: 50vh;
-    width: 80vw;
-    max-width: 975px;
-    justify-content: space-between;
     font-size: 2rem;
     color: #003965;
     opacity: 50%;
-    /* border: 1px solid purple; */
-    left: 197px;
+    max-width: 900px;
+  }
+
+  .arrow-left,
+  .arrow-right {
+      /* border: 1px solid red; */
+      position: fixed;
+      top: 50vh;
+    }
+
+  .arrow-left {
+      left: 203px;
+  }
+      
+  .arrow-right {
+      left: min(95%, 1100px);
   }
 
   .donate {
@@ -752,7 +760,7 @@ ul.CTAs a {
     
     button {
         position: fixed;
-        top: 0;
+        top: 4px;
         margin-left: 0;
         z-index: 999;
     }
@@ -787,11 +795,9 @@ ul.CTAs a {
         float: none;
     }
 
-    .arrow {
-        width: 100vw;
+    .arrow-left {
         left: 3px;
     }
-}
 
 @media (max-width: 600px) {
     .right,
