@@ -112,7 +112,7 @@ footer {
 
 .row {
     width: 100vw;
-    max-width: 1000px;
+    max-width: 950px;
 }
 
 .col-a {
@@ -519,18 +519,50 @@ img {
     border-color: #ccc;
 }
 
-.right {
-    float: right;
+.full-width {
+    flex-shrink: 0;
+    flex-basis: content;
+    margin-top: -10px;
+    margin-bottom: -15px;
+    border-style: solid;   
+    border-width: 1px;   
+    border-color: #ccc;
+}
+
+.right,
+.small-right {
     margin: 0 0 10px 25px;
     border-style: solid;   
     border-width: 1px;   
     border-color: #ccc;
 }
 
-.left {
-    float: left;
+.small-right {
+    float: right;
+}
+
+.left,
+.small-left {
     width: auto;
-    margin: 0 20px 10px 10px;
+    margin: 0 20px 10px 25px;
+    border-style: solid;   
+    border-width: 1px;   
+    border-color: #ccc;
+}
+
+.small-left {
+    float: left;
+}
+
+.center {
+    margin-bottom: 5px;
+}
+
+.small-center {
+    flex: 0;
+    width: auto;
+    /* max-width: 50%; */
+    margin-bottom: 5px;
     border-style: solid;   
     border-width: 1px;   
     border-color: #ccc;
@@ -549,30 +581,6 @@ img {
 
 .centered-images img {
     margin-right: 10px;
-}
-
-.center {
-    margin-bottom: 5px;
-}
-
-.full-width {
-    flex-shrink: 0;
-    flex-basis: content;
-    margin-top: -10px;
-    margin-bottom: -15px;
-    border-style: solid;   
-    border-width: 1px;   
-    border-color: #ccc;
-}
-
-.smallcenter {
-    flex: 0;
-    width: auto;
-    /* max-width: 50%; */
-    margin-bottom: 5px;
-    border-style: solid;   
-    border-width: 1px;   
-    border-color: #ccc;
 }
 
 .post-image img,
@@ -835,6 +843,10 @@ ul.CTAs a {
     
     .news-image {
         margin-left: 25px !important;
+    }
+
+    .arrow-right {
+        left: 93vw;
     }
 
 }
