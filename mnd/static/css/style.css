@@ -554,7 +554,8 @@ img {
     float: left;
 }
 
-.center {
+.center,
+.medium-center {
     margin-bottom: 5px;
 }
 
