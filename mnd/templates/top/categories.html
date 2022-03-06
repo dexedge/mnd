@@ -59,7 +59,7 @@
                 </div>
             {% endfor %}
         <h4 id="corrigenda">Corrigenda (<a href='#menu'>⇧)</h4>
-            {% for doc in addenda %}
+            {% for doc in corrigenda %}
                 <div class="row listing">
                     <div class="col-2 date"><a href="{{ doc.url }}">{{ doc.display_date }}</a></div>
                     <div class="col-7">{{doc.clean_title|safe }}</div>
