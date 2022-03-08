@@ -309,8 +309,8 @@ class DocumentPage(PdfViewPageMixin, Page):
         elif self.date_precision=="year":
             return None
         else:
-            if self.date_custom:
-                return self.date_custom
+            if self.date_custom[-5] == " ":
+                return self.date_custom[0:-5]
             else:
                 return "NO DATE"
     

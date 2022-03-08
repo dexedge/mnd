@@ -131,6 +131,12 @@ footer {
     /* border: 1px solid darkgrey; */
   }
 
+/* Make date column in indexes slightly narrower than normal col-2 */
+.chronology.col-2 {
+    width: 13%;
+    margin-right: 5px;
+}
+
 .translation {
     min-width: max-content;
 }
@@ -233,9 +239,8 @@ footer {
     margin-bottom: 10px;
 }
 
-.k-index {
-    margin-top: 0 !important;
-    margin-bottom: 5px !important;
+.k-page h2 {
+    margin-top: 8px;
 }
 
 .listing {
@@ -409,7 +414,8 @@ blockquote a:link,
 span a:link,
 .date>a:link,
 .news a:link,
-.menu a:link {
+.menu a:link,
+.document-title a:link {
     text-decoration: none;
     color: #0046c9 !important;
 }
@@ -419,7 +425,8 @@ blockquote a:visited,
 span a:visited,
 .date>a:visited,
 .news a:visited,
-.menu a:visited {
+.menu a:visited,
+.document-title a:visited {
     color: #8229cb !important;
 }
 

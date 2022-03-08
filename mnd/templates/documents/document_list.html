@@ -15,12 +15,19 @@
                     {% new_year result.year as current_year %}
                     <h2>{{ current_year }}</h2>
                 {% endif %}
-                <div class="listing">
+                <div class="row listing">
                     {% if result.specific.index_date %}
-                        <p class="k-index"><a href="{% pageurl result %}">{{ result.specific.index_date }}</a>. {{ result.specific.clean_title|safe}}</p>
+                        <div class="date chronology col-2">
+                            <a href="{% pageurl result %}">{{ result.specific.index_date }}</a>
+                        </div> 
+                        <div class="col-8">
+                            {{ result.specific.clean_title|safe}}
+                        </div>
                     {% else %}
-                        <p class="k-index"><a href="{% pageurl result %}">{{ result.specific.clean_title|safe}}</a></p>
-                    
+                        <div class="date chronology col-2"></div>
+                        <div class="col-8 document-title">
+                            <a href="{% pageurl result %}">{{ result.specific.clean_title|safe}}</a>
+                        </div>
                     {% endif %}
                 </div>
             {% endfor %}
