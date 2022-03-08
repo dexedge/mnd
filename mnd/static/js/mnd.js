@@ -115,7 +115,7 @@ $(document).ready(function(){
         abbrHTML = data
         $abbr.forEach(function(refID){
             refText = $("#" + refID + " p", abbrHTML).html()
-            $("a[href*='" + refID + "']").each(function(){
+            $("a[href^='#" + refID + "']").each(function(){
                 $(this).attr({
                     "data-bs-toggle":"popover",
                     "data-bs-placement":"bottom",
