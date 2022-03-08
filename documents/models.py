@@ -138,7 +138,7 @@ class DocumentPage(PdfViewPageMixin, Page):
         features=['italic', 'underline'],
     )
     source = RichTextField(
-        blank=True,
+        blank=True, null=True,
         features=['italic', 'underline'],
     )
     transcription = StreamField([
@@ -328,9 +328,10 @@ class DocumentPage(PdfViewPageMixin, Page):
     # Strip <p> tag from source
     @property
     def clean_source(self):
-        temp = self.source
-        temp = re.findall(r'>(.*?)</p>', temp)[0]
-        return temp
+        if self.source:
+            temp = self.source
+            temp = re.findall(r'>(.*?)</p>', temp)[0]
+            return temp
 
     # Previous and Next links
     def prev(self):
