@@ -312,7 +312,7 @@ class DocumentPage(PdfViewPageMixin, Page):
             if self.date_custom[-5] == " ":
                 return self.date_custom[0:-5]
             else:
-                return "NO DATE"
+                return self.date_custom
     
     @property
     def year(self):
