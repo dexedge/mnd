@@ -239,6 +239,11 @@ footer {
     margin-bottom: 10px;
 }
 
+.index-page + h2,
+.listing + h2 {
+    margin-bottom: 0;
+}
+
 .k-page h2 {
     margin-top: 8px;
 }
