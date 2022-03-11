@@ -5,8 +5,13 @@
     <div class="text">
         <h1>Commentaries by {{author.full_name}} ({{ author.get_usage|length }})</h1>
         {% for doc in author.get_usage %}
-            <div class="listing">
-                <p class=""><a href="{{ doc.specific.url }}">{{ doc.specific.display_date }}</a>. {{ doc.specific.clean_title|safe }}</p>
+            <div class="row listing">
+                <div class="col-2 date">
+                    <a href="{{ doc.specific.url }}">{{ doc.specific.display_date }}</a>
+                </div>
+                <div class="col-8">
+                    {{ doc.specific.clean_title|safe }}
+                </div>
             </div>
         {% endfor %}
     </div>
