@@ -179,7 +179,7 @@ class DocumentPage(PdfViewPageMixin, Page):
                 ('numeric', blocks.FloatBlock(required=False)),
                 ('rich_text', blocks.RichTextBlock(
                     required=False,
-                    features=['italic', 'bold', 'strikethrough', 'superscript', 'subscript', 'red', 'link', 'h2'],)),
+                    features=['italic', 'bold', 'strikethrough', 'superscript', 'subscript', 'red', 'blue', 'link', 'h2'],)),
             ],
         )),
         ('images', ImagesAndCaption(icon='image', label="Images with Caption")),
