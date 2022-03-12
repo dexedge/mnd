@@ -19,7 +19,7 @@ from wagtail.search import index
 from wagtail_pdf_view.mixins import PdfViewPageMixin
 
 # Features list for Draftail editor
-full_features_list = ['h1', 'h2','h3', 'bold', 'italic', 'underline', 'strikethrough', 'small', 'red','blue', 'green', 'blockquote', 'blockindent', 'doubleindent', 'superscript', 'subscript', 'ul', 'image', 'link', 'hr', 'embed']
+full_features_list = ['h1', 'h2','h3', 'h4', 'bold', 'italic', 'underline', 'strikethrough', 'small', 'red','blue', 'green', 'blockquote', 'blockindent', 'doubleindent', 'superscript', 'subscript', 'ul', 'image', 'link', 'hr', 'embed']
 
 #######################
 # Custom StructBlocks #
