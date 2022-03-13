@@ -299,13 +299,13 @@ footer {
     float: right;
 }
 
-.endmatter p, table {
+.endmatter p {
     max-width: 768px;
     margin-left: 25px;
     line-height: 1.4;
 }
 
-.endmatter table {
+.endmatter {
     width: auto;
     font-size: 1rem;
     color: #003965;
@@ -617,9 +617,11 @@ img {
 /****************/
 
 table {
-    margin-left: 3rem;
+    margin-left: 25px;
     margin-bottom: 1rem;
-    table-layout: auto;
+    table-layout: fixed;
+    width: max-content;
+    max-width: 800px;
 }
 
 table, th, td {
@@ -633,6 +635,7 @@ th {
 }
 
 td {
+    min-width: min-content;
     padding: 1px 4px 4px 5px;
 }
 
