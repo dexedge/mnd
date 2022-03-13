@@ -158,6 +158,7 @@ class DocumentPage(PdfViewPageMixin, Page):
         ("heading", Heading(icon='title')),
         ("annotation", Annotation(icon='edit', label="Annotation Box")),
         ("left_justified_block", LeftJustifiedBlock(icon='edit', label="Left Justified Block")),
+        ("side_by_side", Transcription(icon='edit', label="Transcription with Source")),
         ("table", TypedTableBlock([
                 ('text', blocks.CharBlock(required=False)),
                 ('numeric', blocks.FloatBlock(required=False)),
@@ -174,6 +175,8 @@ class DocumentPage(PdfViewPageMixin, Page):
             template="streams/richtext_block.html",
             features=full_features_list,
         )),
+        ('images', ImagesAndCaption(icon='image', label="Images with Caption")),
+        ("side_by_side", Transcription(icon='edit', label="Transcription with Source")),
         ("table", TypedTableBlock([
                 ('text', blocks.CharBlock(required=False)),
                 ('numeric', blocks.FloatBlock(required=False)),
@@ -182,7 +185,6 @@ class DocumentPage(PdfViewPageMixin, Page):
                     features=['italic', 'bold', 'strikethrough', 'superscript', 'subscript', 'red', 'blue', 'link', 'h2'],)),
             ],
         )),
-        ('images', ImagesAndCaption(icon='image', label="Images with Caption")),
     ], null=True, blank=True)
     bibliography = StreamField([
         ('reference', Reference(icon='edit', label="Reference"))

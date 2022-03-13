@@ -131,6 +131,13 @@ footer {
     /* border: 1px solid darkgrey; */
   }
 
+.text .col-a p,
+.endmatter .col-a p {
+    font-size: 1.1rem;
+    line-height: 1.4rem;
+    margin-left: 3rem;
+}
+
 /* Make date column in indexes slightly narrower than normal col-2 */
 .chronology.col-2 {
     width: 13%;
@@ -594,6 +601,10 @@ img {
 
 .centered-images img {
     margin-right: 10px;
+}
+
+.endmatter .centered-images img {
+    margin-bottom: 10px;
 }
 
 .post-image img,
