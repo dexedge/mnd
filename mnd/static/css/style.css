@@ -173,7 +173,7 @@ footer {
     line-height: 1;
 }
 
-.blockindent {
+.text .blockindent {
     max-width: 600px;
     font-size: 1.1rem;
     margin-left: 3rem;
