@@ -112,10 +112,10 @@ blockquote {
 
 /* Transcription rows */
 
-/* .row {
-  display: flex;
-  flex-wrap: wrap;
-} */
+.row {
+  width: 100%;
+  max-width: 800px;
+}
 
 .col-a {
   flex: 0 0 content;
@@ -149,6 +149,18 @@ blockquote {
 
 .text div {
   line-height: 1.2;
+}
+
+.text .col-a p,
+.endmatter .col-a p {
+  font-size: 0.9rem;
+  line-height: 1.2rem;
+  margin-left: 3rem;
+}
+
+.text .col-b img,
+.endmatter .col-b img {
+  margin-left: 3rem;
 }
 
 .text p {
@@ -278,9 +290,15 @@ a[href^='#'] {
 
 
 /* Table styles */
+table {
+  margin-bottom: 1rem;
+  table-layout: fixed;
+  width: max-content;
+  max-width: 800px;
+}
 
 table, th, td {
-  border: 1px solid #003965;
+  border: 1px solid darkgrey;
   border-collapse: collapse;
   vertical-align: top;
   margin-bottom: 1rem;
@@ -292,6 +310,7 @@ th {
 }
 
 td {
+  min-width: min-content;
   padding: 1px 4px 4px 5px;
 }
 
