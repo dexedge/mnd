@@ -490,6 +490,10 @@ button {
     max-width: 900px;
   }
 
+.arrow a:hover {
+    color: #a04600;
+}
+
 .arrow-left,
 .arrow-right {
     /* border: 1px solid red; */

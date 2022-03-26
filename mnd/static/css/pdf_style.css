@@ -135,6 +135,7 @@ blockquote {
 .col-b img {
   /* width: 100%; */
   max-width: 680px;
+  max-height: 900px;
   border: 1px solid darkgrey;
 }
 
