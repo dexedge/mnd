@@ -490,9 +490,9 @@ button {
     max-width: 900px;
   }
 
-.arrow a:hover {
+/* .arrow a:hover {
     color: #a04600;
-}
+} */
 
 .arrow-left,
 .arrow-right {
