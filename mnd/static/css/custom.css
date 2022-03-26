@@ -14,11 +14,15 @@
   text-align: center;
 }
 
+.public-DraftStyleDefault-ltr {
+  max-width: 815px;
+}
+
 .fieldname-year input {
   font-weight: bold;
 }
 
-.centered div{
+.centered div {
   text-align: center !important;
 }
 
