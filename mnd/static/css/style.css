@@ -510,8 +510,9 @@ button {
 }
 
 .donate {
-    margin-top: 85px;
+    margin-top: 0;
     margin-left: 54px;
+    margin-bottom: 75px;
 }
 
 /****************/
@@ -693,6 +694,10 @@ td>p {
     font-style: italic;
     color: #003965;
     padding: 20px 10px 10px 27px;
+}
+
+#sidebar ul {
+    margin-bottom: 0;
 }
 
 #sidebar .components {

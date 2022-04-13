@@ -6,6 +6,7 @@
         <div class="row index-page">
             <div class="col-8">
                 <h1>Chronological Index: {{ range|safe }}</h1>
+                <h2>({{ documents|length }} documents)</h2>
             </div>
         </div>
         {% with documents.first.year as current_year %}
