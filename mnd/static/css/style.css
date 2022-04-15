@@ -17,6 +17,16 @@ body {
     overflow: visible;
 }
 
+.alert {
+    margin-left: 25px;
+    max-width: 768px;
+    padding: 0.5rem 1rem;
+    font-size: 1rem;
+    font-style: italic;
+    color: #003965;
+
+}
+
 h1, h2, h3 {
     margin-left: 25px;
 }
@@ -759,6 +769,11 @@ ul.CTAs a {
     display: flex;
     flex-wrap: wrap;
     list-style-type: none;
+}
+
+.menu li:first-of-type {
+    text-decoration: none;
+    font-style: italic;
 }
 
 .menu li {
