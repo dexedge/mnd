@@ -6,13 +6,14 @@
 
 {% block content %}
     <div class="text">
-        <h1>{{ page.title }}</h1>
-        <ul id="menu" class="menu" >
+        <h1 id="menu">{{ page.title }}</h1>
+        <ul class="menu" >
             <li>Jump to: </li>
             <li><a href="#87">K. 87</a></li>
             <li><a href="#238">K. 238</a></li>
             <li><a href="#384">K. 384</a></li>
         </ul>
+        <a href="#menu" id="top">Top ⇧</a>
         {% for kv in koechel_numbers %}
             <div class="row k-page">
                 {% if kv.koechel_sortable == "87" %}<a id="87"></a>{% endif %}

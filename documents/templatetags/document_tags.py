@@ -1,11 +1,15 @@
 from django import template
-from documents.models import Author
+from documents.models import DocumentPage, Author
 
 register = template.Library()
 
 @register.simple_tag
 def new_year(new_value):
     return new_value
+
+@register.simple_tag
+def document_count():
+    return DocumentPage.objects.all().count()
 
 # @register.inclusion_tag("top/author.html", takes_context=True)
 # def authors(context):

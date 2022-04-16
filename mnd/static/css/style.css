@@ -458,6 +458,13 @@ span a:visited,
     color: #8229cb !important;
 }
 
+#top {
+    color: #0046c9;
+    position: fixed;
+    top: 75%;
+    right: 40px;
+}
+
 .links {
     margin-bottom: 1rem;
     /* Hanging indent */

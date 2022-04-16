@@ -1,4 +1,4 @@
-{% load static wagtailcore_tags wagtailuserbar cache %}
+{% load static wagtailcore_tags wagtailuserbar document_tags cache %}
 
 <!DOCTYPE html>
 <html class="no-js" lang="en">
@@ -122,8 +122,9 @@
                     </a>
                 </div>
             {% comment %} {% endcache %} {% endcomment %}
+            {% document_count as document_count %}
             <div class="alert alert-info" role="alert">
-                This new version of our site is under construction
+                This new version of our site is under construction; {{ document_count }} of 178 documents have been transferred.
             </div>
             <div>
                 {% block content %}{% endblock content%}
