@@ -82,7 +82,7 @@ $(document).ready(function(){
     // author attribute to current_author. The author attribute
     // is used to replace "————" in pop-up references
     $(".biblio p").each(function (){
-        author = this.innerHTML.split(".")[0];
+        author = this.innerText.split(".")[0];
         if (author == "————"){
             $(this).attr("author", current_author)
         }
