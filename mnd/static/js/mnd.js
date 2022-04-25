@@ -83,16 +83,18 @@ $(document).ready(function(){
     // is used to replace "————" in pop-up references
     $(".biblio p").each(function (){
         author = this.innerText.split(".")[0];
+        console.log(author)
         if (author == "————"){
             $(this).attr("author", current_author)
         }
         else {current_author = author}
+        console.log(current_author)
     });
     // Prepare popovers for bibliographic references
     $refID.each(function(){
         refID = this.hash.slice(1)
         if ($(".biblio[id="+refID+"]").length != 0) {
-            refText = $(".biblio[id="+refID+"] p")[0].innerHTML
+            refText = $(".biblio[id="+refID+"] p")[0].innerText
             author = refText.split(".")[0]
             if (author == "————"){
                 refText = refText.replace("————", $(".biblio[id="+refID+"] p").attr("author"))
