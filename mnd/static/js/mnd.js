@@ -94,7 +94,7 @@ $(document).ready(function(){
     $refID.each(function(){
         refID = this.hash.slice(1)
         if ($(".biblio[id="+refID+"]").length != 0) {
-            refText = $(".biblio[id="+refID+"] p")[0].innerText
+            refText = $(".biblio[id="+refID+"] p")[0].innerHTML
             author = refText.split(".")[0]
             if (author == "————"){
                 refText = refText.replace("————", $(".biblio[id="+refID+"] p").attr("author"))

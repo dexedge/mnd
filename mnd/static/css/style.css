@@ -794,10 +794,10 @@ ul.CTAs a {
 /******************/
 /* Popover styles */
 /******************/
-.reference {
+a.reference {
     position: relative;
     white-space: nowrap;
-    border-bottom: 1px dotted;
+    border-bottom: 1.5px dotted;
 }
 
 .popover {
