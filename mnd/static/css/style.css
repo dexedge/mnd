@@ -797,7 +797,7 @@ ul.CTAs a {
 a.reference {
     position: relative;
     white-space: nowrap;
-    border-bottom: 1.5px dotted;
+    border-bottom: 1px dotted;
 }
 
 .popover {
