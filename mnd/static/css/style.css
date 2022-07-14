@@ -355,6 +355,7 @@ footer {
 }
 
 .news {
+    max-width: 768px;
     margin-left: 25px;
     font-size: 1.2rem;
     line-height: 1.35;
