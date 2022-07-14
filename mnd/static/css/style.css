@@ -358,6 +358,9 @@ footer {
     margin-left: 25px;
     font-size: 1.2rem;
     line-height: 1.35;
+}
+
+.news.title {
     font-weight: bold;
 }
 
