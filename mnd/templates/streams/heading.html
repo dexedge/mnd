@@ -1,1 +1,1 @@
-<h4{% if self.link_id %} id="{{ self.link_id|slugify }}"{% endif %}>{{ self.heading|safe}} {% if not self.link_id == "toc" %}(<a href="#toc">⇧</a>){% endif %}</h4>
+<div class="heading" {% if self.link_id %} id="{{ self.link_id|slugify }}"{% endif %}>{{ self.heading|safe}} {% if not self.link_id == "toc" %}(<a href="#toc">⇧</a>){% endif %}</div>

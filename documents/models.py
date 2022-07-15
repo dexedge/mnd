@@ -37,7 +37,8 @@ class Transcription(blocks.StructBlock):
         template = 'streams/transcription.html'
 
 class Heading(blocks.StructBlock):
-    heading = blocks.CharBlock(classname='full-title')
+    heading = blocks.RichTextBlock(
+        features=['italic', 'bold', 'strikethrough', 'link'],classname='full-title')
     link_id = blocks.CharBlock(
         help_text='For making hyperlinks to this heading')
 
