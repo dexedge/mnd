@@ -993,7 +993,7 @@ a.reference {
 }
 .followit--follow-form-container[attr-a][attr-b][attr-c][attr-d][attr-e][attr-f] .form-preview .preview-submit-button {
     margin-top: 10px !important;
-    margin-left: 200px !important;
+    /* margin-left: 200px !important; */
     width: 100% !important;
 }
 .followit--follow-form-container[attr-a][attr-b][attr-c][attr-d][attr-e][attr-f] .form-preview .preview-submit-button button {
