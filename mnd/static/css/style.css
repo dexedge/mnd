@@ -646,6 +646,11 @@ img {
     margin-bottom: 10px;
 }
 
+.news-image .centered-images,
+.post-image .centered-images {
+    margin-left: 0 !important;
+}
+
 .post-image img,
 .news-image img {
     height: auto;
