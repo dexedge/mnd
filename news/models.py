@@ -28,7 +28,7 @@ class NewsItem(blocks.StructBlock):
     item = blocks.PageChooserBlock()
     description= blocks.RichTextBlock(
         required=False,
-        features=['underline', 'bold', 'italic', 'hr']
+        features=['underline', 'bold', 'italic', 'hr', 'link']
     )
 
     class Meta:
@@ -44,7 +44,7 @@ class NewsPage(Page):
     ], blank=True, null=True)
     body = StreamField([
         ('text', blocks.RichTextBlock(
-            features=['underline', 'bold', 'italic', 'hr'])
+            features=['underline', 'bold', 'italic', 'hr', 'link'])
         ),
         ('news_item', NewsItem(icon='edit'))
     ], blank=True, null=True)
