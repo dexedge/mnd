@@ -97,7 +97,7 @@ class Centered(blocks.StructBlock):
 
 class Reference(blocks.StructBlock):
     reference = blocks.RichTextBlock(
-        features=['italic', 'bold', 'strikethrough', 'link']
+        features=['italic', 'bold', 'red', 'strikethrough', 'link']
     )
     link_id = blocks.CharBlock(help_text='For making hyperlinks to this heading')
 
@@ -186,6 +186,7 @@ class DocumentPage(PdfViewPageMixin, Page):
                     features=['italic', 'bold', 'strikethrough', 'superscript', 'subscript', 'red', 'blue', 'link', 'h2'],)),
             ],
         )),
+        ("heading", Heading(icon='title')),
     ], null=True, blank=True)
     bibliography = StreamField([
         ('reference', Reference(icon='edit', label="Reference"))
