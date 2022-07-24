@@ -20,7 +20,7 @@
                 <div class="news-image">{{ post.specific.images }}</div>
             {% endif %}
             <p class="post-description">
-                {{ post.first_paragraph|safe }}
+                {{ post.first_paragraph|safe }} <a href="{% pageurl post %}"><span><em>[...]</em></span></a>
             </p>
         </div>
     {% endfor %}
