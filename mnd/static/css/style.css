@@ -56,7 +56,8 @@ h3 {
 }
 
 /* Internal headings */
-.heading {
+.heading,
+.h4 {
     font-size: 1.2rem;
     font-weight: bold;
     margin-left: 25px;
@@ -794,8 +795,8 @@ ul.CTAs a {
     list-style-type: none;
 }
 
-.menu li:first-of-type {
-    text-decoration: none;
+li.koechel {
+    text-decoration: none !important;
     font-style: italic;
 }
 

@@ -8,17 +8,21 @@
     <div class="text">
         <h1 id="menu">{{ page.title }}</h1>
         <ul class="menu" >
-            <li>Jump to: </li>
+            <li class="koechel">Jump to: </li>
             <li><a href="#87">K. 87</a></li>
-            <li><a href="#238">K. 238</a></li>
+            <li><a href="#135">K. 135</a></li>
             <li><a href="#384">K. 384</a></li>
+            <li><a href="#492">K. 492</a></li>
+            <li><a href="#527">K. 527</a></li>
         </ul>
         <a href="#menu" id="top">Top ⇧</a>
         {% for kv in koechel_numbers %}
             <div class="row k-page">
                 {% if kv.koechel_sortable == "87" %}<a id="87"></a>{% endif %}
-                {% if kv.koechel_sortable == "238" %}<a id="238"></a>{% endif %}
+                {% if kv.koechel_sortable == "135" %}<a id="135"></a>{% endif %}
                 {% if kv.koechel_sortable == "384" %}<a id="384"></a>{% endif %}
+                {% if kv.koechel_sortable == "492" %}<a id="492"></a>{% endif %}
+                {% if kv.koechel_sortable == "527" %}<a id="527"></a>{% endif %}
                 <h2>K. {{ kv.koechel_display }}{% if kv.koechel_alternate %} ({{ kv.koechel_alternate }}){% endif %}. {{ kv.clean_title|safe }}</h2>
                 {% for doc in kv.get_usage%}
                     <div class="row listing">
