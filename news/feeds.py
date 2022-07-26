@@ -4,9 +4,9 @@ from django.utils.feedgenerator import Atom1Feed
 
 class RssFeed(Feed):
     title = "Mozart: New Documents"
-    link = "https://mozartdocuments.herokuapp.com"
+    link = "https://www.mozartdocuments.org"
     description = "Announcements from Mozart: New Documents"
-    feed_url = 'https://mozartdocuments.herokuapp.com/rss'
+    feed_url = 'https://www.mozartdocuments.org/rss'
     author_name = 'Dexter Edge'
     categories = ("mozart", "musicology", "18th-century", "music history")
 
@@ -36,5 +36,5 @@ class RssFeed(Feed):
 
 class AtomFeed(RssFeed):
     feed_type = Atom1Feed
-    link = "https://mozartdocuments.herokuapp.com/atom/"
+    link = "https://www.mozartdocuments.org/atom/"
     subtitle = RssFeed.description
