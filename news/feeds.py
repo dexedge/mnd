@@ -13,7 +13,7 @@ class RssFeed(Feed):
     language = 'en'
 
     def items(self):
-        return NewsPage.objects.order_by('-date')[:5]
+        return NewsPage.objects.order_by('-date')
 
     def item_title(self, item):
         return item.title
