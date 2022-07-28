@@ -44,7 +44,7 @@ class NewsPage(Page):
     ], blank=True, null=True)
     body = StreamField([
         ('text', blocks.RichTextBlock(
-            features=['underline', 'bold', 'italic', 'hr', 'blockquote',  'link'])
+            features=['underline', 'bold', 'italic', 'red', 'hr', 'blockquote',  'link'])
         ),
         ('news_item', NewsItem(icon='edit'))
     ], blank=True, null=True)
