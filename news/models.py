@@ -28,7 +28,7 @@ class NewsItem(blocks.StructBlock):
     item = blocks.PageChooserBlock()
     description= blocks.RichTextBlock(
         required=False,
-        features=['underline', 'bold', 'italic', 'blockquote', 'hr', 'link']
+        features=['underline', 'bold', 'red', 'italic', 'blockquote', 'hr', 'link']
     )
 
     class Meta:
