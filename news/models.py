@@ -55,6 +55,9 @@ class NewsPage(Page):
         StreamFieldPanel('body')  
     ]
 
+    class Meta:
+        ordering = ("date",)
+
     def first_paragraph(self):
         for block in self.body:
             if block.block_type == "text":
