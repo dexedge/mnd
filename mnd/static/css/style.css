@@ -848,7 +848,7 @@ a.reference {
 @media (max-width: 768px) { 
     
     button {
-        position: absolute;
+        position: fixed;
         top: 4px;
         margin-left: 0;
         z-index: 999;
