@@ -132,19 +132,19 @@ footer {
 }
 
 .col-a {
-    flex-grow: 0;
+    /* flex-grow: 0;
     flex-shrink: 0;
-    flex-basis: content;
+    flex-basis: content; */
+    flex: 1;
     min-width: max-content;
     margin-right: 10px;
-    /* border: 1px solid darkgrey; */
   }
   
 .col-b {
-    flex-grow: 0;
+    /* flex-grow: 0;
     flex-shrink: 0;
-    flex-basis: content;
-    /* border: 1px solid darkgrey; */
+    flex-basis: content; */
+    flex: 1;
   }
 
 .text .col-a p,
@@ -494,7 +494,7 @@ span a:visited,
     color: #004ddd;
     white-space: nowrap !important;
 }
-}
+
 
 button {
     margin-left: -200px;
@@ -927,7 +927,7 @@ a.reference {
     }
 
     .arrow-right {
-        left: 93vw;
+        left: 100vw;
     }
 
 }
