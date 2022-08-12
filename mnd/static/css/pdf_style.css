@@ -118,17 +118,15 @@ blockquote {
 }
 
 .col-a {
-  flex: 0 0 content;
+  flex: 1;
   min-width: max-content;
   /* margin-right: 15px; */
   /* border: 1px solid darkgrey; */
 }
 
 .col-b {
-  flex-grow: 0;
-  flex-shrink: 1;
-  flex-basis: content;
-  min-width: content;
+  flex: 1;
+  /* min-width: content; */
   /* border: 1px solid darkgrey; */
 }
 
