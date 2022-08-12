@@ -419,7 +419,7 @@ footer {
 
 #content {
     width: calc(100%-200px);
-    min-height: 100vh;
+    min-height: 100%;
     transition: all 0.3s;
     position: absolute;
     top: 0;
@@ -527,7 +527,7 @@ button {
 .arrow-right {
     /* border: 1px solid red; */
     position: fixed;
-    top: 50vh;
+    top: 50%;
 }
 
 .arrow-left {
