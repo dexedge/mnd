@@ -490,7 +490,7 @@ span a:visited,
 }
 
 
-button {
+button#sidebar-collapse {
     margin-left: -200px;
 }
 
