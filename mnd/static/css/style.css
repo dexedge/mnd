@@ -132,18 +132,12 @@ footer {
 }
 
 .col-a {
-    /* flex-grow: 0;
-    flex-shrink: 0;
-    flex-basis: content; */
     flex: 1;
     min-width: max-content;
     margin-right: 10px;
   }
   
 .col-b {
-    /* flex-grow: 0;
-    flex-shrink: 0;
-    flex-basis: content; */
     flex: 1;
   }
 
@@ -527,7 +521,7 @@ button {
 .arrow-right {
     /* border: 1px solid red; */
     position: fixed;
-    top: 50%;
+    top: 50vh;
 }
 
 .arrow-left {
