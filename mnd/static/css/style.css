@@ -9,6 +9,7 @@
 /***************************/
 /* Page and element styles */
 /***************************/
+
 body {
     font-family: 'PT Sans', sans-serif;
     font-size: 1.1rem;
@@ -417,7 +418,7 @@ footer {
 }
 
 #content {
-    width: calc(100%-200px);
+    width: calc(100vw-200px);
     min-height: 100%;
     transition: all 0.3s;
     position: absolute;
@@ -674,7 +675,7 @@ img {
 table {
     margin-left: 25px;
     margin-bottom: 1rem;
-    table-layout: fixed;
+    /* table-layout: fixed; */
     width: max-content;
     max-width: 800px;
 }
@@ -865,7 +866,7 @@ a.reference {
         margin-left: 0;
     }
     #content {
-        width: 100%;
+        width: 100vw;
         left: 0;
     }
 
