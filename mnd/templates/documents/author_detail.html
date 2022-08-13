@@ -6,7 +6,7 @@
         <h1>Commentaries by {{author.full_name}} ({{ author.get_usage|length }})</h1>
         {% for doc in author.get_usage %}
             <div class="row listing">
-                <div class="col-2 date">
+                <div class="col-3 date">
                     <a href="{{ doc.specific.url }}">{{ doc.specific.display_date }}</a>
                 </div>
                 <div class="col-8">
