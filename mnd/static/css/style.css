@@ -688,6 +688,7 @@ table, th, td {
 th {
     background-color: lightgrey;
     text-align: left;
+    padding: 1px 4px 4px 5px;
 }
 
 td {
