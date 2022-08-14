@@ -128,7 +128,7 @@ footer {
 }
 
 .row {
-    width:100%;
+    width: 100vw;
     max-width: 923px;
 }
 
@@ -706,7 +706,7 @@ td>p {
 /* Sidebar styles */
 /******************/
 .wrapper {
-    width:100%;
+    width: 100%;
 }
 
 #sidebar {
@@ -867,7 +867,7 @@ a.reference {
         margin-left: 0;
     }
     #content {
-        width:100%;
+        width: 100vw;
         left: 0;
     }
 
