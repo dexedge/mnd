@@ -129,7 +129,7 @@ footer {
 
 .row {
     width: 100vw;
-    max-width: 880px;
+    max-width: 930px;
 }
 
 .col-a {
@@ -535,7 +535,7 @@ button#sidebar-collapse {
 }
     
 .arrow-right {
-    left: min(95%, 1075px);
+    left: min(95%, 1115px);
 }
 
 .donate {
