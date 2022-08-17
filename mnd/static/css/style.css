@@ -299,7 +299,7 @@ footer {
 
 .annotation-box p {
     flex: 0;
-    min-width: 400px;
+    min-width: 500px;
     border: 4px double #003965;
     font-size: 1rem;
     padding: 10px;
