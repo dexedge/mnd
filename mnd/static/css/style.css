@@ -668,6 +668,15 @@ img {
     margin-left: 75px !important;
 }
 
+/**********************/
+/* Generic list style */
+/**********************/
+
+li {
+    margin-left: 3rem;
+    margin-bottom: 1rem;
+}
+
 /****************/
 /* Table styles */
 /****************/
