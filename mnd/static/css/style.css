@@ -672,10 +672,10 @@ img {
 /* Generic list style */
 /**********************/
 
-/* li {
+ul:not(.list-unstyled) li {
     margin-left: 3rem;
     margin-bottom: 1rem;
-} */
+}
 
 /****************/
 /* Table styles */
@@ -810,7 +810,7 @@ li.koechel {
     font-style: italic;
 }
 
-.menu li {
+li.menu {
     flex: 0;
     flex-basis: content;
     justify-content: space-evenly;
