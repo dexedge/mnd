@@ -453,7 +453,8 @@ span a:link,
 .date>a:link,
 .news a:link,
 .menu a:link,
-.document-title a:link {
+.document-title a:link,
+.text ul li a:link {
     text-decoration: none;
     color: #0046c9 !important;
 }
@@ -464,7 +465,8 @@ span a:visited,
 .date>a:visited,
 .news a:visited,
 .menu a:visited,
-.document-title a:visited {
+.document-title a:visited,
+.text ul li a:visited {
     color: #8229cb !important;
 }
 
@@ -672,7 +674,7 @@ img {
 /* Generic list style */
 /**********************/
 
-ul:not(.list-unstyled) li {
+.text ul li {
     margin-left: 3rem;
     margin-bottom: 1rem;
 }

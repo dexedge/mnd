@@ -76,7 +76,7 @@ $(document).ready(function(){
 
 $(document).ready(function(){
     current_author = ""
-    $refID = $("p:not('#notes, #bibliography, .blockindent') a[href^='#'], blockquote a[href^='#']")
+    $refID = $("p:not('#notes, #bibliography, .blockindent') a[href^='#'], blockquote a[href^='#'], .text ul li a[href^='#']")
     $abbr = []
     // For each item in bibliography, if author is "————", set
     // author attribute to current_author. The author attribute
