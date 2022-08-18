@@ -674,7 +674,7 @@ img {
 /* Generic list style */
 /**********************/
 
-.text ul li {
+.text ul:not(#menu) li {
     margin-left: 3rem;
     margin-bottom: 1rem;
 }
@@ -807,17 +807,17 @@ ul.CTAs a {
     list-style-type: none;
 }
 
-li.koechel {
+.koechel li {
     text-decoration: none !important;
     font-style: italic;
 }
 
-li.menu {
+.menu li {
     flex: 0;
     flex-basis: content;
     justify-content: space-evenly;
     padding: 5px;
-    text-decoration: underline;
+    text-decoration: none;
 }
 
 /******************/
