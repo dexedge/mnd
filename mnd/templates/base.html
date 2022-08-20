@@ -48,7 +48,7 @@
     {% wagtailuserbar %}
 
     <!-- Sidebar -->
-    {% comment %} {% cache 259200 sidebar %} {% endcomment %}
+    {% cache 259200 sidebar %}
     <nav id="sidebar" style="background-image: url({% static 'img/background-3-small.jpg' %});">
         <ul class="list-unstyled components">
             <li>
@@ -118,10 +118,10 @@
     <button type="button" id="sidebarCollapse" class="btn btn-outline-dark">
         <i class="bi bi-list"></i>
     </button>
-    {% comment %} {% endcache %} {% endcomment %}
+    {% endcache %}
     <div id="content">
         <div class="container-fluid">
-            {% comment %} {% cache 259200 logo %} {% endcomment %}
+            {% cache 259200 logo %}
                 <div class="logo">
                     <a href="/">
                         <picture>
@@ -130,7 +130,7 @@
                         </picture>
                     </a>
                 </div>
-            {% comment %} {% endcache %} {% endcomment %}
+            {% endcache %}
             {% document_count as document_count %}
             <div class="alert alert-info" role="alert">
                 This new version of our site is under construction; {{ document_count }} of 178 documents have been transferred.
@@ -139,7 +139,7 @@
                 {% block content %}{% endblock content%}
             </div>
         </div>
-        {% comment %} {% cache 259200 footer %} {% endcomment %}
+        {% cache 259200 footer %}
         <footer>
             <!-- Creative Commons License -->
                 <a rel="license" href="http://creativecommons.org/licenses/by-nc-nd/4.0/"><img class="CCL" alt="Creative Commons License" src="https://i.creativecommons.org/l/by-nc-nd/4.0/88x31.png"></a><br>
@@ -149,7 +149,7 @@
             <!-- Site Credit -->
                 <p id="site-credit">Site design and code by Dexter Edge</p>
         </footer>
-        {% comment %} {% endcache %} {% endcomment %}
+        {% endcache %}
     </div>
 </div>
     <!-- Bootstrap 5.1.1 JS bundle-->
