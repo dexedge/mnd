@@ -101,6 +101,10 @@ blockquote {
     margin-left: 3rem;
 }
 
+blockquote + blockquote {
+    margin-top: 2rem;
+}
+
 footer {
     display: block;
     margin: 0 auto;
