@@ -8,57 +8,58 @@
     <div class="text index-page">
         <h1>{{ page.title }}</h1>
         <ul id="menu" class="menu" >
-            <li><a href="#biography">Biography</a></li>
-            <li><a href="#reception">Reception</a></li>
-            <li><a href="#publication">Publication</a></li>
-            <li><a href="#advertisement">Advertisements</a></li>
-            <li><a href="#literature">Mozart in Literature</a></li>
-            <li><a href="#addenda">Addenda</a></li>
+            <li><a href="#biography">Biography</a>&nbsp;|</li>
+            <li><a href="#reception">Reception</a>&nbsp;|</li>
+            <li><a href="#publication">Publication</a>&nbsp;|</li>
+            <li><a href="#advertisement">Advertisements</a>&nbsp;|</li>
+            <li><a href="#literature">Mozart in Literature</a>&nbsp;|</li>
+            <li><a href="#addenda">Addenda</a>&nbsp;|</li>
             <li><a href="#corrigenda">Corrigenda</a></li>
         </ul>
-        <div class=heading id="biography">Biography (<a href='#menu'>⇧)</a></div>
-            {% for doc in biography%}
+        <a href="#menu" id="top">Top ⇧</a>
+        <div class=heading id="biography">Biography</a></div>
+            {% for doc in biography %}
                 <div class="row listing">
                     <div class="col-3 date"><a href="{{ doc.url }}">{{ doc.display_date }}</a></div>
                     <div class="col-8">{{doc.clean_title|safe }}</div>
                 </div>
             {% endfor %}
-        <div class=heading id="reception">Reception (<a href='#menu'>⇧)</div>
+        <div class=heading id="reception">Reception</div>
             {% for doc in reception %}
                 <div class="row listing">
                     <div class="col-3 date"><a href="{{ doc.url }}">{{ doc.display_date }}</a></div>
                     <div class="col-8">{{doc.clean_title|safe }}</div>
                 </div>
             {% endfor %}
-        <div class=heading id="publication">Publication (<a href='#menu'>⇧)</div>
+        <div class=heading id="publication">Publication</div>
             {% for doc in publication %}
                 <div class="row listing">
                     <div class="col-3 date"><a href="{{ doc.url }}">{{ doc.display_date }}</a></div>
                     <div class="col-8">{{doc.clean_title|safe }}</div>
                 </div>
             {% endfor %}
-        <div class=heading id="advertisement">Advertisements (<a href='#menu'>⇧)</div>
+        <div class=heading id="advertisement">Advertisements</div>
             {% for doc in advertisement %}
                 <div class="row listing">
                     <div class="col-3 date"><a href="{{ doc.url }}">{{ doc.display_date }}</a></div>
                     <div class="col-8">{{doc.clean_title|safe }}</div>
                 </div>
             {% endfor %}
-        <div class=heading id="literature">Mozart in Literature (<a href='#menu'>⇧)</div>
+        <div class=heading id="literature">Mozart in Literature</div>
             {% for doc in literature %}
                 <div class="row listing">
                     <div class="col-3 date"><a href="{{ doc.url }}">{{ doc.display_date }}</a></div>
                     <div class="col-8">{{doc.clean_title|safe }}</div>
                 </div>
             {% endfor %}
-        <div class=heading id="addenda">Addenda (<a href='#menu'>⇧)</div>
+        <div class=heading id="addenda">Addenda</div>
             {% for doc in addenda %}
                 <div class="row listing">
                     <div class="col-3 date"><a href="{{ doc.url }}">{{ doc.display_date }}</a></div>
                     <div class="col-8">{{doc.clean_title|safe }}</div>
                 </div>
             {% endfor %}
-        <div class=heading id="corrigenda">Corrigenda (<a href='#menu'>⇧)</div>
+        <div class=heading id="corrigenda">Corrigenda</div>
             {% for doc in corrigenda %}
                 <div class="row listing">
                     <div class="col-3 date"><a href="{{ doc.url }}">{{ doc.display_date }}</a></div>

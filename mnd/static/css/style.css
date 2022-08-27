@@ -269,7 +269,7 @@ footer {
 }
 
 .index-page {
-    max-width: 768px;
+    max-width: 780px;
 }
 
 .index-page p {
@@ -808,6 +808,7 @@ ul.CTAs a {
     display: flex;
     flex-wrap: wrap;
     list-style-type: none;
+    margin-bottom: 0;
 }
 
 .koechel li {
@@ -819,7 +820,7 @@ ul.CTAs a {
     flex: 0;
     flex-basis: content;
     justify-content: space-evenly;
-    padding: 5px;
+    padding: 5px 0 0 5px;
     text-decoration: none;
 }
 

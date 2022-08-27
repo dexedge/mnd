@@ -1,4 +1,4 @@
-#!/Users/Dexter/Documents/MND/MND, Wagtail/myenv/bin/python
+#!/Users/Dexter/Documents/MND/MND, Wagtail/myenv/bin/python3
 
 ##############################################################################
 #
