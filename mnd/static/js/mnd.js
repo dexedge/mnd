@@ -76,19 +76,18 @@ $(document).ready(function(){
 
 $(document).ready(function(){
     current_author = ""
-    $refID = $("p:not('#notes, #bibliography, .blockindent') a[href^='#'], blockquote a[href^='#'], .text ul:not('.menu') li a[href^='#']")
+    $refID = $("p:not('#notes, #bibliography, .blockindent') a[href^='#'], blockquote a[href^='#'], .text ul:not('.menu') li a[href^='#'], .endmatter ul:not('.menu') li a[href^='#']")
+    
     $abbr = []
     // For each item in bibliography, if author is "————", set
     // author attribute to current_author. The author attribute
     // is used to replace "————" in pop-up references
     $(".biblio p").each(function (){
         author = this.innerText.split(".")[0];
-        console.log(author)
         if (author == "————"){
             $(this).attr("author", current_author)
         }
         else {current_author = author}
-        console.log(current_author)
     });
     // Prepare popovers for bibliographic references
     $refID.each(function(){
