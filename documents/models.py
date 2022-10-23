@@ -88,7 +88,7 @@ class ImagesAndCaption(blocks.StructBlock):
 
 class Centered(blocks.StructBlock):
     text = blocks.RichTextBlock(
-        features=['italic', 'bold', 'strikethrough', 'superscript', 'subscript','link'],
+        features=['italic', 'bold', 'strikethrough', 'small', 'superscript', 'subscript','link'],
         form_classname='centered'
     )
 
