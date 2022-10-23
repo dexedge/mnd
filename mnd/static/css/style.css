@@ -154,8 +154,7 @@ footer {
     flex: 1;
   }
 
-.text .col-a p,
-.endmatter .col-a p {
+.text,.endmatter .col-a p {
     font-size: 1.1rem;
     line-height: 1.4rem;
     margin-left: 3rem;
@@ -311,11 +310,12 @@ footer {
 .left-justified-block {
     display: flex;
     justify-content: center;
+    transform: translateX(25px);
 }
 
 .annotation-box p {
     flex: 0;
-    min-width: 500px;
+    min-width: 600px;
     border: 4px double #003965;
     font-size: 1rem;
     padding: 10px;
@@ -470,7 +470,7 @@ span a:link,
 .news a:link,
 .menu a:link,
 .document-title a:link,
-.text ul li a:link {
+.text,.endmatter ul li a:link {
     text-decoration: none;
     color: #0046c9 !important;
 }
@@ -482,7 +482,7 @@ span a:visited,
 .news a:visited,
 .menu a:visited,
 .document-title a:visited,
-.text ul li a:visited {
+.text,.endmatter ul li a:visited {
     color: #8229cb !important;
 }
 
@@ -685,7 +685,7 @@ img {
 /* Generic list style */
 /**********************/
 
-.text ul:not(#menu) li {
+.text,.endmatter ul:not(#menu) li {
     margin-left: 3rem;
     margin-bottom: 1rem;
 }
