@@ -154,7 +154,8 @@ footer {
     flex: 1;
   }
 
-.text,.endmatter .col-a p {
+.text .col-a p,
+.endmatter .col-a p{
     font-size: 1.1rem;
     line-height: 1.4rem;
     margin-left: 3rem;
@@ -470,7 +471,8 @@ span a:link,
 .news a:link,
 .menu a:link,
 .document-title a:link,
-.text,.endmatter ul li a:link {
+.text ul li a:link,
+.endmatter ul li a:link {
     text-decoration: none;
     color: #0046c9 !important;
 }
@@ -482,7 +484,8 @@ span a:visited,
 .news a:visited,
 .menu a:visited,
 .document-title a:visited,
-.text,.endmatter ul li a:visited {
+.text ul li a:visited,
+.endmatter ul li a:visited {
     color: #8229cb !important;
 }
 
@@ -685,7 +688,8 @@ img {
 /* Generic list style */
 /**********************/
 
-.text,.endmatter ul:not(#menu) li {
+.text ul:not(#menu) li,
+.endmatter ul:not(#menu) li {
     margin-left: 3rem;
     margin-bottom: 1rem;
 }
