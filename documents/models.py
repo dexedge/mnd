@@ -187,6 +187,7 @@ class DocumentPage(PdfViewPageMixin, Page):
             ],
         )),
         ("heading", Heading(icon='title')),
+        ('centered_text', Centered(icon="edit")),
     ], null=True, blank=True)
     bibliography = StreamField([
         ('reference', Reference(icon='edit', label="Reference"))

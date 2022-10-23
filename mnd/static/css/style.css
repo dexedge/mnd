@@ -695,11 +695,12 @@ img {
 /****************/
 
 table {
-    margin-left: 25px;
+    margin-left: auto;
+    transform: translateX(25px);
+    margin-right: auto;
     margin-bottom: 1rem;
-    /* table-layout: fixed; */
     width: max-content;
-    max-width: 800px;
+    max-width: 768px;
 }
 
 table, th, td {
