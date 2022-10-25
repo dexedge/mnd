@@ -565,7 +565,7 @@ button#sidebar-collapse {
 /****************/
 img {
     max-width: 100%;      /* For responsive size */
-    height: auto;
+    /* height: auto; */
 }
 
 .logo {
