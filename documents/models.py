@@ -111,6 +111,7 @@ class Reference(blocks.StructBlock):
 class DocumentPage(PdfViewPageMixin, Page):
     template  = "documents/document.html"
     parent_page_types = ["top.IndexPage", "DocumentList"]
+    subpage_types = ["Supplement"]
 
     # HTML first
     ROUTE_CONFIG = [
@@ -140,7 +141,7 @@ class DocumentPage(PdfViewPageMixin, Page):
     )
     source = RichTextField(
         blank=True, null=True,
-        features=['italic', 'underline'],
+        features=['italic', 'underline', 'small'],
     )
     transcription = StreamField([
         ('transcription_row', Transcription(icon='edit'))
@@ -349,6 +350,65 @@ class DocumentPage(PdfViewPageMixin, Page):
         if next_sibling:
             return next_sibling.url
 
+##############
+# Supplement #
+##############
+class Supplement(Page):
+    template  = "documents/supplement.html"
+    parent_page_types = ["DocumentPage"]
+    document_title = RichTextField(
+        blank=True,
+        features=['italic', 'underline', 'small'],
+    )
+    source = RichTextField(
+        blank=True, null=True,
+        features=['italic', 'underline', 'small'],
+    )
+    transcription = StreamField([
+        ('transcription_row', Transcription(icon='edit'))
+    ], null=True, blank=True)
+    commentary = StreamField([
+        ("richtext", blocks.RichTextBlock(
+            template="streams/richtext_block.html",
+            features=full_features_list,
+        )),
+        
+    ], null=True, blank=True)
+    first_published = models.DateField(null=True, blank=True)
+    updated = models.DateField(null=True, blank=True)
+    
+
+    content_panels = Page.content_panels + [
+        FieldPanel("document_title", classname="title"),
+        FieldPanel("source", classname="source"),
+        StreamFieldPanel("transcription"),
+        StreamFieldPanel("commentary"),
+        FieldPanel("first_published"),
+        FieldPanel("updated"),
+    ]
+
+    search_fields = Page.search_fields + [
+        index.SearchField('title'),
+        index.SearchField('document_title'),
+        index.SearchField('source'),
+        index.SearchField('transcription'),
+        index.SearchField('commentary'),
+    ]
+
+    # Strip <p> tag from document_title
+    @property
+    def clean_title(self):
+        temp = self.document_title
+        temp = re.findall(r'>(.*?)</p>', temp)[0]
+        return temp
+    
+    # Strip <p> tag from source
+    @property
+    def clean_source(self):
+        if self.source:
+            temp = self.source
+            temp = re.findall(r'>(.*?)</p>', temp)[0]
+            return temp
 
 #################
 # Document List #
