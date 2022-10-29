@@ -16,34 +16,22 @@
             {% include_block block %}
         {% endfor %}
     </div>
+    {% if page.commentary %}
     <hr>
-    <div class="text">
-        <h3>Commentary</h3>
-        {% for block in page.commentary %}
-            {% include_block block %}
-        {% endfor %}
-    </div>
+        <div class="text">
+            <h3>Commentary</h3>
+            {% for block in page.commentary %}
+                {% include_block block %}
+            {% endfor %}
+        </div>
+    {% endif %}
+    <hr>
     <div class="endmatter">
-        {% if page.notes %} 
-            <hr>
-            <p id="notes"><em>Notes</em></p>
-            {% for block in page.notes %}
-                {% include_block block %}
-            {% endfor %}
-        {% endif %}
-        {% if page.bibliography %} 
-            <hr>
-            <p id="bibliography"><em>Bibliography</em></p>  
-            {% for block in page.bibliography %}
-                {% include_block block %}
-            {% endfor %}
-        {% endif %}
-        <hr>
         <div class="credits">
             <p><em>First Published</em>: {{ page.first_published|date:'D, j M Y' }}</p>
             {% if page.updated %}
                 <p><em>Updated</em>: {{ page.updated|date:'D, j M Y' }}</p>
             {% endif %}
-            <hr style="margin-top:2rem">
         </div>
+    </div>
 {% endblock content %}
