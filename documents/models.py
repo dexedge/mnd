@@ -27,6 +27,7 @@ full_features_list = ['h1', 'h2','h3', 'h4', 'bold', 'italic', 'underline', 'str
 class Transcription(blocks.StructBlock):
     transcription_text = blocks.RichTextBlock(
         features=full_features_list,
+        required=False
     )
     source_image = ImageChooserBlock(
         help_text="Source image",
