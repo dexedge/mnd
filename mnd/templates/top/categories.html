@@ -13,6 +13,7 @@
             <li><a href="#publication">Publication</a>&nbsp;|</li>
             <li><a href="#advertisement">Advertisements</a>&nbsp;|</li>
             <li><a href="#literature">Mozart in Literature</a>&nbsp;|</li>
+            <li><a href="#curiosa">Curiosa</a>&nbsp;|</li>
             <li><a href="#addenda">Addenda</a>&nbsp;|</li>
             <li><a href="#corrigenda">Corrigenda</a></li>
         </ul>
@@ -47,6 +48,13 @@
             {% endfor %}
         <div class=heading id="literature">Mozart in Literature</div>
             {% for doc in literature %}
+                <div class="row listing">
+                    <div class="col-3 date"><a href="{{ doc.url }}">{{ doc.display_date }}</a></div>
+                    <div class="col-8">{{doc.clean_title|safe }}</div>
+                </div>
+            {% endfor %}
+        <div class=heading id="curiosa">Curiosa</div>
+            {% for doc in curiosa %}
                 <div class="row listing">
                     <div class="col-3 date"><a href="{{ doc.url }}">{{ doc.display_date }}</a></div>
                     <div class="col-8">{{doc.clean_title|safe }}</div>

@@ -306,6 +306,20 @@ class DocumentPage(PdfViewPageMixin, Page):
                 return self.date_custom
             else:
                 return "NO DATE"
+
+    @property
+    def citation_date(self):
+        if self.date_precision=="full":
+            return self.date.strftime("%-d %B %Y")
+        elif self.date_precision=="month":
+            return self.date.strftime("%B %Y")
+        elif self.date_precision=="year":
+            return self.date.strftime("%Y")
+        else:
+            if self.date_custom:
+                return self.date_custom
+            else:
+                return "NO DATE"
     
     @property
     def index_date(self):
