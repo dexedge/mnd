@@ -6,6 +6,8 @@ from wagtail.core.models import Page
 from wagtail.core import blocks
 from wagtail.core.fields import RichTextField, StreamField
 from wagtail.admin.edit_handlers import FieldPanel, StreamFieldPanel
+from wagtail.snippets.models import register_snippet
+
 
 from documents.models import full_features_list, ImagesAndCaption
 
@@ -28,7 +30,7 @@ class NewsItem(blocks.StructBlock):
     item = blocks.PageChooserBlock()
     description= blocks.RichTextBlock(
         required=False,
-        features=['underline', 'bold', 'small', 'red', 'italic', 'blockquote', 'ul', 'hr', 'link']
+        features=['underline', 'bold', 'italic', 'red', 'blockquote', 'ul', 'hr', 'link']
     )
 
     class Meta:
