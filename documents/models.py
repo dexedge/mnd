@@ -5,7 +5,7 @@ from django.shortcuts import render
 import re
 
 from modelcluster.fields import ParentalManyToManyField, ParentalKey
-from wagtail.models import Page, Orderable
+from wagtail.models import Page, Orderable, ReferenceIndex
 from wagtail.core import blocks
 from wagtail.fields import RichTextField, StreamField
 from wagtail.admin.panels import FieldPanel, MultiFieldPanel, InlinePanel, FieldRowPanel
@@ -512,6 +512,12 @@ class KoechelNumber(models.Model):
         temp = strip_tags(self.koechel_title)
         temp = temp.replace("&quot;", '"')
         return self.koechel_display + ": " + temp
+    
+    def get_context(self, request, mode=None, **kwargs):
+        context = super().get_context(request, **kwargs)
+        context["get_usage"] = get_grouped_references_to(self)
+
+        return context
 
     # Strip <p> tag from koechel_title
     @property
@@ -567,6 +573,12 @@ class Author(models.Model):
     @property
     def full_name(self):
         return self.first_names + " " + self.last_name
+    
+    def get_context(self, request, mode=None, **kwargs):
+        context = super().get_context(request, **kwargs)
+        context["get_usage"] = get_grouped_references_to(self)
+
+        return context
 
 
 class AuthorOrderable(Orderable):

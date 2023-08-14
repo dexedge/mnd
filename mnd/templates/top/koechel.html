@@ -26,10 +26,10 @@
                 <h2>K. {{ kv.koechel_display }}{% if kv.koechel_alternate %} ({{ kv.koechel_alternate }}){% endif %}. {{ kv.clean_title|safe }}</h2>
                 {% for doc in kv.get_usage%}
                     <div class="row listing">
-                        <div class="date col-3"><a href="{{ doc.specific.url }}">{{ doc.specific.display_date }}</a>
+                        <div class="date col-3"><a href="{{ doc.specific.url }}">{{ doc.0.specific.display_date }}</a>
                         </div> 
                         <div class="col-8">
-                            {{ doc.specific.clean_title|safe }}
+                            {{ doc.0.specific.clean_title|safe }}
                         </div>
                     </div>
                 {% endfor %}

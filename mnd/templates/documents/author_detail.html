@@ -7,10 +7,10 @@
         {% for doc in author.get_usage %}
             <div class="row listing">
                 <div class="col-3 date">
-                    <a href="{{ doc.specific.url }}">{{ doc.specific.display_date }}</a>
+                    <a href="{{ doc.0.specific.url }}">{{ doc.0.specific.display_date }}</a>
                 </div>
                 <div class="col-8">
-                    {{ doc.specific.clean_title|safe }}
+                    {{ doc.0.specific.clean_title|safe }}
                 </div>
             </div>
         {% endfor %}
