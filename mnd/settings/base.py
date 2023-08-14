@@ -38,7 +38,7 @@ INSTALLED_APPS = [
     'wagtail.contrib.typed_table_block',
     'wagtail_pdf_view',
     'wagtail.contrib.routable_page',
-    'wagtail.contrib.postgres_search',
+   # 'wagtail.contrib.postgres_search',
     'wagtail.embeds',
     'wagtail.sites',
     'wagtail.users',
@@ -201,4 +201,4 @@ WAGTAILSEARCH_BACKENDS = {
 
 # Base URL to use when referring to full URLs within the Wagtail admin backend -
 # e.g. in notification emails. Don't include '/admin' or a trailing slash
-BASE_URL = 'http://example.com'
+WAGTAILADMIN_BASE_URL = 'http://example.com'

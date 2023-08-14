@@ -1,4 +1,4 @@
-{% extends override_base|default:'base.html' %}
+{% extends 'base.html' %}
 {% load wagtailcore_tags %}
 
 {% load static %}
@@ -27,7 +27,7 @@
     <hr>
     <div class="text">
         <h3>Commentary</h3>
-        <span class="pdf_link">(<a href="{{page.url_pdf}}">pdf</a>)</span>
+        {% comment %} <span class="pdf_link">(<a href="{{page.url_pdf}}">pdf</a>)</span> {% endcomment %}
         {% for block in page.commentary %}
             {% include_block block %}
         {% endfor %}

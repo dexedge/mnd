@@ -5,11 +5,11 @@ from django.shortcuts import render
 import re
 
 from modelcluster.fields import ParentalManyToManyField, ParentalKey
-from wagtail.core.models import Page, Orderable
+from wagtail.models import Page, Orderable
 from wagtail.core import blocks
-from wagtail.core.fields import RichTextField, StreamField
-from wagtail.admin.edit_handlers import FieldPanel, StreamFieldPanel, MultiFieldPanel, InlinePanel, FieldRowPanel
-from wagtail.snippets.edit_handlers import SnippetChooserPanel
+from wagtail.fields import RichTextField, StreamField
+from wagtail.admin.panels import FieldPanel, MultiFieldPanel, InlinePanel, FieldRowPanel
+#from wagtail.snippets.edit_handlers import SnippetChooserPanel
 from wagtail.contrib.routable_page.models import RoutablePageMixin, route
 from wagtail.contrib.typed_table_block.blocks import TypedTableBlock
 from wagtail.images.blocks import ImageChooserBlock
@@ -146,7 +146,7 @@ class DocumentPage(PdfViewPageMixin, Page):
     )
     transcription = StreamField([
         ('transcription_row', Transcription(icon='edit'))
-    ], null=True, blank=True)
+    ], null=True, blank=True, use_json_field=True)
     translation = RichTextField(
         blank=True,
         features=full_features_list,
@@ -171,7 +171,7 @@ class DocumentPage(PdfViewPageMixin, Page):
             ],
         )),
         ('centered_text', Centered(icon="edit")),
-    ], null=True, blank=True)
+    ], null=True, blank=True, use_json_field=True)
     
     notes = StreamField([
         ("richtext", blocks.RichTextBlock(
@@ -190,10 +190,10 @@ class DocumentPage(PdfViewPageMixin, Page):
         )),
         ("heading", Heading(icon='title')),
         ('centered_text', Centered(icon="edit")),
-    ], null=True, blank=True)
+    ], null=True, blank=True, use_json_field=True)
     bibliography = StreamField([
         ('reference', Reference(icon='edit', label="Reference"))
-    ], null=True, blank=True)
+    ], null=True, blank=True, use_json_field=True)
     credit = models.CharField(max_length=100, blank=True)
     source_link = RichTextField(
         blank=True,
@@ -218,11 +218,11 @@ class DocumentPage(PdfViewPageMixin, Page):
         ], heading="Date"),
         FieldPanel("document_title", classname="title"),
         FieldPanel("source", classname="source"),
-        StreamFieldPanel("transcription"),
+        FieldPanel("transcription"),
         FieldPanel("translation"),
-        StreamFieldPanel("commentary"),
-        StreamFieldPanel("notes"),
-        StreamFieldPanel("bibliography"),
+        FieldPanel("commentary"),
+        FieldPanel("notes"),
+        FieldPanel("bibliography"),
         MultiFieldPanel([
             FieldPanel("credit"),
             FieldPanel('source_link'),
@@ -381,14 +381,14 @@ class Supplement(Page):
     )
     transcription = StreamField([
         ('transcription_row', Transcription(icon='edit'))
-    ], null=True, blank=True)
+    ], null=True, blank=True, use_json_field=True)
     commentary = StreamField([
         ("richtext", blocks.RichTextBlock(
             template="streams/richtext_block.html",
             features=full_features_list,
         )),
         
-    ], null=True, blank=True)
+    ], null=True, blank=True, use_json_field=True)
     first_published = models.DateField(null=True, blank=True)
     updated = models.DateField(null=True, blank=True)
     
@@ -396,8 +396,8 @@ class Supplement(Page):
     content_panels = Page.content_panels + [
         FieldPanel("document_title", classname="title"),
         FieldPanel("source", classname="source"),
-        StreamFieldPanel("transcription"),
-        StreamFieldPanel("commentary"),
+        FieldPanel("transcription"),
+        FieldPanel("commentary"),
         FieldPanel("first_published"),
         FieldPanel("updated"),
     ]
@@ -534,7 +534,7 @@ class KoechelNumberOrderable(Orderable):
     )
 
     panels = [
-        SnippetChooserPanel("koechel_number")
+        FieldPanel("koechel_number")
     ]
 
 ###########
@@ -578,6 +578,6 @@ class AuthorOrderable(Orderable):
     )
 
     panels = [
-        SnippetChooserPanel("author")
+        FieldPanel("author")
     ]
 

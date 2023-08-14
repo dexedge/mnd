@@ -5,7 +5,7 @@ import re
 from wagtail.core.models import Page
 from wagtail.core import blocks
 from wagtail.core.fields import RichTextField, StreamField
-from wagtail.admin.edit_handlers import FieldPanel, StreamFieldPanel
+from wagtail.admin.panels import FieldPanel, StreamFieldPanel
 from wagtail.snippets.models import register_snippet
 
 
@@ -53,8 +53,8 @@ class NewsPage(Page):
 
     content_panels = Page.content_panels + [
         FieldPanel('date'),
-        StreamFieldPanel('images'),
-        StreamFieldPanel('body')  
+        FieldPanel('images'),
+        FieldPanel('body')  
     ]
 
     class Meta:

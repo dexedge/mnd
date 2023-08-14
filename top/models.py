@@ -5,7 +5,7 @@ from documents.models import DocumentPage, KoechelNumber
 from wagtail.core.models import Page
 from wagtail.core.fields import StreamField
 from wagtail.core import blocks
-from wagtail.admin.edit_handlers import FieldPanel, StreamFieldPanel
+from wagtail.admin.panels import FieldPanel, FieldPanel
 
 from documents.models import Heading, Reference
 
@@ -28,8 +28,8 @@ class TopLevelPage(Page):
     updated = models.DateField("Updated", blank=True, null=True)
 
     content_panels = Page.content_panels + [
-        StreamFieldPanel("top_level_text"),
-        StreamFieldPanel("bibliography"),
+        FieldPanel("top_level_text"),
+        FieldPanel("bibliography"),
         FieldPanel("updated")
     ]
 
@@ -79,7 +79,7 @@ class AbbreviationsPage(Page):
     ], blank=True, null=True)
 
     content_panels = Page.content_panels + [
-        StreamFieldPanel("abbreviations"),
+        FieldPanel("abbreviations"),
     ]
 
 
@@ -102,7 +102,7 @@ class IndexPage(Page):
     ])
 
     content_panels = Page.content_panels + [
-        StreamFieldPanel('body')
+        FieldPanel('body')
     ]
     
 class CategoryListingPage(Page):
