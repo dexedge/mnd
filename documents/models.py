@@ -16,7 +16,6 @@ from wagtail.images.blocks import ImageChooserBlock
 from wagtail.snippets.models import register_snippet
 from wagtail.search import index
 
-from wagtail_pdf_view.mixins import PdfViewPageMixin
 
 # Features list for Draftail editor
 full_features_list = ['h1', 'h2','h3', 'h4', 'bold', 'italic', 'underline', 'strikethrough', 'small', 'red','blue', 'green', 'blockquote', 'blockindent', 'doubleindent', 'superscript', 'subscript', 'ul', 'image', 'link', 'hr', 'embed']
@@ -109,7 +108,7 @@ class Reference(blocks.StructBlock):
 # Document Page #
 #################
 
-class DocumentPage(PdfViewPageMixin, Page):
+class DocumentPage(Page):
     template  = "documents/document.html"
     parent_page_types = ["top.IndexPage", "DocumentList"]
     subpage_types = ["Supplement"]
@@ -117,7 +116,7 @@ class DocumentPage(PdfViewPageMixin, Page):
     # HTML first
     ROUTE_CONFIG = [
         ("html", r'^$'),
-        ("pdf", r'^pdf/$'),
+        #("pdf", r'^pdf/$'),
     ]
     
     date = models.DateField("Date", null=True)
@@ -261,8 +260,8 @@ class DocumentPage(PdfViewPageMixin, Page):
     def get_context(self, request, mode=None, **kwargs):
         context = super().get_context(request, **kwargs)
         
-        if mode == 'pdf':
-            context["override_base"] = self.pdf_base_template
+        #if mode == 'pdf':
+          #  context["override_base"] = self.pdf_base_template
         
         # Build author names
         authors = self.authors.all()
