@@ -5,7 +5,7 @@ from django.shortcuts import render
 import re
 
 from modelcluster.fields import ParentalManyToManyField, ParentalKey
-from wagtail.models import Page, Orderable, ReferenceIndex
+from wagtail.models import Page, Orderable
 from wagtail.core import blocks
 from wagtail.fields import RichTextField, StreamField
 from wagtail.admin.panels import FieldPanel, MultiFieldPanel, InlinePanel, FieldRowPanel
@@ -512,12 +512,11 @@ class KoechelNumber(models.Model):
         temp = strip_tags(self.koechel_title)
         temp = temp.replace("&quot;", '"')
         return self.koechel_display + ": " + temp
-    
-    def get_context(self, request, mode=None, **kwargs):
-        context = super().get_context(request, **kwargs)
-        context["get_usage"] = get_grouped_references_to(self)
 
-        return context
+    class Meta:
+        ordering=("koechel_sortable",)
+        verbose_name = "Koechel Number"
+        verbose_name_plural = "Koechel Numbers"
 
     # Strip <p> tag from koechel_title
     @property
@@ -525,11 +524,11 @@ class KoechelNumber(models.Model):
         temp = self.koechel_title
         temp = re.findall(r'>(.*?)</p>', temp)[0]
         return temp
+    
+    @property
+    def documents(self):
+        return DocumentPage.objects.filter(koechel_numbers__koechel_number_id=self)
 
-    class Meta:
-        ordering=("koechel_sortable",)
-        verbose_name = "Koechel Number"
-        verbose_name_plural = "Koechel Numbers"
 
 class KoechelNumberOrderable(Orderable):
     page = ParentalKey("documents.DocumentPage", related_name="koechel_numbers")
@@ -547,6 +546,7 @@ class KoechelNumberOrderable(Orderable):
 ###########
 @register_snippet
 class Author(models.Model):
+    template = "documents/author_detail.html"
     last_name = models.CharField(max_length = 50)
     first_names = models.CharField(max_length = 50)
 
@@ -570,16 +570,15 @@ class Author(models.Model):
         verbose_name = "Author"
         verbose_name_plural = "Authors"
 
+    
     @property
     def full_name(self):
         return self.first_names + " " + self.last_name
     
-    def get_context(self, request, mode=None, **kwargs):
-        context = super().get_context(request, **kwargs)
-        context["get_usage"] = get_grouped_references_to(self)
-
-        return context
-
+    @property
+    def documents(self):
+        return DocumentPage.objects.filter(authors__author_id=self)
+    
 
 class AuthorOrderable(Orderable):
     page = ParentalKey("documents.DocumentPage", related_name="authors")
