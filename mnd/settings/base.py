@@ -45,7 +45,7 @@ INSTALLED_APPS = [
     'wagtail.images',
     'wagtail.search',
     'wagtail.admin',
-    #'wagtail.core',
+    'wagtail.core',
 
     'modelcluster',
     'taggit',
@@ -107,7 +107,7 @@ DATABASES = {
         'NAME': 'mnd',
         'USER': 'Dexter',
         'PASSWORD': 'moz1756',
-        'HOST': 'localhost',
+        'HOST': 'localhos
         'PORT': '',
     }
 }
