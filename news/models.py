@@ -2,10 +2,10 @@ from django.db import models
 from django.db.models.expressions import F
 import re
 
-from wagtail.core.models import Page
-from wagtail.core import blocks
-from wagtail.core.fields import RichTextField, StreamField
-from wagtail.admin.panels import FieldPanel, StreamFieldPanel
+from wagtail.models import Page
+from wagtail.blocks import PageChooserBlock, RichTextBlock, StructBlock
+from wagtail.fields import RichTextField, StreamField
+from wagtail.admin.panels import FieldPanel
 from wagtail.snippets.models import register_snippet
 
 
@@ -26,9 +26,9 @@ class NewsListingPage(Page):
         context['newspages'] = NewsPage.objects.live().order_by('-date')
         return context
 
-class NewsItem(blocks.StructBlock):
-    item = blocks.PageChooserBlock()
-    description= blocks.RichTextBlock(
+class NewsItem(StructBlock):
+    item = PageChooserBlock()
+    description= RichTextBlock(
         required=False,
         features=['underline', 'bold', 'italic', 'red', 'blockquote', 'ul', 'hr', 'link']
     )
@@ -45,7 +45,7 @@ class NewsPage(Page):
         ('news_images', ImagesAndCaption(icon='image', label="Images with Optional Caption")),
     ], blank=True, null=True)
     body = StreamField([
-        ('text', blocks.RichTextBlock(
+        ('text', RichTextBlock(
             features=['underline', 'bold', 'italic', 'small', 'red', 'hr', 'blockquote', 'ul', 'link'])
         ),
         ('news_item', NewsItem(icon='edit'))

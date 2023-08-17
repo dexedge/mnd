@@ -3,7 +3,7 @@ from django.utils.html import format_html
 
 import wagtail.admin.rich_text.editors.draftail.features as draftail_features
 from wagtail.admin.rich_text.converters.html_to_contentstate import InlineStyleElementHandler, BlockElementHandler
-from wagtail.core import hooks
+from wagtail import hooks
 
 @hooks.register("insert_global_admin_css", order=100)
 def global_admin_css():

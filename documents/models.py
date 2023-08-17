@@ -6,10 +6,9 @@ import re
 
 from modelcluster.fields import ParentalManyToManyField, ParentalKey
 from wagtail.models import Page, Orderable
-from wagtail.core import blocks
+from wagtail.blocks import StructBlock, RichTextBlock, CharBlock, FloatBlock
 from wagtail.fields import RichTextField, StreamField
 from wagtail.admin.panels import FieldPanel, MultiFieldPanel, InlinePanel, FieldRowPanel
-#from wagtail.snippets.edit_handlers import SnippetChooserPanel
 from wagtail.contrib.routable_page.models import RoutablePageMixin, route
 from wagtail.contrib.typed_table_block.blocks import TypedTableBlock
 from wagtail.images.blocks import ImageChooserBlock
@@ -23,8 +22,8 @@ full_features_list = ['h1', 'h2','h3', 'h4', 'bold', 'italic', 'underline', 'str
 #######################
 # Custom StructBlocks #
 #######################
-class Transcription(blocks.StructBlock):
-    transcription_text = blocks.RichTextBlock(
+class Transcription(StructBlock):
+    transcription_text = RichTextBlock(
         features=full_features_list,
         required=False
     )
@@ -36,17 +35,17 @@ class Transcription(blocks.StructBlock):
     class Meta: 
         template = 'streams/transcription.html'
 
-class Heading(blocks.StructBlock):
-    heading = blocks.RichTextBlock(
+class Heading(StructBlock):
+    heading = RichTextBlock(
         features=['italic', 'bold', 'strikethrough', 'link'],classname='full-title')
-    link_id = blocks.CharBlock(
+    link_id = CharBlock(
         help_text='For making hyperlinks to this heading')
 
     class Meta:
         template = 'streams/heading.html'
 
-class Caption(blocks.StructBlock):
-    caption = blocks.RichTextBlock(
+class Caption(StructBlock):
+    caption = RichTextBlock(
         features=['italic', 'bold', 'strikethrough', 'link'],
         form_classname='centered'
         )
@@ -54,8 +53,8 @@ class Caption(blocks.StructBlock):
     class Meta:
         template = 'streams/caption.html'
 
-class Annotation(blocks.StructBlock):
-    annotation = blocks.RichTextBlock(
+class Annotation(StructBlock):
+    annotation = RichTextBlock(
         features=full_features_list,
         form_classname='centered-annotation'
     )
@@ -63,8 +62,8 @@ class Annotation(blocks.StructBlock):
     class Meta:
         template = 'streams/annotation.html'
 
-class LeftJustifiedBlock(blocks.StructBlock):
-    left_justified_block = blocks.RichTextBlock(
+class LeftJustifiedBlock(StructBlock):
+    left_justified_block = RichTextBlock(
         features=full_features_list,
         form_classname='left-justified-block'
     )
@@ -73,11 +72,11 @@ class LeftJustifiedBlock(blocks.StructBlock):
         template = 'streams/left-justified-block.html'
 
 
-class ImagesAndCaption(blocks.StructBlock):
-    images = blocks.RichTextBlock(
+class ImagesAndCaption(StructBlock):
+    images = RichTextBlock(
         features=['image']
     )
-    caption = blocks.RichTextBlock(
+    caption = RichTextBlock(
         features=['italic', 'bold', 'strikethrough', 'link'],
         form_classname='centered',
         required=False
@@ -86,8 +85,8 @@ class ImagesAndCaption(blocks.StructBlock):
     class Meta:
         template = 'streams/images.html'
 
-class Centered(blocks.StructBlock):
-    text = blocks.RichTextBlock(
+class Centered(StructBlock):
+    text = RichTextBlock(
         features=['italic', 'bold', 'underline', 'strikethrough', 'small', 'superscript', 'subscript','link'],
         form_classname='centered'
     )
@@ -95,11 +94,11 @@ class Centered(blocks.StructBlock):
     class Meta:
         template = 'streams/centered.html'
 
-class Reference(blocks.StructBlock):
-    reference = blocks.RichTextBlock(
+class Reference(StructBlock):
+    reference = RichTextBlock(
         features=['italic', 'bold', 'red', 'strikethrough', 'link']
     )
-    link_id = blocks.CharBlock(help_text='For making hyperlinks to this heading')
+    link_id = CharBlock(help_text='For making hyperlinks to this heading')
 
     class Meta:
         template = 'streams/reference.html'
@@ -151,7 +150,7 @@ class DocumentPage(Page):
         features=full_features_list,
     )
     commentary = StreamField([
-        ("richtext", blocks.RichTextBlock(
+        ("richtext", RichTextBlock(
             template="streams/richtext_block.html",
             features=full_features_list,
         )),
@@ -162,9 +161,9 @@ class DocumentPage(Page):
         ("left_justified_block", LeftJustifiedBlock(icon='edit', label="Left Justified Block")),
         ("side_by_side", Transcription(icon='edit', label="Transcription with Source")),
         ("table", TypedTableBlock([
-                ('text', blocks.CharBlock(required=False)),
-                ('numeric', blocks.FloatBlock(required=False)),
-                ('rich_text', blocks.RichTextBlock(
+                ('text', CharBlock(required=False)),
+                ('numeric', FloatBlock(required=False)),
+                ('rich_text', RichTextBlock(
                     required=False,
                     features=['italic', 'bold', 'strikethrough', 'red', 'blue', 'green', 'link', 'h2'],)),
             ],
@@ -173,16 +172,16 @@ class DocumentPage(Page):
     ], null=True, blank=True, use_json_field=True)
     
     notes = StreamField([
-        ("richtext", blocks.RichTextBlock(
+        ("richtext", RichTextBlock(
             template="streams/richtext_block.html",
             features=full_features_list,
         )),
         ('images', ImagesAndCaption(icon='image', label="Images with Caption")),
         ("side_by_side", Transcription(icon='edit', label="Transcription with Source")),
         ("table", TypedTableBlock([
-                ('text', blocks.CharBlock(required=False)),
-                ('numeric', blocks.FloatBlock(required=False)),
-                ('rich_text', blocks.RichTextBlock(
+                ('text', CharBlock(required=False)),
+                ('numeric', FloatBlock(required=False)),
+                ('rich_text', RichTextBlock(
                     required=False,
                     features=['italic', 'bold', 'strikethrough', 'superscript', 'subscript', 'red', 'blue', 'link', 'h2'],)),
             ],
@@ -382,7 +381,7 @@ class Supplement(Page):
         ('transcription_row', Transcription(icon='edit'))
     ], null=True, blank=True, use_json_field=True)
     commentary = StreamField([
-        ("richtext", blocks.RichTextBlock(
+        ("richtext", RichTextBlock(
             template="streams/richtext_block.html",
             features=full_features_list,
         )),

@@ -2,9 +2,9 @@ from django.db import models
 
 from documents.models import DocumentPage, KoechelNumber
 
-from wagtail.core.models import Page
-from wagtail.core.fields import StreamField
-from wagtail.core import blocks
+from wagtail.models import Page
+from wagtail.fields import StreamField
+from wagtail.blocks import RichTextBlock, StructBlock, CharBlock
 from wagtail.admin.panels import FieldPanel, FieldPanel
 
 from documents.models import Heading, Reference
@@ -15,7 +15,7 @@ class TopLevelPage(Page):
 
     top_level_text = StreamField([
         ("heading", Heading(icon='title')),
-        ("richtext", blocks.RichTextBlock(
+        ("richtext", RichTextBlock(
             template="streams/richtext_block.html",
             features=['h1', 'h2', 'h3', 'bold', 'italic', 'blockindent', 'ul', 'image', 'link', 'hr'],
         )),
@@ -34,8 +34,8 @@ class TopLevelPage(Page):
     ]
 
 # Abbreviations Page
-class Subheading(blocks.StructBlock):
-    subheading = blocks.CharBlock(
+class Subheading(StructBlock):
+    subheading = CharBlock(
         max_length = 100,
         required=False,
     )
@@ -43,15 +43,15 @@ class Subheading(blocks.StructBlock):
     class Meta:
         template = "streams/abbreviation-subheading.html"
 
-class Abbreviation(blocks.StructBlock):
-        abbreviation = blocks.RichTextBlock(
+class Abbreviation(StructBlock):
+        abbreviation = RichTextBlock(
             features = ["italic", "underline"],
             form_classname="abbreviation",
         )
-        link_id = blocks.CharBlock(
+        link_id = CharBlock(
             help_text='For making hyperlinks to this heading'
         )
-        reference = blocks.RichTextBlock(
+        reference = RichTextBlock(
             features = ["italic", "underline", "link"]
         )
         
@@ -89,12 +89,12 @@ class IndexPage(Page):
     template = "top/index_page.html"
 
     body = StreamField([
-        ('year', blocks.CharBlock(
+        ('year', CharBlock(
             template="streams/h2.html", 
             required=True,
             help_text='Year'
         )),
-        ('page', blocks.RichTextBlock(
+        ('page', RichTextBlock(
             template="streams/page.html",
             features=['italic', 'link'],
         )),

@@ -45,7 +45,7 @@ INSTALLED_APPS = [
     'wagtail.images',
     'wagtail.search',
     'wagtail.admin',
-    'wagtail.core',
+    #'wagtail.core',
 
     'modelcluster',
     'taggit',
@@ -139,7 +139,7 @@ LANGUAGE_CODE = 'en-us'
 
 TIME_ZONE = 'UTC'
 
-USE_I18N = True
+#USE_I18N = True
 
 USE_L10N = True
 
