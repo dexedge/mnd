@@ -107,7 +107,7 @@ DATABASES = {
         'NAME': 'mnd',
         'USER': 'Dexter',
         'PASSWORD': 'moz1756',
-        'HOST': 'localhos
+        'HOST': 'localhost
         'PORT': '',
     }
 }
