@@ -3,7 +3,7 @@
 from django.db import migrations, models
 import django.db.models.deletion
 import wagtail.contrib.table_block.blocks
-import wagtail.core.fields
+import wagtail.fields
 
 
 class Migration(migrations.Migration):
@@ -18,7 +18,7 @@ class Migration(migrations.Migration):
             name='IndexPage',
             fields=[
                 ('page_ptr', models.OneToOneField(auto_created=True, on_delete=django.db.models.deletion.CASCADE, parent_link=True, primary_key=True, serialize=False, to='wagtailcore.page')),
-                ('body', wagtail.core.fields.StreamField([('index', wagtail.contrib.table_block.blocks.TableBlock())])),
+                ('body', wagtail.fields.StreamField([('index', wagtail.contrib.table_block.blocks.TableBlock())])),
             ],
             options={
                 'abstract': False,

@@ -2,8 +2,8 @@
 
 from django.db import migrations
 import wagtail.contrib.typed_table_block.blocks
-import wagtail.core.blocks
-import wagtail.core.fields
+import wagtail.blocks
+import wagtail.fields
 
 
 class Migration(migrations.Migration):
@@ -16,6 +16,6 @@ class Migration(migrations.Migration):
         migrations.AlterField(
             model_name='documentpage',
             name='commentary',
-            field=wagtail.core.fields.StreamField([('richtext', wagtail.core.blocks.RichTextBlock(features=['h1', 'h2', 'h3', 'bold', 'italic', 'underline', 'strikethrough', 'small', 'red', 'blue', 'blockquote', 'blockindent', 'doubleindent', 'center', 'superscript', 'subscript', 'ul', 'image', 'link', 'hr', 'embed'], template='streams/richtext_block.html')), ('heading', wagtail.core.blocks.StructBlock([('heading', wagtail.core.blocks.CharBlock(form_classname='full-title')), ('link_id', wagtail.core.blocks.CharBlock(help_text='For making hyperlinks to this heading'))], icon='title')), ('caption', wagtail.core.blocks.StructBlock([('caption', wagtail.core.blocks.RichTextBlock(features=['italic', 'bold', 'strikethrough', 'link'], form_classname='centered'))], icon='edit')), ('table', wagtail.contrib.typed_table_block.blocks.TypedTableBlock([('text', wagtail.core.blocks.CharBlock(required=False)), ('numeric', wagtail.core.blocks.FloatBlock(required=False)), ('rich_text', wagtail.core.blocks.RichTextBlock(features=['italic', 'bold', 'strikethrough', 'red', 'link', 'h2'], required=False))])), ('centered_text', wagtail.core.blocks.StructBlock([('text', wagtail.core.blocks.RichTextBlock(features=['italic', 'bold', 'strikethrough', 'link'], form_classname='centered'))], icon='edit')), ('images', wagtail.core.blocks.StructBlock([('images', wagtail.core.blocks.RichTextBlock(features=['image']))], icon='image'))], blank=True, null=True),
+            field=wagtail.fields.StreamField([('richtext', wagtail.blocks.RichTextBlock(features=['h1', 'h2', 'h3', 'bold', 'italic', 'underline', 'strikethrough', 'small', 'red', 'blue', 'blockquote', 'blockindent', 'doubleindent', 'center', 'superscript', 'subscript', 'ul', 'image', 'link', 'hr', 'embed'], template='streams/richtext_block.html')), ('heading', wagtail.blocks.StructBlock([('heading', wagtail.blocks.CharBlock(form_classname='full-title')), ('link_id', wagtail.blocks.CharBlock(help_text='For making hyperlinks to this heading'))], icon='title')), ('caption', wagtail.blocks.StructBlock([('caption', wagtail.blocks.RichTextBlock(features=['italic', 'bold', 'strikethrough', 'link'], form_classname='centered'))], icon='edit')), ('table', wagtail.contrib.typed_table_block.blocks.TypedTableBlock([('text', wagtail.blocks.CharBlock(required=False)), ('numeric', wagtail.blocks.FloatBlock(required=False)), ('rich_text', wagtail.blocks.RichTextBlock(features=['italic', 'bold', 'strikethrough', 'red', 'link', 'h2'], required=False))])), ('centered_text', wagtail.blocks.StructBlock([('text', wagtail.blocks.RichTextBlock(features=['italic', 'bold', 'strikethrough', 'link'], form_classname='centered'))], icon='edit')), ('images', wagtail.blocks.StructBlock([('images', wagtail.blocks.RichTextBlock(features=['image']))], icon='image'))], blank=True, null=True),
         ),
     ]

@@ -2,8 +2,8 @@
 
 from django.db import migrations, models
 import django.db.models.deletion
-import wagtail.core.blocks
-import wagtail.core.fields
+import wagtail.blocks
+import wagtail.fields
 
 
 class Migration(migrations.Migration):
@@ -18,8 +18,8 @@ class Migration(migrations.Migration):
             name='AboutPage',
             fields=[
                 ('page_ptr', models.OneToOneField(auto_created=True, on_delete=django.db.models.deletion.CASCADE, parent_link=True, primary_key=True, serialize=False, to='wagtailcore.page')),
-                ('editors', wagtail.core.fields.StreamField([('editor', wagtail.core.blocks.StructBlock([('biography', wagtail.core.blocks.RichTextBlock(features=['h1', 'h2', 'bold', 'italic', 'blockindent', 'ul', 'image', 'link', 'hr'], form_classname='author'))], icon='edit', label='Editor'))])),
-                ('contributors', wagtail.core.fields.StreamField([('contributor', wagtail.core.blocks.StructBlock([('biography', wagtail.core.blocks.RichTextBlock(features=['h1', 'h2', 'bold', 'italic', 'blockindent', 'ul', 'image', 'link', 'hr'], form_classname='author'))], icon='edit', label='Editor'))])),
+                ('editors', wagtail.fields.StreamField([('editor', wagtail.blocks.StructBlock([('biography', wagtail.blocks.RichTextBlock(features=['h1', 'h2', 'bold', 'italic', 'blockindent', 'ul', 'image', 'link', 'hr'], form_classname='author'))], icon='edit', label='Editor'))])),
+                ('contributors', wagtail.fields.StreamField([('contributor', wagtail.blocks.StructBlock([('biography', wagtail.blocks.RichTextBlock(features=['h1', 'h2', 'bold', 'italic', 'blockindent', 'ul', 'image', 'link', 'hr'], form_classname='author'))], icon='edit', label='Editor'))])),
             ],
             options={
                 'abstract': False,

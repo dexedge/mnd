@@ -3,7 +3,7 @@
 from django.db import migrations, models
 import django.db.models.deletion
 import modelcluster.fields
-import wagtail.core.fields
+import wagtail.fields
 
 
 class Migration(migrations.Migration):
@@ -20,7 +20,7 @@ class Migration(migrations.Migration):
                 ('koechel_display', models.CharField(max_length=25)),
                 ('koechel_sortable', models.CharField(max_length=25)),
                 ('koechel_alternate', models.CharField(blank=True, max_length=25, null=True)),
-                ('koechel_title', wagtail.core.fields.RichTextField(blank=True, null=True)),
+                ('koechel_title', wagtail.fields.RichTextField(blank=True, null=True)),
             ],
         ),
         migrations.CreateModel(

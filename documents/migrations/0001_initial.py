@@ -2,7 +2,7 @@
 
 from django.db import migrations, models
 import django.db.models.deletion
-import wagtail.core.fields
+import wagtail.fields
 
 
 class Migration(migrations.Migration):
@@ -22,7 +22,7 @@ class Migration(migrations.Migration):
                 ('document_title', models.TextField()),
                 ('source', models.TextField()),
                 ('transcription', models.TextField()),
-                ('commentary', wagtail.core.fields.RichTextField(blank=True)),
+                ('commentary', wagtail.fields.RichTextField(blank=True)),
             ],
             options={
                 'abstract': False,

@@ -2,7 +2,7 @@
 
 from django.db import migrations, models
 import modelcluster.fields
-import wagtail.core.fields
+import wagtail.fields
 import wagtail.images.blocks
 
 
@@ -29,7 +29,7 @@ class Migration(migrations.Migration):
         migrations.AlterField(
             model_name='document',
             name='source_image',
-            field=wagtail.core.fields.StreamField([('large_image', wagtail.images.blocks.ImageChooserBlock(help_text='Source image'))], blank=True, null=True),
+            field=wagtail.fields.StreamField([('large_image', wagtail.images.blocks.ImageChooserBlock(help_text='Source image'))], blank=True, null=True),
         ),
         migrations.AlterField(
             model_name='document',

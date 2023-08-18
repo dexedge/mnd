@@ -2,8 +2,8 @@
 
 from django.db import migrations, models
 import django.db.models.deletion
-import wagtail.core.blocks
-import wagtail.core.fields
+import wagtail.blocks
+import wagtail.fields
 
 
 class Migration(migrations.Migration):
@@ -18,7 +18,7 @@ class Migration(migrations.Migration):
             name='AbbreviationsPage',
             fields=[
                 ('page_ptr', models.OneToOneField(auto_created=True, on_delete=django.db.models.deletion.CASCADE, parent_link=True, primary_key=True, serialize=False, to='wagtailcore.page')),
-                ('abbreviations', wagtail.core.fields.StreamField([('heading', wagtail.core.blocks.CharBlock(blank=True, max_length=50)), ('subheading', wagtail.core.blocks.CharBlock(blank=True, max_length=50)), ('item', wagtail.core.blocks.StructBlock([('abbreviation', wagtail.core.blocks.RichTextBlock()), ('link_id', wagtail.core.blocks.CharBlock(help_text='For making hyperlinks to this heading')), ('reference', wagtail.core.blocks.RichTextBlock())]))])),
+                ('abbreviations', wagtail.fields.StreamField([('heading', wagtail.blocks.CharBlock(blank=True, max_length=50)), ('subheading', wagtail.blocks.CharBlock(blank=True, max_length=50)), ('item', wagtail.blocks.StructBlock([('abbreviation', wagtail.blocks.RichTextBlock()), ('link_id', wagtail.blocks.CharBlock(help_text='For making hyperlinks to this heading')), ('reference', wagtail.blocks.RichTextBlock())]))])),
             ],
             options={
                 'abstract': False,
