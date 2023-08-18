@@ -3,7 +3,7 @@
 
 {% block content %}
     <div class="text">
-        <h1>Commentaries by {{author.full_name}} ({{ author.get_usage|length }})</h1>
+        <h1>Commentaries by {{author.full_name}} ({{ author.documents|length }})</h1>
         {% for doc in author.documents %}
             <div class="row listing">
                 <div class="col-3 date">
