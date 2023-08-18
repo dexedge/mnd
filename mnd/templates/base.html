@@ -115,7 +115,7 @@
         </form>
         <a href="/admin" id="admin">Admin</a>
     </nav>
-    <button type="button" id="sidebarCollapse" class="btn btn-outline-dark">
+    <button type="button" id="sidebarCollapse" class="btn btn-outline-dark" aria-label="close">
         <i class="bi bi-list"></i>
     </button>
     {% endcache %}
@@ -126,7 +126,7 @@
                     <a href="/">
                         <picture>
                             <source media="(max-width: 768px)" srcset="{% static 'img/MND-logo-small-2022.png' %}">
-                            <img src="{% static 'img/MND-logo-2017-border.png' %}">
+                            <img src="{% static 'img/MND-logo-2017-border.png' %}" alt="logo">
                         </picture>
                     </a>
                 </div>
