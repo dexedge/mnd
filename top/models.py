@@ -19,11 +19,11 @@ class TopLevelPage(Page):
             template="streams/richtext_block.html",
             features=['h1', 'h2', 'h3', 'bold', 'italic', 'blockindent', 'ul', 'image', 'link', 'hr'],
         )),
-    ])
+    ], use_json_field=True)
 
     bibliography = StreamField([
         ('reference', Reference(icon='edit', label="Reference"))
-    ], null=True, blank=True)
+    ], null=True, blank=True, use_json_field=True)
 
     updated = models.DateField("Updated", blank=True, null=True)
 
@@ -76,7 +76,7 @@ class AbbreviationsPage(Page):
             icon='edit', 
             label="Abbreviation"
         )),
-    ], blank=True, null=True)
+    ], blank=True, null=True, use_json_field=True)
 
     content_panels = Page.content_panels + [
         FieldPanel("abbreviations"),
@@ -99,7 +99,7 @@ class IndexPage(Page):
             features=['italic', 'link'],
         )),
         
-    ])
+    ], use_json_field=True)
 
     content_panels = Page.content_panels + [
         FieldPanel('body')

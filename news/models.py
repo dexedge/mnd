@@ -43,13 +43,13 @@ class NewsPage(Page):
     date = models.DateField("Post date")
     images = StreamField([
         ('news_images', ImagesAndCaption(icon='image', label="Images with Optional Caption")),
-    ], blank=True, null=True)
+    ], blank=True, null=True, use_json_field=True)
     body = StreamField([
         ('text', RichTextBlock(
             features=['underline', 'bold', 'italic', 'small', 'red', 'hr', 'blockquote', 'ul', 'link'])
         ),
         ('news_item', NewsItem(icon='edit'))
-    ], blank=True, null=True)
+    ], blank=True, null=True, use_json_field=True)
 
     content_panels = Page.content_panels + [
         FieldPanel('date'),
