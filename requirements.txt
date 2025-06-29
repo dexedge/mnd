@@ -24,7 +24,6 @@ django-storages==1.12.3
 django-stubs-ext==5.2.1
 django-taggit==6.1.0
 django-tasks==0.7.0
-django-toolbelt==0.0.1
 django-treebeard==4.7
 django-weasyprint==2.2.1
 djangorestframework==3.16.0
