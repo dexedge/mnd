@@ -6,7 +6,6 @@
 *.swp
 /myenv/
 /media/
-/static/
 .env
 
 # Project

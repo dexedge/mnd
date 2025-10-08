@@ -1,0 +1,519 @@
+/* -------------------------------
+    MND Custom Styles
+----------------------------------*/
+
+@import url('https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@1,400;1,500&display=swap');
+@import url('https://fonts.googleapis.com/css?family=PT+Sans:400,400i,700,700i&subset=latin-ext');
+@import url('https://fonts.googleapis.com/css?family=Tinos:400,400i,700,700i&amp;subset=latin-ext');
+
+@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+
+body {
+    font-family: 'PT Sans', sans-serif;
+    background: #f6f7f6;
+    color: #003965;
+}
+
+/* Document title, etc */
+h1 {                      
+    font-family: 'Tinos', serif;
+    font-weight: bold;
+    font-size: 1.5rem;
+    margin-top: 8px;
+    margin-bottom: 8px;
+}
+
+/* Document source */
+h2 {
+    font-size: 1rem;
+    font-weight: bold;
+}
+
+/* Section heads */
+h3 {                     
+    font-size: 1.2rem; 
+    font-style: italic;
+    font-weight: normal;
+    margin-top: 0.75rem;
+    margin-bottom: 0.75rem;
+}
+
+p {
+    font-family: 'PT Sans', sans-serif;
+    font-size: 1.1rem;
+    font-weight: 300;
+    line-height: 1.7rem;
+}
+
+blockquote {
+    font-size: 1.1rem;
+    line-height: 1.4rem;
+    min-width: 600px;
+}
+
+p.blockindent,
+blockquote {
+    margin-left: 3rem !important;
+}
+
+/* "Updated" dates on top-level pages */
+p#updated {                 
+    font-size: 0.95rem;
+    font-style: italic;
+    text-align: right;
+}
+
+hr {
+    margin-top: 30px;
+    margin-bottom: 10px;
+}
+
+a,
+a:hover,
+a:focus {
+    color: inherit;
+    text-decoration: none;
+    transition: all 0.5s;
+}
+
+button {
+    margin-left: -200px;
+}
+
+.btn {
+    box-shadow: none !important;
+    outline: none !important;
+    border: none;
+    padding: 0.5rem 0.5rem;
+}
+
+.btn-outline-dark:hover {
+    background-color: #dfe4df;
+    border-color: ;
+}
+
+.logo {
+    margin: 0 auto;
+    padding-top: 5px;
+    padding-left: 25px;
+}
+
+.logo img {
+    border: 1px solid #ddd;
+    position: relative;
+    width: 100%; 
+    max-width: 768px;
+}
+
+.block-large_image img {
+    position: relative;
+    max-width: 768px;
+    height: auto;
+    margin-left: 25px;
+    margin-bottom: 15px;
+    border-style: solid;   
+    border-width: 1px;   
+    border-color: #ccc;
+}
+
+div.block-large_image:first-of-type {
+    padding-top: 20px;
+}
+
+.citation {
+    margin-left: 3rem;
+}
+
+#title {
+    font-family: 'EB Garamond', serif;
+    font-weight: 400;
+    font-style: italic;
+    color: #003965;
+    margin-top: -140px;
+    margin-left: 30px;
+    font-size: 52px;
+    position: absolute;
+}
+
+#attribution {
+    font-family: 'EB Garamond', serif;
+    font-weight: 400;
+    font-style: italic;
+    color: #003965;
+    margin-top: -75px;
+    margin-left: 70px;
+    font-size: 28px;
+    position: absolute;
+}
+
+.arrow {
+    position: fixed;
+    top: 50%;
+    font-size: 2rem;
+    color: #a9a9aa;
+  }
+  
+  #arrow-left {
+    left: 200px;
+  }
+  
+  #arrow-right {
+    position: fixed;
+    right: 20px;
+  }
+
+/* Customization of Wagtail userbar */
+.wagtail-userbar-trigger {
+    box-shadow: none !important;
+    background-color: transparent !important;
+    border-width: thin !important;
+    border-color: rgb(204, 204,204) !important;
+}
+
+/* ---------------------------------------------------
+    SIDEBAR STYLE
+----------------------------------------------------- */
+.wrapper {
+    display: flex;
+    width: 100%;
+}
+
+#sidebar {
+    width: 200px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100vh;
+    z-index: 999;
+    background: #f6f7f6;
+    color:  #003965;
+    transition: all 0.3s;
+}
+
+#sidebar .sidebar-header {
+    font-family: 'EB Garamond', serif;
+    font-size: 2rem;
+    line-height: 1.2;
+    font-weight: 500;
+    font-style: italic;
+    color: #003965;
+    /* text-shadow: 0 1px 0 rgba(246, 247, 246, 0.4); */
+    padding: 20px 10px 10px 27px;
+}
+
+#sidebar ul.components {
+    padding: 5px 10px 10px 25px;
+}
+
+#sidebar ul a,
+#sidebar span  {
+    padding: 10px 10px 10px 5px;
+    line-height: 0.6;
+    font-size: 1.1rem;
+    display: block;
+}
+
+#sidebar span {
+    font-style: italic;
+}
+
+#sidebar ul li a:hover {
+    color: #f6f7f6;
+    background: #003965;
+}
+
+#sidebar a.active,
+a[aria-expanded="true"] { 
+    color: #003965;
+    font-weight: bold;
+    background: #f6f7f6;
+}
+
+#sidebar ul ul li a{
+    font-size: 0.9rem !important;
+    padding-left: 25px !important;
+}
+
+ul.CTAs {
+    padding: 20px;
+}
+
+ul.CTAs a {
+    text-align: center;
+    font-size: 0.9rem !important;
+    display: block;
+    border-radius: 5px;
+    margin-bottom: 5px;
+}
+
+#admin {
+    margin-top: 40px;
+    font-size: 0.9rem !important;
+}
+
+/* ---------------------------------------------------
+    CONTENT STYLE
+----------------------------------------------------- */
+#content {
+    width: calc(100%-200px);
+    min-height: 100vh;
+    transition: all 0.3s;
+    position: absolute;
+    top: 0;
+    left: 200px;
+}
+
+b {
+    font-weight: 700;
+}
+
+.document {
+    min-width: 1000px;
+}
+
+.text {
+    max-width: 768px;
+}
+.text p {
+    max-width: 768px;
+    margin-top: 10px;
+    margin-left: 25px;
+    font-size: 1.2rem;
+    line-height: 1.35;
+}
+
+.text h1, h2, h3 {
+    margin-left: 25px;
+}
+
+h2 {
+    margin-bottom: 10px;
+}
+
+.index-page p {
+    margin-bottom: 10px;
+}
+
+p a:link, 
+blockquote a:link,
+.date>a:link {
+    text-decoration: none;
+    color: #003fb6 !important;
+}
+
+p a:visited, 
+blockquote a:visited,
+.date>a:visited{
+    color: #6d22aa !important;
+}
+
+p.blockindent>a {
+    margin-right: 25px;
+}
+
+p.center-paragraph {
+    text-align: center;
+    margin: 0;
+    padding-bottom: 0.5rem;
+    line-height: 1;
+    padding
+}
+
+.listing {
+    min-width: 600px;
+    font-size: 1rem;
+    margin-bottom: 0.5rem;
+    margin-left: 2rem;
+    line-height: 1;
+}
+
+.date {
+    display: inline-block;
+    text-align: right;
+}
+
+.transcription p {
+    /* max-width: 550px; */
+    min-width: 600px;
+    font-family: 'Tinos', serif;
+    font-size: 1.2rem;
+    line-height: 1.2;
+    margin: 0 0 15px 25px;
+}
+
+.endmatter {
+    max-width: 768px;
+    font-size: 0.75rem;
+    margin-left: 25px;
+}
+
+.endmatter h3, p {
+    margin-left: 0; 
+    line-height: 1.5rem;
+}
+
+.endmatter table {
+    width: auto;
+    font-size: 1rem;
+}
+
+.credits p {
+    line-height: 1.2rem !important;
+}
+
+/* For larger size at beginning of paragraph */
+.paragraph-lede {           
+    font-family: 'Tinos', serif;
+    font-weight: bold;
+    font-style: italic;
+    font-size: 1.4rem;
+}
+
+/* "Updated" dates on top-level pages */
+p#updated {                 
+    font-size: 0.95rem;
+    font-style: italic;
+    text-align: right;
+}
+
+img {
+    max-width: 100%;       /* For responsive size */
+}
+
+.right {
+    float: right;
+    margin: 0 0 10px 25px;
+    border-style: solid;   
+    border-width: 1px;   
+    border-color: #ccc;
+}
+
+.left {
+    float: left;
+    margin: 0 20px 10px 10px;
+    border-style: solid;   
+    border-width: 1px;   
+    border-color: #ccc;
+}
+
+.center {
+    display: block;
+    margin: auto;
+    border-style: solid;   
+    border-width: 1px;   
+    border-color: #ccc;
+}
+
+.annotation {
+    font-family: 'PT Sans', sans-serif;
+    font-style: italic;
+    font-size: 1rem !important;
+    text-indent: 0;
+    margin: 0;
+}
+
+footer {
+    display: block;
+    margin: 0 auto;
+    padding-top: 40px;
+    text-align: center;
+    font-size: 0.8rem;
+}
+
+.CCL {
+    padding-bottom: 10px;
+}
+
+#site-credit {
+    font-size: 0.75rem;
+    font-style: italic;
+    padding: 10px 0;
+}
+/* ---------------------------------------------------
+    MEDIAQUERIES
+----------------------------------------------------- */
+
+@media (max-width: 768px) {
+    
+    button {
+        position: fixed;
+        margin-left: 0;
+        z-index: 999;
+    }
+
+    button.open {
+        margin-left: 200;
+    }
+
+    /* .transcription {
+        min-width: 475px;
+        font-size: 1rem;
+    } */
+
+    #sidebar {
+        margin-left: -200px;
+    }
+
+    #sidebar.open {
+        margin-left: 0;
+    }
+    #content {
+        width: 100%;
+        left: 0;
+    }
+    #content.open {
+        width: calc(100%-200px);
+    }
+    
+    #sidebarCollapse span {
+        display: none;
+    }
+
+    .right,
+    .left,
+    .center {
+        display: flex;
+        float: none;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    #arrow-left {
+        margin-left: -200px;
+    }
+}
+
+@media (max-width: 600px) {
+    .right,
+    .left,
+    .center {
+        max-width: 600px;
+        display: flex;
+        float: none;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    p.center-paragraph {
+        min-width: 600px;
+    }
+      
+    #arrow-right {
+       right: 5px;
+    }
+}
+
+/* Discarded styles */
+/* Sidebar dropdown */
+
+/* a[data-toggle="collapse"] {
+    position: relative;
+}
+
+.dropdown-toggle::after {
+    display: block;
+    position: absolute;
+    top: 50%;
+    right: 20px;
+    transform: translateY(-50%);
+} */
