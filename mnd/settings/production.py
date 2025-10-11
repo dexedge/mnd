@@ -2,6 +2,8 @@ from __future__ import absolute_import, unicode_literals
 from .base import *
 import dj_database_url
 import os
+import logging
+import sys
 
 DATABASES=  {'default': dj_database_url.config(default='postgres://Dexter:moz1756@localhost/mnd')}
     
@@ -49,3 +51,28 @@ sentry_sdk.init(
     # django.contrib.auth) you may enable sending PII data.
     send_default_pii=True
 )
+
+LOGGING = {
+   'version': 1,
+   'disable_existing_loggers': False,
+   'formatters': {
+       'verbose': {
+           'format': '%(asctime)s %(name)-12s %(levelname)-8s %(message)s',
+       },
+   },
+   'handlers': {
+       'console': {
+           'level': 'INFO',
+           'class': 'logging.StreamHandler',
+           'stream': sys.stdout,
+           'formatter': 'verbose'
+       },
+   },
+   'loggers': {
+       '': {
+           'handlers': ['console'],
+           'level': 'INFO',
+           'propagate': True,
+       },
+   },
+}
