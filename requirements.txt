@@ -40,7 +40,7 @@ laces==0.1.2
 openpyxl==3.1.2
 pillow==11.2.1
 psycopg2>=2.9.2
-psygitcopg2-binary==2.9.7
+psycopg2-binary==2.9.7
 pycparser==2.21
 pydyf==0.7.0
 pyphen==0.12.0
