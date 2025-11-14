@@ -112,11 +112,6 @@ class DocumentPage(Page):
     parent_page_types = ["top.IndexPage", "DocumentList"]
     subpage_types = ["Supplement"]
 
-    # HTML first
-    ROUTE_CONFIG = [
-        ("html", r'^$'),
-        #("pdf", r'^pdf/$'),
-    ]
     
     date = models.DateField("Date", null=True)
     date_precision = models.CharField(
@@ -253,15 +248,11 @@ class DocumentPage(Page):
     class Meta:
         ordering = ("date",)
 
-    pdf_base_template = "documents/document_pdf.html"
-    stylesheets = ["css/pdf_style.css"]
-
     def get_context(self, request, mode=None, **kwargs):
         context = super().get_context(request, **kwargs)
         
-        #if mode == 'pdf':
-          #  context["override_base"] = self.pdf_base_template
-        
+        context['pdf_url'] = self.url + "pdf"
+
         # Build author names
         authors = self.authors.all()
         context["authors"] = authors

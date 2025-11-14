@@ -27,7 +27,7 @@
     <hr>
     <div class="text">
         <h3>Commentary</h3>
-        {% comment %} <span class="pdf_link">(<a href="{{page.url_pdf}}">pdf</a>)</span> {% endcomment %}
+        <span class="pdf_link">(<a href="{{pdf_url}}">pdf</a>)</span>
         {% for block in page.commentary %}
             {% include_block block %}
         {% endfor %}
@@ -91,7 +91,7 @@
             <div class="arrow-left">
                 {% if page.prev %}
                     <a href="{{ page.prev }}">
-                        <i class="bi-chevron-left"></i>
+                        <i class="bi-chevron-left fs-2"></i>
                     </a>
                 {% endif %}
             
@@ -99,7 +99,7 @@
             <div class="arrow-right">
                 {% if page.next %}
                     <a href="{{ page.next }}">
-                        <i class="bi-chevron-right"></i>
+                        <i class="bi-chevron-right fs-2"></i>
                     </a>
                 {% endif %}
             </div>

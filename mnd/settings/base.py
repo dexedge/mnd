@@ -36,6 +36,9 @@ INSTALLED_APPS = [
     'wagtail.contrib.redirects',
     'wagtail.contrib.table_block',
     'wagtail.contrib.typed_table_block',
+    # Wagtail pdf
+    # 'wagtail_pdf_view',
+    # 
     'wagtail.contrib.routable_page',
     'wagtail.embeds',
     'wagtail.sites',

@@ -19,7 +19,7 @@
 }
 
 div.header {
-  position: running(header)
+  position: running(header);
 }
 
 .header {
@@ -41,8 +41,8 @@ h2 {
 }
 
 /* h3 is used for section heads */
-h3 {                     
-  display: inline;
+h3 {    
+  break-after: avoid;                 
   font-size: 1.2rem; 
   font-style: italic;
   font-weight: normal;
@@ -60,6 +60,10 @@ hr {
 
 a {
   text-decoration: none;
+}
+
+li {
+  break-after: avoid;
 }
 
 blockquote {
@@ -91,7 +95,7 @@ blockquote {
 }
 
 .prelim {
-  page-break-inside: avoid;
+  break-inside: avoid;
 }
 
 .title {
@@ -120,6 +124,8 @@ blockquote {
 .col-a {
   flex: 1;
   min-width: max-content;
+  /* break-after: avoid; */
+
   /* margin-right: 15px; */
   /* border: 1px solid darkgrey; */
 }
@@ -138,6 +144,7 @@ blockquote {
 }
 
 .transcription {
+  page-break-inside: avoid;
   line-height: 1.2;
 }
 
@@ -170,6 +177,7 @@ blockquote {
 
 .annotation {
   font-style: italic;
+  break-after: avoid;
 }
 
 .centered-text p {
@@ -187,7 +195,7 @@ blockquote {
     flex: 0;
     min-width: 400px;
     border: 4px double #003965;
-    font-size: 1rem;
+    font-size: 0.9rem;
     padding: 10px;
     margin-top: 0;
     margin-left: 0;
@@ -203,10 +211,11 @@ blockquote {
 .citation {
   font-size: 1em;
   margin-left: 3rem;
-  page-break-before: avoid;
+  break-before: avoid;
 }
 
 .caption p {
+  break-before: avoid;
   margin-top: 0;
   text-align: center;
   font-size: small !important;
@@ -222,7 +231,7 @@ blockquote {
 
 #bibliography, #notes {
   font-size: 1.1rem;
-  page-break-after: avoid;
+  break-after: avoid;
 }
 
 .biblio {
@@ -230,62 +239,127 @@ blockquote {
   max-width: 90%;
 }
 
+/* Internal headings and miscellaneous */
+
+.heading,
+.h4 {
+    white-space: nowrap;
+    font-size: 1.2rem;
+    font-weight: bold;
+    margin-top: 1.5rem;
+    margin-bottom: 0.75rem;
+    break-after: avoid;
+}
+
+.heading p {
+  display: inline-block;
+}
+
+/* Avoid page break after page numbers for blockquote */
+p:has(+ blockquote) {
+  break-after: avoid;
+}
+
+.arrow {
+  font-family: "'Arial";
+}
+
 /* Links */
 
-a[href^='#'] {
-  color: black;
-  text-decoration: none;
+/* Remove color from reference links */
+a[href^="#"]:not(.arrow, #toc + div p a) {
+  color: inherit;
 }
+
 
 /* Images */
-.centered-images {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-}
-
-.centered-images img {
-  margin-right: 10px;
-}
-
-.center {
-    flex: 0;
-    width: auto;
+.block-large_image img,
+.source-image img {
+    position: relative;
+    max-width: 500px;
     height: auto;
+    margin-left: 10px;
+    margin-top: 15px;
+    margin-bottom: 15px;
+    border-style: solid;   
+    border-width: 1px;   
+    border-color: #ccc;
+}
+
+.full-width {
+    max-width: 600px;
+    max-height: 750px;
+    margin-top: -10px;
+    margin-bottom: -0;
+    border-style: solid;   
+    border-width: 1px;   
+    border-color: #ccc;
+}
+
+.right,
+.small-right {
+    margin: 0 0 10px 25px;
+    border-style: solid;   
+    border-width: 1px;   
+    border-color: #ccc;
+}
+
+.small-right {
+    float: right;
+}
+
+.left,
+.small-left {
+    width: auto;
+    margin: 0 20px 10px 25px;
+    border-style: solid;   
+    border-width: 1px;   
+    border-color: #ccc;
+}
+
+.small-left {
+    float: left;
+}
+
+.center,
+.medium-center {
+    flex: 0;
+    max-height: 350px;
     margin-bottom: 5px;
     border-style: solid;   
     border-width: 1px;   
     border-color: #ccc;
 }
 
-.right {
-  float: right;
-  /* max-width: 300px; */
-  width: 40%;
-  height: auto;
-  margin: 0 0 10px 10px;
-  border-style: solid;   
-  border-width: 1px;   
-  border-color: #ccc;
-}
-.smallcenter,{
-  flex: 0;
-  width: auto;
-  /* max-width: 75%; */
-  margin-bottom: 5px;
-  border-style: solid;   
-  border-width: 1px;   
-  border-color: #ccc;
+.small-center {
+    flex: 0;
+    width: auto;
+    /* max-width: 50%; */
+    margin-bottom: 5px;
+    border-style: solid;   
+    border-width: 1px;   
+    border-color: #ccc;
 }
 
-.full-width {
-  max-width: 650px;
-  margin-top: -10px;
-  margin-bottom: -15px;
-  border-style: solid;   
-  border-width: 1px;   
-  border-color: #ccc;
+.centered-images {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-left: 25px;
 }
+
+.centered-images p {
+    margin-left: 0;
+}
+
+.centered-images img {
+    margin-right: 10px;
+}
+
+.endmatter .centered-images img {
+    margin-bottom: 10px;
+}
+
 
 
 /* Table styles */

@@ -14,7 +14,7 @@
     <link rel="stylesheet" href="{% static 'css/pdf_style.css' %}">
 </head>
 <body>
-    <div class="header">{{author_surnames}}, &ldquo;{{ page.clean_title|safe }}&rdquo;</div>
+    <div class="header">{{author_surnames}}, &ldquo;{{ page.clean_title|safe }}&nbsp;({{ page.display_date }}).&rdquo; <span style = "white-space: nowrap">[<i>Printed: {{today}}</span></i>]</div>
     <div class="prelim">
         <h1 class="title centered">{{ page.clean_title|safe }} ({{ page.display_date }})</h1>
         <p class="author centered">{{ author_names }}</p>
@@ -33,7 +33,7 @@
     {% endif %}
     <div class="text">
         <hr>
-        <h3>Commentary</h3>
+        <h3 class="no-break">Commentary</h3>
         {% for block in page.commentary %}
             {% include_block block %}
         {% endfor %}
@@ -41,14 +41,18 @@
     <div class="endmatter">
         {% if page.notes %}
             <hr>
-            <p id="notes"><em>Notes</em></p>
+            <p id="notes"><em>Notes</em>
+                <span>{% if not self.link_id == "toc" %}(<a class="arrow" href="#toc">&#8679;</a>){% endif %}</span>
+            </p>
             {% for block in page.notes %}
                 {% include_block block %}
             {% endfor %}
         {% endif %}
         {% if page.bibliography %} 
             <hr>
-            <p id="bibliography"><em>Bibliography</em></p>  
+            <p id="bibliography"><em>Bibliography</em>
+                <span>{% if not self.link_id == "toc" %}(<a class="arrow" href="#toc">&#8679;</a>){% endif %}</span>
+            </p>  
             {% for block in page.bibliography %}
                 {% include_block block %}
             {% endfor %}
@@ -74,7 +78,7 @@
                 </p>
             </div>
             <p><em>Categories</em>:
-                {% for cat in self.categories.all %}
+                {% for cat in page.categories.all %}
                     {{ cat.name }}{% if not forloop.last %}, {% endif %}
                 {% endfor %}
             </p>
@@ -84,7 +88,7 @@
             {% endif %}
             <hr style="margin-top:2rem">
             <p><em>Citation</em>:</p>
-            <p class="citation">{{ citation_names }}. {{ page.first_published|date:'Y' }}. &ldquo;{{ page.clean_title|safe }} ({{ page.display_date }}).&rdquo; In: <a href="https://doi.org/10.7302/Z20P0WXJ"><em>Mozart: New Documents</em></a>, edited by Dexter Edge and David Black.<br> First published {{ page.first_published|date:'j M Y'}}{% if page.updated %}; updated {{ page.updated|date:'j M Y' }}{% endif %}. [<a href="{{page.url}}">direct link</a>]
+            <p class="citation">{{ citation_names }}. {{ page.first_published|date:'Y' }}. &ldquo;{{ page.clean_title|safe }} ({{ page.display_date }}).&rdquo; In: <a href="https://doi.org/10.7302/Z20P0WXJ"><em>Mozart: New Documents</em></a>, edited by Dexter Edge and David Black. First published {{ page.first_published|date:'j M Y'}}{% if page.updated %}; updated {{ page.updated|date:'j M Y' }}{% endif %}. [<a href="{{page.url}}">direct link</a>]
                 </p>
         </div>
 </body>

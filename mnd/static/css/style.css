@@ -534,7 +534,7 @@ button#sidebar-collapse {
 }
 
 .arrow {
-    font-size: 2rem;
+    font-size: 1.2rem;
     color: #003965;
     opacity: 50%;
     max-width: 900px;
@@ -846,6 +846,7 @@ ul.CTAs a {
 /* Popover styles */
 /******************/
 a.reference {
+    color: inherit;
     position: relative;
     white-space: nowrap;
     border-bottom: 1px dotted;
