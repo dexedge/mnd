@@ -115,6 +115,10 @@ blockquote {
   font-size: 1rem;
 }
 
+blockquote {
+  orphans: 3;
+}
+
 /* Transcription rows */
 
 .row {
