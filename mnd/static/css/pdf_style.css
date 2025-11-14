@@ -144,7 +144,7 @@ blockquote {
 }
 
 .transcription {
-  page-break-inside: avoid;
+  break-after: avoid;
   line-height: 1.2;
 }
 
