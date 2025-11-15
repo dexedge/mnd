@@ -130,7 +130,6 @@ blockquote {
   flex: 1;
   min-width: max-content;
   orphans: 3;
-
 }
 
 .col-b {
@@ -363,7 +362,9 @@ a[href^="#"]:not(.arrow, #toc + div p a) {
     margin-bottom: 10px;
 }
 
-
+iframe {
+  display: none;
+}
 
 /* Table styles */
 table {
