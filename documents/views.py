@@ -1,5 +1,6 @@
 from django.views.generic import DetailView
 from documents.models import Author, DocumentPage
+from news.models import NewsPage
 from datetime import date
 
 from django_renderpdf.views import PDFView
@@ -53,4 +54,18 @@ class DocumentPDF(PDFView):
             
     
         return(context)
+    
+class NewsPDF(PDFView):
+    template_name = "news/news_page_pdf.html"
 
+    def get_context_data(self, *args, **kwargs):
+        context = super().get_context_data(*args, **kwargs)
+
+        page = NewsPage.objects.get(slug = kwargs['slug'])
+        now = date.today()
+        today = now.strftime("%a, %d %b %Y")
+        context["today"] = today
+
+        context["page"] = page
+
+        return(context)

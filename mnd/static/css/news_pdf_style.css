@@ -1,16 +1,14 @@
 /* MND */
-/* PDF style sheet */
+/* News PDF style sheet */
+
+/* 2025-11-20 */
+/* This file contains a lot of extraneous styles */
 
 @import url('https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,600;1,400;1,600&display=swap');
 
 /* Page and element styles */
 @page {
   size: letter;
-  @top-center {
-    /* content: element(header) */
-    font-family: 'EB Garamond', serif;
-    content: element(header-default);
-  }
   @bottom-center {
     padding-right: 20px;
     font-family: 'EB Garamond', serif;
@@ -20,50 +18,10 @@
 }
 
 @page :first {
-  margin-top: 1.25in;
-  margin-bottom: 1.25in;
-  @top-center {
-    content: element(header-first);
-  }
-  @bottom-center {
-    content: element(footer-first);
-    width: 100%;
-  }
+  margin-top: 0.5in;
+  margin-bottom: 1in;
 }
 
-#first-page-header {
-  position: running(header-first);
-  font-family: Arial, Helvetica, sans-serif;
-  font-size: 12px;
-  width: 95%;
-}
-
-#first-page-header hr {
-  margin-top: 20px;
-  margin-bottom: 5px;
-}
-
-#default-header {
-  position: running(header-default);
-  font-size: 12px;
-}
-
-#first-page-footer {
-  position: running(footer-first);
-  font-family: Arial, Helvetica, sans-serif;
-  font-size: 10px;
-  text-align: center;
-  margin-bottom: 50px;
-}
-
-#first-page-footer img {
-  max-width: 50px;
-}
-
-#footer-default {
-  position: running(footer-default);
-  font-size: 12px;
-}
 
 /* General page styles */
 body {
@@ -143,17 +101,6 @@ blockquote {
   font-size: 1.4rem;
   font-weight: bold;
   padding-top: 30px;
-}
-
-.author {
-  font-weight: bold;
-  font-size: 1.2rem;
-  padding-bottom: 1rem;
-}
-
-.source {
-  text-align: left;
-  font-size: 1rem;
 }
 
 blockquote {
@@ -251,36 +198,10 @@ blockquote {
     margin-left: 0;
 }
 
-.citation {
-  font-size: 1em;
-  margin-left: 3rem;
-  break-before: avoid;
-}
-
-.caption p {
-  break-before: avoid;
-  margin-top: 0;
-  text-align: center;
-  font-size: small !important;
-}
-
-.credits p {
-  line-height: 1.2rem !important;
-}
-
 .centered {
   text-align: center;
 }
 
-#bibliography, #notes {
-  font-size: 1.1rem;
-  break-after: avoid;
-}
-
-.biblio {
-  margin-left: 25px;
-  max-width: 90%;
-}
 
 /* Internal headings and miscellaneous */
 
@@ -403,44 +324,6 @@ a[href^="#"]:not(.arrow, #toc + div p a) {
     margin-bottom: 10px;
 }
 
-iframe {
-  display: none;
-}
-
-/* Table styles */
-table {
-  margin-bottom: 1rem;
-  table-layout: fixed;
-  width: max-content;
-  max-width: 800px;
-}
-
-table, th, td {
-  border: 1px solid darkgrey;
-  border-collapse: collapse;
-  vertical-align: top;
-  margin-bottom: 1rem;
-}
-
-th {
-  background-color: lightgrey;
-  text-align: left;
-}
-
-td {
-  min-width: min-content;
-  padding: 1px 4px 4px 5px;
-}
-
-tr {
-  break-inside: avoid;
-}
-
-td>p {
-  margin: 0 !important;
-  text-align: left;
-  font-size: 1rem !important;
-}
 
 /* Source and library links */
 .links {
@@ -459,11 +342,6 @@ td>p {
 }
 
 /* News Page */
-
-h1 {
-    font-size: 1.4rem;
-    margin-bottom: 0;
-}
 
 .post-date {
     font-style: italic;
@@ -487,10 +365,7 @@ p:has(+ .row) {
 
 .news.title {
     font-weight: bold;
-}
-
-.news div {
-    padding: 0;
+    margin-top: -25px;
 }
 
 .news p {
@@ -498,7 +373,9 @@ p:has(+ .row) {
 }
 
 .news:not(.title) {
-    margin-bottom: 30px;
+    margin-left: 117px;
+    max-width: 500px;
+    margin-bottom: 0;
 }
 
 .col-3 {
@@ -507,6 +384,9 @@ p:has(+ .row) {
 
 .col-9 {
     display: inline;
+}
+
+.title .col-9 {
     position: absolute;
     left: 125px;
 }

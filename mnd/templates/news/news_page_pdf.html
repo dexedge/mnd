@@ -1,0 +1,29 @@
+{% load wagtailimages_tags wagtailcore_tags %}
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="">
+<head>
+    <meta charset="utf-8">
+    <title>
+        {% block title %}
+            {% if page.seo_title %}{{ page.seo_title }}{% else %}{{ page.title }}{% endif %}
+        {% endblock %}
+    </title>
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="{% static 'css/news_pdf_style.css' %}">
+</head>
+<body>
+    <h3><i>Mozart: New Documents</i>, Latest News</h3>
+    {% block content %}
+        <div class="text">
+            <h1>{{ page.title }}</h1>
+            <p class="post-date">Posted: {{ page.date|date:'D, j M Y'}}</p>
+            <div class="post-image">{{ page.images }}</div>
+            {% for block in page.body %}
+                {{ block|safe }}
+            {% endfor %}
+        </div>
+    {% endblock %}
+    <p>For our earlier news announcements, visit our <a href="https://www.mozartdocuments.org/news/">News</a> page online</p>
+</body>

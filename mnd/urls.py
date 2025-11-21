@@ -36,7 +36,10 @@ if settings.DEBUG:
 
 urlpatterns = urlpatterns + [
     path('documents/<slug:slug>/pdf', views.DocumentPDF.as_view(),
-         name = "documentpdf"),
+        name = "documentpdf"),
+    path('news/<slug:slug>/pdf', views.NewsPDF.as_view(),
+        name = "newspdf"),
+
          
     # path('__debug__/', include(debug_toolbar.urls)),
     # For anything not caught by a more specific rule above, hand over to
